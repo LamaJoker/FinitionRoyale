@@ -1,10 +1,13 @@
-/* modules/cookies.js — RGPD cookie consent banner */
+/**
+ * modules/cookies.js
+ * Bandeau RGPD + chargement conditionnel Analytics
+ */
 
 const KEY      = 'fr_consent';
-const DURATION = 365; // days
+const DURATION = 365;
 
 export function initCookies() {
-  const banner  = document.getElementById('cookie-banner');
+  const banner    = document.getElementById('cookie-banner');
   const acceptBtn = document.getElementById('cookie-accept');
   const refuseBtn = document.getElementById('cookie-refuse');
 
@@ -13,7 +16,7 @@ export function initCookies() {
   const consent = getCookie(KEY);
 
   if (!consent) {
-    setTimeout(() => banner.classList.add('visible'), 1200);
+    setTimeout(() => banner.classList.add('visible'), 1500);
   } else if (consent === 'accepted') {
     loadAnalytics();
   }
@@ -22,14 +25,15 @@ export function initCookies() {
     setCookie(KEY, 'accepted', DURATION);
     banner.classList.remove('visible');
     loadAnalytics();
+    window.dataLayer?.push({ event: 'cookie_accept' });
   });
 
   refuseBtn?.addEventListener('click', () => {
     setCookie(KEY, 'refused', DURATION);
     banner.classList.remove('visible');
+    window.dataLayer?.push({ event: 'cookie_refuse' });
   });
 
-  // Re-open from footer button
   document.querySelectorAll('[data-open-cookies]').forEach(btn => {
     btn.addEventListener('click', () => banner.classList.add('visible'));
   });
@@ -38,12 +42,14 @@ export function initCookies() {
 function loadAnalytics() {
   if (window._gaLoaded) return;
   window._gaLoaded = true;
+
   const s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2EMJFFFFEZ';
   document.head.appendChild(s);
+
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { window.dataLayer.push(arguments); };
+  window.gtag = function() { window.dataLayer.push(arguments); };
   window.gtag('js', new Date());
   window.gtag('config', 'G-2EMJFFFFEZ', { anonymize_ip: true });
 }

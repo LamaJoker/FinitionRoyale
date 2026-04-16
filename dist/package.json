@@ -1,0 +1,17 @@
+{
+  "name": "finition-royale",
+  "version": "1.0.0",
+  "description": "Site Finition Royale — Detailing automobile à domicile Besançon",
+  "type": "module",
+  "scripts": {
+    "dev": "vite src",
+    "build": "vite build && npm run generate",
+    "generate": "node scripts/generate-villes.js",
+    "preview": "vite preview",
+    "generate:villes": "node scripts/generate-villes.js",
+    "lint": "echo 'No linter configured yet'"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

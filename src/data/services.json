@@ -1,0 +1,137 @@
+{
+  "services": [
+    {
+      "id": "interieur",
+      "num": "01",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><path d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/><polyline points='9 22 9 12 15 12 15 22'/></svg>",
+      "nom": "Nettoyage Intérieur Complet",
+      "description": "Aspiration totale, plastiques brillants, vitres impeccables, désodorisation. Votre habitacle retrouve son éclat d'origine.",
+      "prix": "45€",
+      "prixLabel": "à partir de",
+      "popular": false,
+      "tarifs": {
+        "citadine": "45–55€",
+        "berline": "60–75€",
+        "suv": "80–100€"
+      }
+    },
+    {
+      "id": "shampoing",
+      "num": "02",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><path d='M6 3v7a6 6 0 0 0 6 6 6 6 0 0 0 6-6V3'/><line x1='4' y1='21' x2='20' y2='21'/></svg>",
+      "nom": "Shampoing Sièges & Tapis",
+      "description": "Injection-extraction professionnelle. Taches tenaces, odeurs, allergènes — éliminés en profondeur. Tissu comme neuf.",
+      "prix": "55€",
+      "prixLabel": "à partir de",
+      "popular": true,
+      "tarifs": {
+        "citadine": "55–70€",
+        "berline": "65–85€",
+        "suv": "85–105€"
+      }
+    },
+    {
+      "id": "exterieur",
+      "num": "03",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><circle cx='12' cy='12' r='10'/><path d='M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20'/><path d='M2 12h20'/></svg>",
+      "nom": "Lavage Extérieur Premium",
+      "description": "Prélavage décontaminant, lavage main doux, jantes, séchage microfibre, lustrage brillant Meguiar's. Carrosserie miroir.",
+      "prix": "40€",
+      "prixLabel": "à partir de",
+      "popular": false,
+      "tarifs": {
+        "citadine": "40–50€",
+        "berline": "50–65€",
+        "suv": "70–90€"
+      }
+    },
+    {
+      "id": "phares",
+      "num": "04",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><circle cx='12' cy='12' r='5'/><line x1='12' y1='1' x2='12' y2='3'/><line x1='12' y1='21' x2='12' y2='23'/><line x1='4.22' y1='4.22' x2='5.64' y2='5.64'/><line x1='18.36' y1='18.36' x2='19.78' y2='19.78'/><line x1='1' y1='12' x2='3' y2='12'/><line x1='21' y1='12' x2='23' y2='12'/></svg>",
+      "nom": "Rénovation Phares Ternis",
+      "description": "Ponçage progressif + polish machine + protection UV longue durée. Phares jaunis remis comme neuf. Sécurité retrouvée.",
+      "prix": "60€",
+      "prixLabel": "la paire",
+      "popular": false,
+      "tarifs": {
+        "citadine": "60–90€",
+        "berline": "60–90€",
+        "suv": "60–90€"
+      }
+    },
+    {
+      "id": "pack",
+      "num": "05",
+      "icon": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>",
+      "nom": "Pack Intérieur + Extérieur",
+      "description": "Detailing complet — remise à neuf totale intérieur et extérieur. Notre prestation la plus populaire.",
+      "prix": "80€",
+      "prixLabel": "à partir de",
+      "popular": false,
+      "tarifs": {
+        "citadine": "80–95€",
+        "berline": "110–150€",
+        "suv": "140–165€"
+      }
+    }
+  ],
+  "temoignages": [
+    {
+      "id": 1,
+      "nom": "David M.",
+      "ville": "Besançon",
+      "service": "Intérieur complet",
+      "note": 5,
+      "tag": "Intérieur",
+      "texte": "Ma voiture est comme neuve après le detailing intérieur. Le shampouinage a fait des miracles. Je recommande Finition Royale les yeux fermés."
+    },
+    {
+      "id": 2,
+      "nom": "Sophie L.",
+      "ville": "Dole",
+      "service": "Rénovation phares",
+      "note": 5,
+      "tag": "Phares",
+      "texte": "Je n'y voyais plus rien la nuit. Après la rénovation des phares, c'est le jour et la nuit. Travail rapide, ils se sont déplacés chez moi."
+    },
+    {
+      "id": 3,
+      "nom": "Marc D.",
+      "ville": "Ornans",
+      "service": "Pack intérieur + extérieur",
+      "note": 5,
+      "tag": "Pack complet",
+      "texte": "Prestation à domicile, un vrai luxe. Ma berline n'a jamais été aussi propre. Finition Royale porte bien son nom !"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Combien coûte un detailing auto à domicile à Besançon ?",
+      "reponse": "Nos tarifs débutent à <strong>45€ pour l'intérieur</strong> (citadine), <strong>40€ pour l'extérieur</strong>, <strong>55€ pour le shampoing sièges</strong> et <strong>60€ pour la paire de phares</strong>. Un pack intérieur + extérieur commence à 80€. <a href='#rdv' style='color:var(--or)'>→ Devis gratuit en ligne</a>"
+    },
+    {
+      "question": "Intervenez-vous dans tout le Doubs ?",
+      "reponse": "Oui. Nous couvrons Besançon, Ornans, Thise, Chalezeule, Baume-les-Dames, Quingey, Saône, Audeux et toute la Bourgogne-Franche-Comté. Des frais de déplacement s'appliquent hors périmètre Besançon."
+    },
+    {
+      "question": "Faut-il être présent pendant l'intervention ?",
+      "reponse": "Non. Il suffit de nous remettre les clés. Nous travaillons en toute autonomie, que ce soit à votre domicile ou sur votre lieu de travail."
+    },
+    {
+      "question": "Quel délai pour obtenir un rendez-vous ?",
+      "reponse": "Nous répondons sous <strong>2 heures</strong> en jours ouvrables. Une intervention est généralement possible <strong>dès le lendemain</strong> sur Besançon et Ornans."
+    },
+    {
+      "question": "La rénovation de phares est-elle durable ?",
+      "reponse": "Oui. Notre traitement inclut ponçage progressif (400 à 3000), polish machine haute brillance et vernis protection UV longue durée. Résultat garanti 2–3 ans. Tarif : 60 à 90€ la paire."
+    }
+  ],
+  "proofs": [
+    { "icon": "shield", "label": "Satisfaction garantie" },
+    { "icon": "clock", "label": "Réponse sous 2h" },
+    { "icon": "mappin", "label": "Besançon · Ornans · BFC" },
+    { "icon": "star", "label": "4,9/5 · 47 avis Google" },
+    { "icon": "currency", "label": "Devis gratuit" }
+  ]
+}
