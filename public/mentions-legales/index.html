@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mentions légales de Finition Royale — Detailing automobile à domicile Besançon.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.finitionroyale.fr/mentions-legales/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/layout.css">
+  <link rel="icon" href="/favicon.ico">
+  <title>Mentions Légales — Finition Royale</title>
+</head>
+<body>
+
+  <nav id="main-nav" role="navigation">
+    <a href="/" class="nav-logo">Finition <span>Royale</span><small>Detailing Automobile · Besançon</small></a>
+    <a href="/#rdv" class="btn btn--primary nav-cta">Prendre RDV</a>
+  </nav>
+
+  <main style="padding-top:calc(var(--nav-h) + 3rem);min-height:80vh">
+    <div class="container" style="max-width:760px;padding-bottom:5rem">
+      <div style="margin-bottom:2rem">
+        <a href="/" style="color:var(--or);font-size:0.82rem">← Retour à l'accueil</a>
+      </div>
+
+      <h1 style="font-family:var(--font-display);font-size:3rem;color:var(--blanc);margin-bottom:2rem">MENTIONS LÉGALES</h1>
+
+      <div style="font-size:0.88rem;color:var(--gris-light);line-height:1.9">
+
+        <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--or);margin:2rem 0 0.8rem;letter-spacing:0.04em">ÉDITEUR DU SITE</h2>
+        <p>
+          <strong style="color:var(--blanc)">Finition Royale</strong><br>
+          Auto-entrepreneur / Entrepreneur individuel<br>
+          Siège social : Besançon (25), France<br>
+          Email : contact@finitionroyale.fr<br>
+          Téléphone : +33 6 48 07 93 96<br>
+          SIRET : [À compléter lors de la publication]
+        </p>
+
+        <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--or);margin:2rem 0 0.8rem;letter-spacing:0.04em">HÉBERGEMENT</h2>
+        <p>
+          <strong style="color:var(--blanc)">OVH SAS</strong><br>
+          2 rue Kellermann — 59100 Roubaix, France<br>
+          SAS au capital de 10 069 020 €<br>
+          RCS Lille Métropole 424 761 419 00045<br>
+          <a href="https://www.ovhcloud.com" style="color:var(--or)" target="_blank" rel="noopener">www.ovhcloud.com</a>
+        </p>
+
+        <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--or);margin:2rem 0 0.8rem;letter-spacing:0.04em">PROPRIÉTÉ INTELLECTUELLE</h2>
+        <p>Le site finitionroyale.fr et l'ensemble de ses contenus (textes, images, logos, graphismes) sont la propriété exclusive de Finition Royale. Toute reproduction, même partielle, est strictement interdite sans autorisation écrite préalable.</p>
+
+        <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--or);margin:2rem 0 0.8rem;letter-spacing:0.04em">DONNÉES PERSONNELLES</h2>
+        <p>Les informations collectées via le formulaire de prise de rendez-vous sont utilisées uniquement pour traiter votre demande. Elles ne sont ni vendues, ni partagées avec des tiers. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits : contact@finitionroyale.fr</p>
+
+        <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--or);margin:2rem 0 0.8rem;letter-spacing:0.04em">COOKIES</h2>
+        <p>Ce site utilise des cookies analytiques (Google Analytics) pour mesurer l'audience. Ces cookies sont uniquement déposés avec votre consentement. Vous pouvez retirer votre consentement à tout moment via le bandeau cookies.</p>
+
+        <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--or);margin:2rem 0 0.8rem;letter-spacing:0.04em">LIMITATION DE RESPONSABILITÉ</h2>
+        <p>Finition Royale s'efforce de maintenir les informations du site à jour et exactes. Cependant, nous ne pouvons garantir l'exhaustivité ou l'exactitude des informations publiées. Les tarifs affichés sont donnés à titre indicatif et peuvent varier selon le véhicule et son état.</p>
+
+        <p style="margin-top:3rem;font-size:0.78rem;color:rgba(106,100,96,0.6)">Dernière mise à jour : Janvier 2025</p>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-bottom" style="max-width:1100px;margin:0 auto">
+      <p>© <span data-year></span> Finition Royale · Besançon (25)</p>
+      <nav class="footer-bottom-links">
+        <a href="/mentions-legales/">Mentions légales</a>
+        <a href="/politique-confidentialite/">Confidentialité</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const nav = document.getElementById('main-nav');
+      window.addEventListener('scroll', () => nav?.classList.toggle('solid', window.scrollY > 60), {passive:true});
+      document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+    });
+  </script>
+</body>
+</html>

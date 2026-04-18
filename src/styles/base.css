@@ -3,9 +3,7 @@
    Finition Royale
    ============================================================ */
 
-/* ── Variables ── */
 :root {
-  /* Colors */
   --noir:         #080808;
   --noir-2:       #0f0f0f;
   --noir-3:       #141414;
@@ -19,54 +17,29 @@
   --gris-light:   #b0a898;
   --rouge:        #c0392b;
   --vert:         #27ae60;
-
-  /* Fonts */
   --font-display: 'Bebas Neue', sans-serif;
   --font-serif:   'Cormorant Garamond', Georgia, serif;
   --font-body:    'DM Sans', sans-serif;
-
-  /* Spacing */
   --space-xs:  0.5rem;
   --space-sm:  1rem;
   --space-md:  1.5rem;
   --space-lg:  2rem;
   --space-xl:  3rem;
   --space-2xl: 5rem;
-
-  /* Radius */
   --radius-sm: 3px;
   --radius-md: 6px;
   --radius-lg: 12px;
-
-  /* Transitions */
   --transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
   --transition-slow: all 0.5s cubic-bezier(0.4,0,0.2,1);
-
-  /* Shadows */
   --shadow-or:   0 0 40px rgba(201,168,76,0.15);
   --shadow-card: 0 8px 40px rgba(0,0,0,0.5);
-
-  /* Layout */
   --max-w:   1100px;
   --gutter:  clamp(1rem, 4vw, 2rem);
   --nav-h:   72px;
 }
 
-/* ── Reset ── */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  -webkit-text-size-adjust: 100%;
-}
-
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 body {
   font-family: var(--font-body);
   background: var(--noir);
@@ -75,42 +48,24 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
 button { cursor: pointer; font-family: inherit; border: none; background: none; }
-
-/* ── Scrollbar ── */
 ::-webkit-scrollbar       { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--noir); }
 ::-webkit-scrollbar-thumb { background: var(--or-dark); border-radius: 2px; }
-
-/* ── Selection ── */
 ::selection { background: var(--or); color: var(--noir); }
-
-/* ── Focus ── */
 :focus-visible { outline: 2px solid var(--or); outline-offset: 3px; }
-
-/* ── Accessibility ── */
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); border: 0;
 }
-
-/* ── Typography ── */
-h1, h2, h3, h4 {
+h1,h2,h3,h4 {
   font-family: var(--font-display);
   line-height: 1;
   letter-spacing: 0.02em;
   color: var(--blanc);
 }
-
-/* ── Utility: scroll anchor offset ── */
 section[id] { scroll-margin-top: var(--nav-h); }
