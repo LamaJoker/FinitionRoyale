@@ -1,17 +1,19 @@
 {
   "name": "finition-royale",
-  "version": "1.0.0",
-  "description": "Site Finition Royale — Detailing automobile à domicile Besançon",
-  "type": "module",
+  "version": "2.0.0",
+  "description": "Finition Royale — Detailing automobile à domicile Besançon",
+  "type": "commonjs",
   "scripts": {
-    "dev": "vite src",
-    "build": "vite build && npm run generate && npm run copy-extras",
-    "generate": "node scripts/generate-villes.js",
-    "copy-extras": "node scripts/copy-extras.js",
-    "preview": "vite preview",
-    "generate:villes": "node scripts/generate-villes.js",
-    "deploy": "bash scripts/deploy-ftp.sh",
-    "deploy:dry": "bash scripts/deploy-ftp.sh --dry-run"
+    "dev":        "vite src --port 3000 --open",
+    "build":      "npm run build:vite && npm run build:villes && npm run build:sitemap && npm run build:static",
+    "build:vite": "vite build",
+    "build:villes":  "node scripts/generate-villes.js",
+    "build:sitemap": "node scripts/generate-sitemap.js",
+    "build:static":  "node scripts/copy-static.js",
+    "preview":    "vite preview",
+    "villes":     "node scripts/generate-villes.js",
+    "deploy:dry": "bash scripts/deploy-ftp.sh --dry-run",
+    "deploy":     "bash scripts/deploy-ftp.sh"
   },
   "devDependencies": {
     "vite": "^5.4.0"
