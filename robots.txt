@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /*.log$
+Disallow: /*.txt$
+
+Sitemap: https://www.finitionroyale.fr/sitemap.xml

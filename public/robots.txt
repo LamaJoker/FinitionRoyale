@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.finitionroyale.fr/sitemap.xml
-
-# Bloquer les chemins sensibles
-Disallow: /send-rdv.php
-Disallow: /tmp/
