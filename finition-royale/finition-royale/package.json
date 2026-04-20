@@ -1,0 +1,10 @@
+{
+  "name": "finition-royale",
+  "version": "1.0.0",
+  "description": "Site de Finition Royale — detailing automobile à domicile à Besançon",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node build.js && cd dist && python3 -m http.server 8000"
+  }
+}
