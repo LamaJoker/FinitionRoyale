@@ -1,278 +1,154 @@
-# 🏁 Finition Royale — Guide de déploiement OVH / FileZilla
+# Finition Royale — Déploiement OVH (version CRO)
 
-**Projet livré le 19 avril 2026** — Site statique HTML/CSS/JS + backend PHP, optimisé pour FTP OVH, sans build step.
-
----
-
-## 📦 1. Contenu de la livraison
-
-```
-finition-royale-ftp/
-├── index.html                      Page d'accueil (one-page)
-├── 404.html                        Page d'erreur brandée
-├── mentions-legales.html           Obligatoire (droit français)
-├── politique-confidentialite.html  RGPD-compliant
-├── sitemap.xml                     SEO — 3 URLs
-├── robots.txt                      Règles crawlers
-├── .htaccess                       HTTPS, cache, sécurité, redirections
-├── assets/
-│   ├── css/
-│   │   └── style.css               ~1800 lignes, tout consolidé
-│   ├── js/
-│   │   └── main.js                 Vanilla JS, aucune dépendance
-│   └── img/                        ⚠️ À REMPLIR (voir §4)
-└── api/
-    └── send-rdv.php                Backend formulaire de RDV
-```
-
-**À ajouter à la racine (déjà générés précédemment) :**
-- `favicon.ico`
-- `favicon-16x16.png`
-- `favicon-32x32.png`
-- `apple-touch-icon.png`
-- `logo-finition-royale.png` (optionnel, référencé en OG)
+Site d'acquisition optimisé conversion. À déployer tel quel par FTP sur ton hébergement OVH.
 
 ---
 
-## 🗺️ 2. Architecture sur le serveur OVH
-
-Sur OVH, ton espace FTP contient typiquement un dossier `www/` (ou parfois `htdocs/`). **C'est ici que tout va.**
+## 📦 Ce que contient le pack
 
 ```
-www/                                ← racine de finitionroyale.fr
-├── index.html
-├── 404.html
-├── mentions-legales.html
+/
+├── index.html                    — Landing page CRO
+├── 404.html                      — Page d'erreur
+├── mentions-legales.html         — ⚠️ À compléter (SIRET, forme juridique)
 ├── politique-confidentialite.html
-├── sitemap.xml
 ├── robots.txt
-├── .htaccess                       ⚠️ fichier caché — activer "afficher fichiers cachés" dans FileZilla
-├── favicon.ico
-├── favicon-16x16.png
-├── favicon-32x32.png
-├── apple-touch-icon.png
+├── sitemap.xml
+├── .htaccess                     — HTTPS, cache, sécurité
+├── favicon.ico · apple-touch-icon.png · favicon-16/32.png
+├── api/
+│   └── send-rdv.php             — Traitement formulaire (à configurer)
 ├── assets/
 │   ├── css/style.css
 │   ├── js/main.js
-│   └── img/
-│       ├── og-finition-royale.jpg
-│       ├── avant-sieges.jpg
-│       ├── apres-sieges.jpg
-│       ├── avant-phares.jpg
-│       ├── apres-phares.jpg
-│       ├── avant-exterieur.jpg
-│       ├── apres-exterieur.jpg
-│       └── logo-finition-royale.png
-└── api/
-    └── send-rdv.php
+│   └── img/                     — 8 images à générer (voir plus bas)
 ```
-
-**Règle simple :** tout le contenu du dossier `finition-royale-ftp/` → racine du `www/` OVH, en respectant la même arborescence.
 
 ---
 
-## ✅ 3. Checklist AVANT upload
+## 🚀 Déploiement (5 minutes)
 
-### 3.1 Éditer `api/send-rdv.php`
+### 1. Upload FTP via FileZilla
+- **Hôte** : `ftp.cluster0XX.hosting.ovh.net` (à adapter)
+- **Protocole** : FTP (ou SFTP si dispo)
+- **Port** : 21
+- **Active les fichiers cachés** : *Serveur → Forcer l'affichage des fichiers cachés* (pour uploader le `.htaccess`)
 
-Ouvre le fichier et vérifie la config tout en haut :
+Upload tout le contenu du dossier dans le dossier racine de ton hébergement OVH (`www/` ou équivalent).
 
+### 2. Vérifier après upload
+- https://www.finitionroyale.fr — page principale
+- https://www.finitionroyale.fr/api/send-rdv.php — doit retourner un JSON 405 (Method Not Allowed) : ✅ PHP fonctionne
+- https://www.finitionroyale.fr/404page-test — doit afficher la 404 personnalisée
+
+---
+
+## ⚙️ À configurer AVANT le lancement
+
+### 1. Formulaire — `api/send-rdv.php` ligne 9-12
 ```php
-$CONFIG = [
-    'recipient'   => 'contact@finitionroyale.fr',      // ← ton vraie adresse
-    'from_email'  => 'noreply@finitionroyale.fr',      // ← DOIT être @finitionroyale.fr
-    'from_name'   => 'Finition Royale — Site web',
-    'log_file'    => __DIR__ . '/rdv-log.txt',
-    'ip_log'      => __DIR__ . '/ip-log.txt',
-    'max_per_hour'=> 5,
-];
+'recipient'    => 'contact@finitionroyale.fr',   // Où tu veux recevoir les leads
+'recipient_cc' => '',                             // Optionnel (email secondaire)
+'from_email'   => 'noreply@finitionroyale.fr',   // DOIT être un alias du domaine
 ```
 
-> **⚠️ IMPORTANT :** le `from_email` doit obligatoirement être une adresse du domaine `finitionroyale.fr` (ex: `noreply@finitionroyale.fr`), sinon OVH va rejeter les mails (SPF/DKIM). Crée l'alias dans le Manager OVH > Emails.
+**Important OVH** : crée un alias `noreply@finitionroyale.fr` dans l'espace client OVH.
+Sans ça, les mails seront bloqués en spam (SPF échoue).
 
-### 3.2 Vérifier `.htaccess`
+### 2. Mentions légales — `mentions-legales.html`
+Remplacer dans le fichier :
+- `[À compléter]` par : SIRET, forme juridique (EI, EURL, SASU…), TVA si applicable
+- Adresse complète du siège social
 
-Le fichier est livré prêt à l'emploi. Deux options à décommenter si besoin :
+### 3. Google Tag Manager — déjà en place
+- ID : `GTM-5FPWLHB4`
+- Events trackés nativement :
+  - `cta_click` (param: location) — 46 points de contact
+  - `phone_click` (param: location)
+  - `whatsapp_click` (param: location)
+  - `form_start`, `form_field_filled`, `form_submit_attempt`, `form_success`
+  - `scroll_depth` (25/50/75/100)
+  - `time_on_page` (15/30/60/120/300s)
+  - `before_after_interaction`, `faq_open`
 
-- **Forcer `www.` devant le domaine** (SEO — évite le contenu dupliqué) : décommenter les 3 lignes `RewriteCond %{HTTP_HOST} ^finitionroyale\.fr$`.
-- **Si OVH active déjà HTTPS automatiquement,** pas besoin de toucher, c'est géré.
+---
 
-### 3.3 Images à préparer
+## 🖼️ Images à générer (8 fichiers)
 
-Le dossier `assets/img/` est **vide**. Le site fonctionne quand même (fallback sur Unsplash), mais pour la prod il faut :
+Chemin : `/assets/img/`
 
-| Fichier | Dimensions | Usage |
+| Fichier | Usage | Prompt Gemini |
 |---|---|---|
-| `og-finition-royale.jpg` | 1200×630 | Aperçu partages Facebook/LinkedIn |
-| `logo-finition-royale.png` | 512×512 | Logo social/OG (déjà généré dans ta mémoire) |
-| `avant-sieges.jpg` / `apres-sieges.jpg` | 1200×800 | Slider avant/après shampoing |
-| `avant-phares.jpg` / `apres-phares.jpg` | 1200×800 | Slider avant/après phares |
-| `avant-exterieur.jpg` / `apres-exterieur.jpg` | 1200×800 | Slider avant/après lavage ext. |
+| `avant-sieges.jpg` | Avant/après section | Sièges voiture encrassés, taches, usure, photo réaliste |
+| `apres-sieges.jpg` | Avant/après section | Mêmes sièges, propres, comme neufs |
+| `avant-phares.jpg` | Avant/après section | Phare de voiture jauni, oxydé, opaque |
+| `apres-phares.jpg` | Avant/après section | Même phare, transparent, comme neuf |
+| `avant-exterieur.jpg` | Avant/après section | Carrosserie sale, poussière, traces d'eau |
+| `apres-exterieur.jpg` | Avant/après section | Même voiture, brillante, lustrée, reflet net |
+| `og-finition-royale.jpg` | Partage Facebook/LinkedIn (1200×630) | Montage : logo FR doré + voiture premium + texte "Detailing à domicile Besançon" |
 
-> Les prompts Gemini pour ces images sont déjà prêts (voir ton projet).
-
----
-
-## 🚀 4. Procédure d'upload FileZilla
-
-### 4.1 Connexion
-
-1. Ouvre **FileZilla**
-2. Dans la barre du haut :
-   - **Hôte :** `ftp.cluster0XX.hosting.ovh.net` (exact dans ton Manager OVH > Hébergements > FTP-SSH)
-   - **Identifiant :** celui reçu par mail OVH
-   - **Mot de passe :** celui défini dans le Manager
-   - **Port :** 21 (FTP) ou 22 (SFTP recommandé)
-3. Clique **Connexion rapide**
-
-### 4.2 Afficher les fichiers cachés
-
-**CRUCIAL** sinon `.htaccess` ne s'affiche pas et n'est pas uploadé :
-
-> Menu **Serveur** → **Forcer l'affichage des fichiers cachés** ✅
-
-### 4.3 Upload
-
-1. Panneau de gauche (local) → va dans `finition-royale-ftp/`
-2. Panneau de droite (distant) → va dans `www/`
-3. **Sélectionne tout le contenu** du dossier local (Ctrl+A) — **pas le dossier parent**, juste son contenu
-4. Glisse-dépose vers `www/`
-5. Si FileZilla demande « écraser ? », choisis **Oui à tout** (en phase de première mise en ligne)
-6. Laisse l'upload se finir — compte 30 secondes à 2 minutes selon ta connexion
-
-### 4.4 Permissions (rarement nécessaire sur OVH mais bon à savoir)
-
-Si le PHP ne marche pas, clic droit sur `send-rdv.php` → **Attributs du fichier** → `644`.
-Dossiers → `755`.
+⚠️ En attendant tes images finales, le site utilise un fallback vers Unsplash (`onerror` sur les `<img>`) — tu peux lancer sans les images, elles se rempliront au fur et à mesure que tu les upload.
 
 ---
 
-## 🧪 5. Tests POST-upload
+## 🧪 Tester le formulaire
 
-### 5.1 Tests essentiels
-
-Ouvre https://www.finitionroyale.fr et vérifie :
-
-- [ ] Le site s'affiche correctement
-- [ ] Le HTTPS est actif (cadenas vert)
-- [ ] La navigation smooth-scroll fonctionne (clics sur menu)
-- [ ] Le slider avant/après est interactif
-- [ ] Le formulaire de RDV enchaîne bien les 4 étapes
-- [ ] **Le formulaire envoie bien un mail** (teste avec ta propre adresse)
-- [ ] Le sticky CTA mobile apparaît bien après scroll (teste sur téléphone)
-- [ ] La bannière cookies apparaît au 1er chargement
-- [ ] Les pages `/mentions-legales.html` et `/politique-confidentialite.html` se chargent
-- [ ] Une URL bidon (ex: `/test404`) renvoie bien vers `404.html`
-
-### 5.2 Si le formulaire ne marche pas
-
-1. Ouvre la console navigateur (F12 → Console) — regarde les erreurs
-2. Vérifie que `api/send-rdv.php` a bien été uploadé
-3. Teste directement : https://www.finitionroyale.fr/api/send-rdv.php → tu dois voir `{"error":"Méthode non autorisée"}` (c'est normal, signe que le PHP tourne)
-4. Si c'est un mail qui n'arrive pas : vérifie le SPF/DKIM OVH et l'adresse `from_email`
+1. Va sur `/#rdv`
+2. Remplis avec : Prénom "Test", Téléphone "0612345678", Ville "Besançon"
+3. Envoie → tu dois recevoir un email HTML stylé sur `contact@finitionroyale.fr`
+4. Si **rien** arrive :
+   - Vérifie les spams
+   - Vérifie l'alias `noreply@finitionroyale.fr` sur OVH
+   - Regarde `/api/rdv-log.txt` (créé automatiquement) pour voir si le POST a été reçu
 
 ---
 
-## 📊 6. À configurer APRÈS déploiement
+## 📊 Checklist de lancement CRO
 
-### 6.1 Google Tag Manager / Analytics
-
-Le GTM est déjà branché avec l'ID **`GTM-5FPWLHB4`** (dans ton fichier d'origine).
-
-- Connecte-toi à https://tagmanager.google.com/
-- Vérifie que les events sont bien reçus (mode **Aperçu** GTM)
-- Events trackés automatiquement : `cta_click`, `phone_click`, `email_click`, `instagram_click`, `form_start`, `form_step`, `form_submit_attempt`, `form_success`, `scroll_depth` (25/50/75/100%)
-
-### 6.2 Google Search Console
-
-1. https://search.google.com/search-console
-2. Ajouter la propriété **finitionroyale.fr** (validation via DNS ou fichier HTML)
-3. Soumettre le sitemap : `https://www.finitionroyale.fr/sitemap.xml`
-4. Demander l'indexation de la page d'accueil
-
-### 6.3 Google My Business (critique pour du local SEO)
-
-Si ce n'est pas déjà fait :
-- Crée une fiche **Google Business Profile** pour Finition Royale
-- Zone de service : Besançon + villes environnantes
-- Relie-la au site finitionroyale.fr
-- Demande activement les 10 premiers avis (c'est ce qui fera décoller le local)
-
-### 6.4 SPF / DKIM (anti-spam pour les mails envoyés)
-
-Dans le Manager OVH > Zone DNS :
-- Vérifie qu'un enregistrement **SPF** existe (ex: `v=spf1 include:mx.ovh.com ~all`)
-- Active le **DKIM** dans la section emails OVH
-
-Sans ça, les mails `send-rdv.php` risquent d'atterrir en spam.
+- [ ] Alias `noreply@finitionroyale.fr` créé sur OVH
+- [ ] Email `contact@finitionroyale.fr` reçoit bien un test de formulaire
+- [ ] SIRET + forme juridique dans `mentions-legales.html`
+- [ ] 8 images dans `/assets/img/`
+- [ ] Google Business Profile créé + vérifié (adresse Besançon, zone 40 km)
+- [ ] 5 premiers vrais avis Google obtenus (SMS clients existants)
+- [ ] GTM configuré côté GA4 / Meta Pixel pour tracker les events
+- [ ] Téléphone testé depuis mobile : le clic ouvre bien le dialer
+- [ ] WhatsApp testé depuis mobile : ouvre bien avec message pré-rempli
+- [ ] Formulaire testé depuis mobile : envoi OK, lead reçu
 
 ---
 
-## 🔍 7. Audit : ce qui a été corrigé / amélioré
+## 🎯 Ce qui a été optimisé CRO (vs première version)
 
-### 7.1 Architecture
-- ❌ **Avant :** projet Vite multi-fichiers (src/pages, src/styles, src/scripts, data JSON, script generate-villes Node) → incompatible avec un simple FTP
-- ✅ **Après :** structure plate, 1 CSS, 1 JS, upload direct
-
-### 7.2 Backend
-- ❌ **Avant :** formulaire frontend sans backend — les leads se perdaient
-- ✅ **Après :** `api/send-rdv.php` avec validation, anti-spam (honeypot + rate limit IP), logs, fallback mailto si API plantée
-
-### 7.3 SEO
-- ❌ **Avant :** pas de `sitemap.xml`, pas de `robots.txt`, pas de JSON-LD
-- ✅ **Après :** sitemap + robots + **JSON-LD AutomotiveBusiness** + **FAQPage** + OpenGraph complet + canonical
-
-### 7.4 Sécurité / Performance
-- ❌ **Avant :** pas de `.htaccess`
-- ✅ **Après :** force HTTPS, GZIP, cache agressif (CSS/JS 1 mois, images 6 mois, fonts 1 an), headers sécu (X-Frame-Options, X-Content-Type, Referrer-Policy), blocage des logs
-
-### 7.5 Conversion (CRO)
-- ✅ CTA dual en hero (réserver + voir tarifs)
-- ✅ Social proof immédiat (4,9/5 · 47 avis) visible au-dessus de la ligne de flottaison
-- ✅ Bande d'urgence avec code promo **ROYAL10 -10 %**
-- ✅ Sticky CTA mobile (tel + réserver) après 60 % scroll hero
-- ✅ Formulaire en **4 étapes** au lieu d'un long formulaire (réduit friction cognitive)
-- ✅ **Récap + prix estimé** affiché avant le submit (rassure, évite les abandons)
-- ✅ Table tarifaire transparente par type de véhicule (supprime l'objection "prix caché")
-- ✅ Processus en 4 étapes (Réserver → On vient → On nettoie → Satisfaction) — rassure sur le mobile
-- ✅ FAQ qui traite les 7 objections principales
-- ✅ Fallback `mailto:` si l'API tombe — **zéro lead perdu**
-
-### 7.6 Légal / RGPD
-- ❌ **Avant :** pas de mentions légales, pas de politique de confidentialité
-- ✅ **Après :** les deux pages livrées (avec placeholders `[À compléter]` à remplir avec SIRET, forme juridique, etc.) + bannière cookies conforme CNIL
-
-### 7.7 Accessibilité
-- ✅ Skip-link, attributs ARIA, contraste gold/noir conforme WCAG AA, respect de `prefers-reduced-motion`
+| Point de friction | Solution appliquée |
+|---|---|
+| Formulaire 4 étapes → abandon | **Formulaire 4 champs** (prénom, tel, ville, besoin) avec promesse "rappel sous 1h" |
+| Pas de téléphone mobile visible | **Téléphone dans la nav** + sticky mobile 3-boutons (appel/WA/réserver) |
+| Pas de WhatsApp | **6 points WhatsApp** : hero, nav mobile, zone, form alt, FAQ, sticky, float desktop |
+| Avis enterrés en §8 | **Avis remontés en §5**, après avant/après (preuve visuelle puis sociale) |
+| Zone géo floue | **Carte visuelle 40 km** + liste 10 villes cliquables + mention quartiers Besançon |
+| Pas de garantie | **Proof bar 4 garanties** sous hero + section "Pourquoi nous" 4 cartes |
+| Pas d'urgence | **Bandeau disponibilité live** : "Demain 14h · 2 créneaux cette semaine" |
+| Pas de tracking fin | **46 CTAs tagués** `data-cta` avec location précise (nav/hero/sticky/ba/pack…) |
 
 ---
 
-## 📝 8. À faire dès que possible (Val)
+## 🗺️ Prochaines étapes (après mise en ligne)
 
-1. **Remplir les `[À compléter]` dans `mentions-legales.html`** :
-   - Forme juridique (micro-entreprise / EI / SASU ?)
-   - SIRET
-   - Adresse exacte
-   - Nom du directeur de publication
-   - Mention TVA (ou "Non applicable, article 293 B du CGI" si micro)
-
-2. **Générer et uploader les images dans `assets/img/`**
-
-3. **Créer l'alias `noreply@finitionroyale.fr`** dans OVH Emails
-
-4. **Tester un vrai RDV de bout en bout** depuis mobile
-
-5. **Lancer la fiche Google Business Profile** si pas encore fait — c'est ton levier #1 pour le local SEO Besançon
-
-6. **Activer les campagnes Google Ads locales** (optionnel mais rapide pour générer les premiers leads) — tu as maintenant les landing pages optimisées pour les conversions
+1. **Pages villes SEO** (à faire en session dédiée) — 10 pages : /dole, /pontarlier, /ornans, /baume-les-dames, /quingey, /thise, /chalezeule, /saone, /audeux, /besancon
+2. **Blog SEO** (3 articles minimum) :
+   - "Comment enlever une tache de café sur un siège de voiture"
+   - "Combien coûte un nettoyage auto professionnel à Besançon ?"
+   - "Detailing auto vs lavage classique : la vraie différence"
+3. **Review Schema individuel** (snippet étoiles dans Google)
+4. **Hotjar / Microsoft Clarity** (heatmap gratuite) pour voir où les visiteurs bloquent
+5. A/B test hero : "Réserver" vs "Appeler maintenant" comme CTA primaire
 
 ---
 
-## 🆘 9. Support
+## 📞 Contact technique
 
-En cas de pépin post-déploiement :
-- Logs PHP : dans le Manager OVH > Hébergements > Logs & statistiques
-- Logs formulaire : `/api/rdv-log.txt` (téléchargeable par FTP)
-- Logs IP/abus : `/api/ip-log.txt`
-
-Bon lancement 🏁
+Problème de déploiement ? Questions sur le code ? Le code est volontairement vanilla (pas de build, pas de framework) pour rester simple à maintenir et rapide à charger. Tout se modifie dans les 3 fichiers principaux :
+- `index.html` — contenu
+- `assets/css/style.css` — design
+- `assets/js/main.js` — interactions + tracking

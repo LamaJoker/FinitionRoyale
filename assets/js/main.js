@@ -1,545 +1,349 @@
-/* ════════════════════════════════════════════════════════════
-   FINITION ROYALE — MAIN.JS
-   Vanilla JS · Mobile-first · Conversion-optimized
-════════════════════════════════════════════════════════════ */
+/* ============================================================
+   FINITION ROYALE — main.js
+   Vanilla JS — no dependencies
+   ============================================================ */
 
 (function(){
   'use strict';
 
-  // ─── Config ──────────────────────────────────────────────
   const CONFIG = {
     apiEndpoint: '/api/send-rdv.php',
-    phoneNumber: '+33648079396',
-    email: 'contact@finitionroyale.fr'
+    fallbackEmail: 'contact@finitionroyale.fr',
+    stickyScrollThreshold: 0.3, // 30% viewport scroll
+    cookieKey: 'fr_cookies_v1',
   };
 
-  const TARIFS = {
-    citadine: { interieur: '45–55€', shampoing: '55–70€', exterieur: '40–50€', phares: '60–90€', pack: '80–95€' },
-    berline:  { interieur: '60–75€', shampoing: '65–85€', exterieur: '50–65€', phares: '60–90€', pack: '110–150€' },
-    suv:      { interieur: '80–100€', shampoing: '85–105€', exterieur: '70–90€', phares: '60–90€', pack: '140–165€' }
+  const dl = () => (window.dataLayer = window.dataLayer || []);
+  const track = (event, params = {}) => {
+    dl().push({ event, ...params });
   };
 
-  const SERVICE_LABELS = {
-    interieur: 'Intérieur Complet',
-    shampoing: 'Shampoing Sièges',
-    exterieur: 'Extérieur Premium',
-    phares:    'Rénovation Phares',
-    pack:      'Pack Int. + Ext.'
-  };
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
-  const VEHICULE_LABELS = {
-    citadine: 'Citadine',
-    berline:  'Berline / Break',
-    suv:      'SUV / 4×4'
-  };
-
-  const JOURS = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
-  const MOIS = ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
-
-  // ─── Utilities ──────────────────────────────────────────
-  const $  = (s, ctx) => (ctx || document).querySelector(s);
-  const $$ = (s, ctx) => Array.from((ctx || document).querySelectorAll(s));
-
-  function track(event, data) {
-    try {
-      if (window.dataLayer) {
-        window.dataLayer.push(Object.assign({ event: event }, data || {}));
-      }
-    } catch(e) {}
-  }
-
-  // ─── Navigation ─────────────────────────────────────────
+  /* ========== NAV ========== */
   function initNav() {
-    const nav = $('#main-nav');
+    const nav = $('#nav');
     const burger = $('#burger');
-    const mobileMenu = $('#mobile-menu');
+    const menu = $('#mobile-menu');
+    if (!nav) return;
 
-    if (nav) {
-      const onScroll = () => {
-        if (window.scrollY > 20) nav.classList.add('solid');
-        else nav.classList.remove('solid');
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    }
+    const onScroll = () => {
+      if (window.scrollY > 20) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 
-    if (burger && mobileMenu) {
-      const close = () => {
-        burger.classList.remove('active');
-        burger.setAttribute('aria-expanded', 'false');
-        mobileMenu.hidden = true;
-        document.body.style.overflow = '';
-      };
-      const open = () => {
-        burger.classList.add('active');
-        burger.setAttribute('aria-expanded', 'true');
-        mobileMenu.hidden = false;
-        document.body.style.overflow = 'hidden';
-      };
+    if (burger && menu) {
       burger.addEventListener('click', () => {
-        if (mobileMenu.hidden) open(); else close();
+        const open = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', String(!open));
+        menu.hidden = open;
       });
-      $$('a', mobileMenu).forEach(a => a.addEventListener('click', close));
-      document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && !mobileMenu.hidden) close();
+      $$('a', menu).forEach(a => {
+        a.addEventListener('click', () => {
+          burger.setAttribute('aria-expanded', 'false');
+          menu.hidden = true;
+        });
       });
     }
 
-    // Smooth scroll
-    $$('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', (e) => {
-        const id = link.getAttribute('href');
-        if (id === '#' || id.length < 2) return;
-        const target = document.querySelector(id);
+    // Smooth scroll on internal anchors (backup to CSS)
+    $$('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (href === '#' || href.length < 2) return;
+        const target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
-        const navH = (nav && nav.offsetHeight) || 72;
-        const top = target.getBoundingClientRect().top + window.scrollY - navH - 12;
-        window.scrollTo({ top: top, behavior: 'smooth' });
+        const top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top, behavior: 'smooth' });
       });
     });
   }
 
-  // ─── Sticky CTA ─────────────────────────────────────────
+  /* ========== STICKY CTA (mobile) ========== */
   function initStickyCTA() {
-    const sticky = $('#sticky-cta');
+    const sticky = $('#stickyCTA');
     if (!sticky) return;
-    const hero = $('#accueil');
-    if (!hero) { sticky.classList.add('visible'); return; }
 
-    const toggle = () => {
-      if (window.scrollY > (hero.offsetHeight * 0.6)) {
+    const onScroll = () => {
+      const threshold = window.innerHeight * CONFIG.stickyScrollThreshold;
+      if (window.scrollY > threshold) {
         sticky.classList.add('visible');
+        sticky.setAttribute('aria-hidden', 'false');
       } else {
         sticky.classList.remove('visible');
+        sticky.setAttribute('aria-hidden', 'true');
       }
     };
-    window.addEventListener('scroll', toggle, { passive: true });
-    toggle();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-  // ─── Scroll reveal ──────────────────────────────────────
-  function initAnimations() {
-    if (!('IntersectionObserver' in window)) {
-      $$('.appear').forEach(el => el.classList.add('visible'));
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    $$('.appear').forEach(el => io.observe(el));
-  }
-
-  // ─── Tracking global ────────────────────────────────────
+  /* ========== CTA TRACKING ========== */
   function initTracking() {
-    // CTA clicks
-    $$('[data-track]').forEach(el => {
-      el.addEventListener('click', () => {
-        track(el.dataset.track, { label: el.dataset.label || '' });
-      });
+    // Universal CTA click tracker
+    document.addEventListener('click', (e) => {
+      const el = e.target.closest('[data-cta]');
+      if (!el) return;
+
+      const location = el.dataset.cta;
+      const href = el.getAttribute('href') || '';
+      let type = 'cta_click';
+
+      if (href.startsWith('tel:')) type = 'phone_click';
+      else if (href.includes('wa.me')) type = 'whatsapp_click';
+      else if (href.startsWith('mailto:')) type = 'email_click';
+      else if (href.includes('instagram')) type = 'instagram_click';
+      else if (location.includes('form') || location.includes('rdv') || location === 'nav_reserver') type = 'cta_click';
+
+      track(type, { location });
     });
 
-    // Scroll depth (25/50/75/100)
+    // Scroll depth
     const marks = [25, 50, 75, 100];
-    const fired = new Set();
+    const hit = new Set();
     const onScroll = () => {
       const h = document.documentElement;
-      const scrolled = (h.scrollTop + window.innerHeight) / h.scrollHeight * 100;
+      const pct = Math.round(((window.scrollY + window.innerHeight) / h.scrollHeight) * 100);
       marks.forEach(m => {
-        if (scrolled >= m && !fired.has(m)) {
-          fired.add(m);
-          track('scroll_depth', { depth: m });
+        if (pct >= m && !hit.has(m)) {
+          hit.add(m);
+          track('scroll_depth', { percent: m });
         }
       });
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-  }
 
-  // ─── Avant / Après slider ───────────────────────────────
-  function initBeforeAfter() {
-    $$('.ba-compare').forEach(wrap => {
-      // Build slider UI
-      const line = document.createElement('div');
-      line.className = 'ba-slider-line';
-      const handle = document.createElement('div');
-      handle.className = 'ba-slider-handle';
-      wrap.appendChild(line);
-      wrap.appendChild(handle);
-
-      const afterImg = $('.ba-after', wrap);
-      let pos = 50;
-
-      const setPos = (p) => {
-        pos = Math.max(0, Math.min(100, p));
-        if (afterImg) afterImg.style.clipPath = `inset(0 0 0 ${pos}%)`;
-        line.style.left = pos + '%';
-        handle.style.left = pos + '%';
-      };
-      setPos(50);
-
-      const getX = (e) => {
-        const rect = wrap.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        return ((clientX - rect.left) / rect.width) * 100;
-      };
-
-      let dragging = false;
-      const start = (e) => { dragging = true; setPos(getX(e)); };
-      const move  = (e) => { if (dragging) { e.preventDefault(); setPos(getX(e)); } };
-      const end   = () => { dragging = false; };
-
-      wrap.addEventListener('mousedown', start);
-      wrap.addEventListener('touchstart', start, { passive: true });
-      window.addEventListener('mousemove', move);
-      window.addEventListener('touchmove', move, { passive: false });
-      window.addEventListener('mouseup', end);
-      window.addEventListener('touchend', end);
-
-      // Auto-animate on first visibility
-      if ('IntersectionObserver' in window) {
-        const io = new IntersectionObserver(entries => {
-          entries.forEach(e => {
-            if (e.isIntersecting) {
-              let p = 30, dir = 1;
-              const iv = setInterval(() => {
-                p += dir * 2;
-                if (p >= 70) dir = -1;
-                if (p <= 30) { clearInterval(iv); setPos(50); }
-                setPos(p);
-              }, 20);
-              io.unobserve(wrap);
-            }
-          });
-        }, { threshold: 0.5 });
-        io.observe(wrap);
-      }
+    // Time on page buckets
+    const times = [15, 30, 60, 120, 300];
+    times.forEach(t => {
+      setTimeout(() => track('time_on_page', { seconds: t }), t * 1000);
     });
   }
 
-  // ─── Formulaire RDV ─────────────────────────────────────
+  /* ========== BEFORE / AFTER SLIDER ========== */
+  function initBeforeAfter() {
+    $$('[data-ba]').forEach((slider) => {
+      const range = $('.ba-range', slider);
+      const handle = $('.ba-handle', slider);
+      const after = $('.ba-after', slider);
+      if (!range || !handle || !after) return;
+
+      const apply = (v) => {
+        const pct = Math.max(0, Math.min(100, v));
+        handle.style.left = pct + '%';
+        after.style.clipPath = `inset(0 0 0 ${pct}%)`;
+      };
+
+      range.addEventListener('input', (e) => apply(e.target.value));
+      apply(50);
+
+      // Auto-animate on first view
+      let animated = false;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !animated) {
+            animated = true;
+            let p = 50;
+            let dir = 1;
+            let count = 0;
+            const id = setInterval(() => {
+              p += dir * 2;
+              if (p >= 78) dir = -1;
+              if (p <= 22) dir = 1;
+              apply(p);
+              range.value = p;
+              count++;
+              if (count > 50) {
+                clearInterval(id);
+                apply(50);
+                range.value = 50;
+                track('before_after_interaction', { type: 'auto_demo' });
+              }
+            }, 40);
+          }
+        });
+      }, { threshold: 0.6 });
+      io.observe(slider);
+
+      // Track user drag
+      let userInteracted = false;
+      range.addEventListener('input', () => {
+        if (!userInteracted) {
+          userInteracted = true;
+          track('before_after_interaction', { type: 'user_drag' });
+        }
+      });
+    });
+  }
+
+  /* ========== FAQ TRACKING ========== */
+  function initFAQ() {
+    $$('.faq-item').forEach((item, i) => {
+      item.addEventListener('toggle', () => {
+        if (item.open) {
+          track('faq_open', { question_id: i + 1 });
+        }
+      });
+    });
+  }
+
+  /* ========== RDV FORM (short version) ========== */
   function initForm() {
-    const form = $('#rdv-form');
+    const form = $('#rdvForm');
     if (!form) return;
 
-    const panels = $$('.form-panel:not(.confirm-panel)', form);
-    const steps = $$('.form-step', form);
-    const confirmEl = $('#confirm-screen', form);
-    const submitBtn = $('#submit-btn', form);
-
-    let currentStep = 0;
+    const btn = $('#rdvSubmit', form);
+    const result = $('#rdvResult', form);
     let started = false;
 
-    // Min date = demain
-    const dateInput = $('#rdv-date');
-    if (dateInput) {
-      const tomorrow = new Date();
-      tomorrow.setDate(tomorrow.getDate() + 1);
-      dateInput.min = tomorrow.toISOString().split('T')[0];
-
-      // Par défaut demain
-      dateInput.value = tomorrow.toISOString().split('T')[0];
-
-      dateInput.addEventListener('change', function() {
-        const d = new Date(this.value + 'T00:00:00');
-        if (d.getDay() === 0) {
-          showError('date-group', 'Nous sommes fermés le dimanche.');
-          this.value = '';
-        } else {
-          clearError('date-group');
-        }
-      });
-    }
-
     // Track form start
-    form.addEventListener('change', () => {
-      if (!started) {
-        started = true;
-        track('form_start');
-      }
-    }, { once: false });
-
-    // Next / Prev
-    $$('[data-next]', form).forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (validate(currentStep)) {
-          goTo(currentStep + 1);
-          track('form_step', { step: currentStep + 1 });
+    $$('input, textarea', form).forEach(input => {
+      input.addEventListener('focus', () => {
+        if (!started) {
+          started = true;
+          track('form_start');
+        }
+      });
+      input.addEventListener('blur', () => {
+        if (input.value.trim()) {
+          track('form_field_filled', { field_name: input.name });
         }
       });
     });
-    $$('[data-prev]', form).forEach(btn => {
-      btn.addEventListener('click', () => goTo(currentStep - 1));
-    });
 
-    // Click on step header
-    steps.forEach((s, i) => {
-      s.addEventListener('click', () => {
-        if (i < currentStep) goTo(i);
-      });
-    });
+    const showError = (msg) => {
+      if (!result) return;
+      result.hidden = false;
+      result.className = 'rdv-result error';
+      result.textContent = msg;
+    };
+    const showSuccess = (msg) => {
+      if (!result) return;
+      result.hidden = false;
+      result.className = 'rdv-result success';
+      result.textContent = msg;
+    };
 
-    // Submit
-    form.addEventListener('submit', (e) => { e.preventDefault(); });
-    if (submitBtn) {
-      submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        handleSubmit();
-      });
-    }
+    const validatePhone = (v) => {
+      const clean = v.replace(/[\s.\-]/g, '');
+      return /^(\+33|0)[1-9]\d{8}$/.test(clean);
+    };
 
-    function goTo(n) {
-      if (n < 0 || n >= panels.length) return;
-      panels.forEach((p, i) => p.classList.toggle('active', i === n));
-      steps.forEach((s, i) => {
-        s.classList.toggle('active', i === n);
-        s.classList.toggle('done', i < n);
-      });
-      currentStep = n;
-      if (n === panels.length - 1) updateRecap();
-      scrollToForm();
-    }
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
 
-    function scrollToForm() {
-      const section = $('#rdv');
-      if (!section) return;
-      const offset = ($('#main-nav')?.offsetHeight || 72) + 12;
-      window.scrollTo({
-        top: section.getBoundingClientRect().top + window.scrollY - offset,
-        behavior: 'smooth'
-      });
-    }
-
-    function validate(step) {
-      switch(step) {
-        case 0: return requireRadio('vehicule', 'vehicule-group', 'Sélectionnez un type de véhicule.');
-        case 1: return requireRadio('service', 'service-group', 'Sélectionnez une prestation.');
-        case 2:
-          let r = requireField('rdv-date', 'date-group', 'Choisissez une date.');
-          r = requireRadio('creneau', 'creneau-group', 'Choisissez un créneau.') && r;
-          r = requireField('localite', 'localite-group', 'Indiquez votre commune.') && r;
-          return r;
-        case 3:
-          let q = requireField('prenom', 'prenom-group', 'Requis.');
-          q = requireField('nom', 'nom-group', 'Requis.') && q;
-          q = requirePhone('tel', 'tel-group') && q;
-          q = requireEmail('rdv-email', 'email-group') && q;
-          const rgpd = $('#rdv-rgpd');
-          if (!rgpd?.checked) {
-            showError('rgpd-group', 'Vous devez accepter les conditions.');
-            q = false;
-          } else clearError('rgpd-group');
-          return q;
-        default: return true;
-      }
-    }
-
-    function requireField(id, groupId, msg) {
-      const el = $('#' + id);
-      if (!el || !el.value.trim()) { showError(groupId, msg); return false; }
-      clearError(groupId);
-      return true;
-    }
-
-    function requireRadio(name, groupId, msg) {
-      if (!$(`input[name="${name}"]:checked`)) {
-        showError(groupId, msg);
-        return false;
-      }
-      clearError(groupId);
-      return true;
-    }
-
-    function requireEmail(id, groupId) {
-      const el = $('#' + id);
-      if (!el || !el.value) return true; // optionnel
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) {
-        showError(groupId, 'Email invalide.');
-        return false;
-      }
-      clearError(groupId);
-      return true;
-    }
-
-    function requirePhone(id, groupId) {
-      const el = $('#' + id);
-      const val = el?.value.replace(/[\s.\-]/g, '') || '';
-      if (!val) { showError(groupId, 'Téléphone requis.'); return false; }
-      if (!/^(\+33|0)[1-9]\d{8}$/.test(val)) {
-        showError(groupId, 'Numéro français invalide.');
-        return false;
-      }
-      clearError(groupId);
-      return true;
-    }
-
-    function showError(groupId, msg) {
-      const g = $('#' + groupId);
-      if (!g) return;
-      g.classList.add('has-error');
-      const err = g.querySelector('.form-error');
-      if (err && msg) err.textContent = msg;
-    }
-
-    function clearError(groupId) {
-      $('#' + groupId)?.classList.remove('has-error');
-    }
-
-    function fmtDate(v) {
-      if (!v) return '—';
-      const d = new Date(v + 'T00:00:00');
-      if (isNaN(d)) return v;
-      return `${JOURS[d.getDay()]} ${d.getDate()} ${MOIS[d.getMonth()]}`;
-    }
-
-    function updateRecap() {
-      const v = $('input[name="vehicule"]:checked')?.value || '';
-      const s = $('input[name="service"]:checked')?.value || '';
-      setText('r-vehicule', VEHICULE_LABELS[v] || '—');
-      setText('r-service', SERVICE_LABELS[s] || '—');
-      setText('r-date', fmtDate($('#rdv-date')?.value));
-      setText('r-creneau', $('input[name="creneau"]:checked')?.value || '—');
-      setText('r-lieu', $('#localite')?.value || '—');
-      setText('r-prix', (TARIFS[v] && TARIFS[v][s]) || 'Sur devis');
-    }
-
-    function setText(id, txt) {
-      const el = $('#' + id);
-      if (el) el.textContent = txt;
-    }
-
-    async function handleSubmit() {
-      // Honeypot
-      const hp = $('input[name="_honeypot"]');
-      if (hp && hp.value) {
-        showConfirm();
-        return;
-      }
-
-      if (!validate(3)) return;
-
-      submitBtn.disabled = true;
-      const originalText = submitBtn.innerHTML;
-      submitBtn.innerHTML = '<span>Envoi en cours…</span>';
+      // Clear errors
+      $$('.error', form).forEach(el => el.classList.remove('error'));
 
       const data = {
-        vehicule: $('input[name="vehicule"]:checked')?.value,
-        service: $('input[name="service"]:checked')?.value,
-        date: $('#rdv-date')?.value,
-        creneau: $('input[name="creneau"]:checked')?.value,
-        localite: $('#localite')?.value,
-        prenom: $('#prenom')?.value,
-        nom: $('#nom')?.value,
-        tel: $('#tel')?.value,
-        email: $('#rdv-email')?.value,
-        commentaire: $('#service-comment')?.value,
-        prix_estime: (TARIFS[$('input[name="vehicule"]:checked')?.value] || {})[$('input[name="service"]:checked')?.value] || 'Sur devis',
-        url: window.location.href,
-        referrer: document.referrer,
-        _timestamp: new Date().toISOString()
+        name: $('#f-name', form).value.trim(),
+        phone: $('#f-phone', form).value.trim(),
+        city: $('#f-city', form).value.trim(),
+        need: $('#f-need', form).value.trim(),
+        website: form.querySelector('input[name="website"]').value, // honeypot
+        source: 'short_form_home',
+        page: window.location.pathname,
+        timestamp: new Date().toISOString(),
       };
 
-      track('form_submit_attempt', { service: data.service, vehicule: data.vehicule });
+      // Validation
+      if (!data.name || data.name.length < 2) {
+        $('#f-name').classList.add('error');
+        return showError('Merci de renseigner votre prénom.');
+      }
+      if (!validatePhone(data.phone)) {
+        $('#f-phone').classList.add('error');
+        return showError('Numéro de téléphone invalide. Ex : 06 12 34 56 78');
+      }
+      if (!data.city || data.city.length < 2) {
+        $('#f-city').classList.add('error');
+        return showError('Merci de préciser votre ville.');
+      }
+
+      track('form_submit_attempt');
+
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = 'Envoi en cours…';
 
       try {
         const response = await fetch(CONFIG.apiEndpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
         });
 
-        if (response.ok) {
-          track('form_success', { service: data.service, vehicule: data.vehicule });
-          showConfirm();
-        } else {
-          throw new Error('Erreur serveur');
-        }
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const json = await response.json();
+        if (!json.ok) throw new Error(json.error || 'Erreur');
+
+        track('form_success', { city: data.city });
+        form.style.display = 'none';
+        showSuccess('✓ Demande envoyée ! On vous rappelle dans l\'heure (9h–19h). Pour un RDV plus rapide, appelez-nous au 07 71 22 90 38.');
+
       } catch (err) {
-        // Fallback mailto si API indispo
-        console.warn('API error, using mailto fallback', err);
-        const subject = encodeURIComponent(`Demande de RDV — ${data.prenom} ${data.nom}`);
+        // Fallback mailto — never lose a lead
+        track('form_success_fallback', { reason: err.message });
+        const subject = encodeURIComponent('Demande de RDV — ' + data.name + ' (' + data.city + ')');
         const body = encodeURIComponent(
-          `Véhicule : ${VEHICULE_LABELS[data.vehicule]}\n` +
-          `Prestation : ${SERVICE_LABELS[data.service]}\n` +
-          `Date : ${data.date}\n` +
-          `Créneau : ${data.creneau}\n` +
-          `Commune : ${data.localite}\n\n` +
-          `Nom : ${data.prenom} ${data.nom}\n` +
-          `Téléphone : ${data.tel}\n` +
-          `Email : ${data.email || '—'}\n\n` +
-          `Précisions : ${data.commentaire || '—'}\n\n` +
-          `Tarif estimé : ${data.prix_estime}`
+          'Bonjour,\n\n' +
+          'Je souhaite réserver un créneau.\n\n' +
+          'Prénom : ' + data.name + '\n' +
+          'Téléphone : ' + data.phone + '\n' +
+          'Ville : ' + data.city + '\n' +
+          'Demande : ' + (data.need || 'À définir') + '\n\n' +
+          'Merci de me rappeler pour fixer le créneau.'
         );
-        window.location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
-
-        setTimeout(() => {
-          track('form_success_fallback');
-          showConfirm();
-        }, 800);
+        window.location.href = 'mailto:' + CONFIG.fallbackEmail + '?subject=' + subject + '&body=' + body;
+        showSuccess('✓ Demande préparée dans votre messagerie. Envoyez-la, ou appelez-nous directement au 07 71 22 90 38.');
       } finally {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+        btn.disabled = false;
+        btn.textContent = originalText;
       }
-    }
-
-    function showConfirm() {
-      panels.forEach(p => p.classList.remove('active'));
-      if (confirmEl) confirmEl.classList.add('active');
-      steps.forEach(s => { s.classList.add('done'); s.classList.remove('active'); });
-      scrollToForm();
-    }
+    });
   }
 
-  // ─── Cookie Banner ──────────────────────────────────────
+  /* ========== COOKIES ========== */
   function initCookies() {
-    const banner = $('#cookie-banner');
+    const banner = $('#cookies');
     if (!banner) return;
 
-    const KEY = 'fr_cookies_v1';
-    const stored = localStorage.getItem(KEY);
-    if (stored) return;
+    const already = localStorage.getItem(CONFIG.cookieKey);
+    if (already) return;
 
-    banner.hidden = false;
+    setTimeout(() => { banner.hidden = false; }, 1200);
 
-    const accept = () => {
-      localStorage.setItem(KEY, 'accepted');
-      banner.style.display = 'none';
-      track('cookies_accept');
+    const close = (choice) => {
+      localStorage.setItem(CONFIG.cookieKey, choice);
+      banner.hidden = true;
+      track('cookies_' + choice);
     };
-    const refuse = () => {
-      localStorage.setItem(KEY, 'refused');
-      banner.style.display = 'none';
-      track('cookies_refuse');
-    };
-    $('#cookie-accept')?.addEventListener('click', accept);
-    $('#cookie-refuse')?.addEventListener('click', refuse);
+
+    $('#ckAccept', banner).addEventListener('click', () => close('accept'));
+    $('#ckRefuse', banner).addEventListener('click', () => close('refuse'));
   }
 
-  // ─── Year ───────────────────────────────────────────────
+  /* ========== YEAR ========== */
   function initYear() {
-    const y = $('#current-year');
+    const y = $('#year');
     if (y) y.textContent = new Date().getFullYear();
   }
 
-  // ─── Init ───────────────────────────────────────────────
-  function init() {
+  /* ========== BOOT ========== */
+  document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initStickyCTA();
-    initAnimations();
     initTracking();
     initBeforeAfter();
+    initFAQ();
     initForm();
     initCookies();
     initYear();
-  }
+  });
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
 })();
