@@ -1,145 +1,202 @@
 ---
-title: "Nos Prestations — Detailing Auto à Domicile | Finition Royale Besançon"
-description: "Toutes nos formules de detailing automobile à domicile à Besançon : lavage, polish, correction de peinture, protection céramique. Tarifs transparents."
+title: "Tarifs Detailing Auto Besançon : Polish, Céramique dès 80€ | Finition Royale"
+description: "Prestations detailing à domicile à Besançon : Éclat 80€, Prestige 180€, Céramique 350€. Tarifs transparents par véhicule. Produits pros. Devis 2h."
 path: "/prestations"
 slug: "prestations"
+extraSchema: |
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Éclat Essentiel", "url": "{{siteUrl}}/prestations#eclat-essentiel" },
+      { "@type": "ListItem", "position": 2, "name": "Prestige Complet", "url": "{{siteUrl}}/prestations#prestige-complet" },
+      { "@type": "ListItem", "position": 3, "name": "Protection Céramique", "url": "{{siteUrl}}/prestations#ceramique" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{siteUrl}}/" },
+      { "@type": "ListItem", "position": 2, "name": "Prestations", "item": "{{siteUrl}}/prestations" }
+    ]
+  }
+  </script>
 ---
 
-<section class="page-hero">
+<section class="page-hero" aria-labelledby="page-h1">
   <div class="container">
-    <div class="section-badge">NOS FORMULES</div>
-    <h1>Des prestations<br><span class="gold">taillées pour votre voiture.</span></h1>
-    <p>Pas de forfait inutile. Pas de surprise. Des prix clairs, du travail sérieux, à votre porte.</p>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a> <span aria-hidden="true">›</span> <span aria-current="page">Prestations</span>
+    </nav>
+    <p class="section-badge">NOS FORMULES</p>
+    <h1 id="page-h1">Detailing automobile à Besançon :<br><span class="gold">3 formules + à la carte.</span></h1>
+    <p>Pas de forfait inutile. Pas de surprise. Des prix engagés par type de véhicule, du travail sérieux, à votre porte.</p>
+  </div>
+</section>
+
+<!-- TABLEAU COMPARATIF -->
+<section class="compare" aria-labelledby="compare-title">
+  <div class="container">
+    <p class="section-badge">COMPARATIF</p>
+    <h2 id="compare-title">Quelle formule<br><span class="gold">est faite pour vous ?</span></h2>
+    <div class="compare-table-wrap" role="region" aria-labelledby="compare-title" tabindex="0">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th scope="col">Inclus</th>
+            <th scope="col">Éclat<br>Essentiel</th>
+            <th scope="col" class="featured-col">Prestige<br>Complet</th>
+            <th scope="col">Protection<br>Céramique</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Lavage extérieur main</th><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row">Intérieur complet + aspiration</th><td>✓</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row">Polish (correction rayures)</th><td>—</td><td>1 étape</td><td>1 ou 2 étapes</td></tr>
+          <tr><th scope="row">Traitement cuir / tissu</th><td>—</td><td>✓</td><td>✓</td></tr>
+          <tr><th scope="row">Cire de finition</th><td>—</td><td>✓</td><td>—</td></tr>
+          <tr><th scope="row">Revêtement céramique pro</th><td>—</td><td>—</td><td>✓</td></tr>
+          <tr><th scope="row">Protection durable</th><td>2–4 semaines</td><td>4–6 mois</td><td>2 à 5 ans</td></tr>
+          <tr><th scope="row">Durée prestation</th><td>2–3 h</td><td>4–6 h</td><td>1 journée</td></tr>
+          <tr><th scope="row">À partir de (citadine)</th><td><strong>80&nbsp;€</strong></td><td class="featured-col"><strong>180&nbsp;€</strong></td><td><strong>350&nbsp;€</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
 <!-- ÉCLAT ESSENTIEL -->
-<section class="presta-section" id="eclat-essentiel">
+<section class="presta-section" id="eclat-essentiel" aria-labelledby="eclat-title">
   <div class="container">
     <div class="presta-full">
       <div class="presta-full-content reveal">
-        <div class="section-badge">FORMULE 01</div>
-        <h2>Éclat<br><span class="gold">Essentiel</span></h2>
-        <p>La remise en état complète de votre véhicule. Intérieur aspiré, extérieur lavé à la main avec soin, plastiques traités, vitres dégraissées. Votre voiture retrouve son éclat du quotidien.</p>
-        <ul>
-          <li><span aria-hidden="true">✦</span> Lavage extérieur à la main (shampoing pH neutre)</li>
-          <li><span aria-hidden="true">✦</span> Nettoyage intérieur complet + aspiration</li>
-          <li><span aria-hidden="true">✦</span> Plastiques intérieurs et extérieurs ravivés</li>
+        <p class="section-badge">FORMULE 01</p>
+        <h2 id="eclat-title">Éclat<br><span class="gold">Essentiel.</span></h2>
+        <p class="presta-target"><strong>Pour qui ?</strong> Conducteurs réguliers, parents, propriétaires qui veulent retrouver l'éclat d'origine sans casser leur planning.</p>
+        <p>La remise en état complète. Intérieur aspiré, extérieur lavé à la main avec soin, plastiques traités, vitres dégraissées. Idéal en entretien trimestriel ou avant une revente.</p>
+        <ul class="presta-list">
+          <li><span aria-hidden="true">✦</span> Lavage extérieur à la main, shampoing pH neutre Koch-Chemie</li>
+          <li><span aria-hidden="true">✦</span> Nettoyage intérieur complet + aspiration HEPA</li>
+          <li><span aria-hidden="true">✦</span> Plastiques intérieurs et extérieurs ravivés (dressing UV)</li>
           <li><span aria-hidden="true">✦</span> Vitres intérieur/extérieur dégraissées</li>
-          <li><span aria-hidden="true">✦</span> Jantes et pneus détartrés et traités</li>
-          <li><span aria-hidden="true">✦</span> Seuils et coffre nettoyés</li>
+          <li><span aria-hidden="true">✦</span> Jantes et pneus détartrés + dressing pneus</li>
+          <li><span aria-hidden="true">✦</span> Seuils, coffre, plage arrière nettoyés</li>
         </ul>
-        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20suis%20intéressé%20par%20la%20formule%20Éclat%20Essentiel." class="btn-primary" target="_blank" rel="noopener" data-track="cta_presta_eclat">Réserver cette formule</a>
+        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formule%20%C3%89clat%20Essentiel." class="btn-primary" target="_blank" rel="noopener" data-track="cta_presta_eclat">Réserver cette formule</a>
       </div>
-      <aside class="presta-pricing reveal">
-        <h4>Tarifs selon véhicule</h4>
-        <div class="presta-price-row"><span>Citadine / Compacte</span><span>80€</span></div>
-        <div class="presta-price-row"><span>Berline / Break</span><span>95€</span></div>
-        <div class="presta-price-row"><span>SUV / 4x4</span><span>115€</span></div>
-        <div class="presta-price-row"><span>Monospace / Utilitaire</span><span>130€</span></div>
-        <p class="presta-note">* Devis ajusté selon l'état réel du véhicule.</p>
+      <aside class="presta-pricing reveal" aria-label="Tarifs Éclat Essentiel">
+        <h3>Tarifs engagés</h3>
+        <div class="presta-price-row"><span>Citadine / Compacte</span><span>80&nbsp;€</span></div>
+        <div class="presta-price-row"><span>Berline / Break</span><span>95&nbsp;€</span></div>
+        <div class="presta-price-row"><span>SUV / 4×4</span><span>115&nbsp;€</span></div>
+        <div class="presta-price-row"><span>Monospace / Utilitaire</span><span>130&nbsp;€</span></div>
+        <p class="presta-note">Tarif engagé après confirmation par photos (WhatsApp). Pas de surprise sur place sauf cas exceptionnel signalé avant intervention.</p>
       </aside>
     </div>
   </div>
 </section>
 
 <!-- PRESTIGE COMPLET -->
-<section class="presta-section presta-alt" id="prestige-complet">
+<section class="presta-section presta-alt" id="prestige-complet" aria-labelledby="prestige-title">
   <div class="container">
     <div class="presta-full">
-      <aside class="presta-pricing reveal">
-        <h4>Tarifs selon véhicule</h4>
-        <div class="presta-price-row"><span>Citadine / Compacte</span><span>180€</span></div>
-        <div class="presta-price-row"><span>Berline / Break</span><span>220€</span></div>
-        <div class="presta-price-row"><span>SUV / 4x4</span><span>260€</span></div>
-        <div class="presta-price-row"><span>Monospace / Utilitaire</span><span>300€</span></div>
-        <p class="presta-note">* Tarif final confirmé après inspection du véhicule.</p>
+      <aside class="presta-pricing reveal" aria-label="Tarifs Prestige Complet">
+        <h3>Tarifs engagés</h3>
+        <div class="presta-price-row"><span>Citadine / Compacte</span><span>180&nbsp;€</span></div>
+        <div class="presta-price-row"><span>Berline / Break</span><span>220&nbsp;€</span></div>
+        <div class="presta-price-row"><span>SUV / 4×4</span><span>260&nbsp;€</span></div>
+        <div class="presta-price-row"><span>Monospace / Utilitaire</span><span>300&nbsp;€</span></div>
+        <p class="presta-note">Tarif final engagé après inspection photo. Aucune surprise à la livraison.</p>
       </aside>
       <div class="presta-full-content reveal">
-        <div class="section-badge">FORMULE 02 · BEST-SELLER</div>
-        <h2>Prestige<br><span class="gold">Complet</span></h2>
-        <p>La transformation complète. Tout ce qui est dans l'Éclat Essentiel, plus un polish pour effacer les micro-rayures, un traitement professionnel des sièges et surfaces cuir ou tissu, et une finition cire protectrice qui donne à la peinture un éclat durable.</p>
-        <ul>
+        <p class="section-badge">FORMULE 02 · LA PLUS DEMANDÉE</p>
+        <h2 id="prestige-title">Prestige<br><span class="gold">Complet.</span></h2>
+        <p class="presta-target"><strong>Pour qui ?</strong> Propriétaires de véhicules premium, leasing/LOA en fin de contrat, revente à valoriser, occasions à upgrader.</p>
+        <p>La transformation complète. Tout ce qui est dans l'Éclat Essentiel, plus un polish une étape pour effacer les micro-rayures, un traitement professionnel des sièges (cuir ou tissu), et une cire protectrice qui rend la peinture profonde et brillante pendant 4 à 6 mois.</p>
+        <ul class="presta-list">
           <li><span aria-hidden="true">✦</span> Tout l'Éclat Essentiel inclus</li>
-          <li><span aria-hidden="true">✦</span> Polish une étape (correction légère des micro-rayures)</li>
-          <li><span aria-hidden="true">✦</span> Traitement cuir (nourrissant + protecteur) ou nettoyage tissu</li>
-          <li><span aria-hidden="true">✦</span> Désodorisation profonde de l'habitacle</li>
-          <li><span aria-hidden="true">✦</span> Finition cire protectrice carrosserie</li>
-          <li><span aria-hidden="true">✦</span> Traitement hydrofuge vitres</li>
+          <li><span aria-hidden="true">✦</span> Polish une étape (correction légère des micro-rayures / swirl marks)</li>
+          <li><span aria-hidden="true">✦</span> Traitement cuir Gyeon Leather Cleaner + Coat OU extraction tissu vapeur</li>
+          <li><span aria-hidden="true">✦</span> Désodorisation profonde par ozonisation</li>
+          <li><span aria-hidden="true">✦</span> Finition cire protectrice Meguiar's Pro</li>
+          <li><span aria-hidden="true">✦</span> Traitement hydrofuge vitres (effet eau qui perle dès 60 km/h)</li>
         </ul>
-        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20suis%20intéressé%20par%20la%20formule%20Prestige%20Complet." class="btn-primary" target="_blank" rel="noopener" data-track="cta_presta_prestige">Réserver cette formule</a>
+        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20la%20formule%20Prestige%20Complet." class="btn-primary" target="_blank" rel="noopener" data-track="cta_presta_prestige">Réserver cette formule</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PROTECTION CÉRAMIQUE -->
-<section class="presta-section" id="ceramique">
+<section class="presta-section" id="ceramique" aria-labelledby="ceramique-title">
   <div class="container">
     <div class="presta-full">
       <div class="presta-full-content reveal">
-        <div class="section-badge">FORMULE 03 · PROTECTION LONGUE DURÉE</div>
-        <h2>Protection<br><span class="gold">Céramique</span></h2>
-        <p>L'investissement le plus rentable pour votre véhicule. Un revêtement nano-céramique professionnel protège votre peinture contre les UV, la pollution, les insectes et les rayures légères — pendant 2 à 5 ans.</p>
-        <ul>
-          <li><span aria-hidden="true">✦</span> Décontamination chimique et mécanique</li>
+        <p class="section-badge">FORMULE 03 · PROTECTION LONGUE DURÉE</p>
+        <h2 id="ceramique-title">Protection<br><span class="gold">Céramique.</span></h2>
+        <p class="presta-target"><strong>Pour qui ?</strong> Voitures neuves, véhicules conservés &gt; 3 ans, propriétaires qui veulent éliminer le passage régulier en station de lavage.</p>
+        <p>L'investissement le plus rentable pour votre véhicule. Un revêtement nano-céramique professionnel (Gyeon Q² ou équivalent) protège votre peinture contre les UV, la pollution, les insectes, les fientes d'oiseau et les rayures légères — pendant 2 à 5 ans selon le produit choisi.</p>
+        <ul class="presta-list">
+          <li><span aria-hidden="true">✦</span> Décontamination chimique (iron remover, fallout)</li>
+          <li><span aria-hidden="true">✦</span> Décontamination mécanique (clay bar / clay mitt)</li>
           <li><span aria-hidden="true">✦</span> Polish correction (1 ou 2 étapes selon l'état)</li>
-          <li><span aria-hidden="true">✦</span> Application revêtement céramique professionnel</li>
-          <li><span aria-hidden="true">✦</span> Traitement vitres céramique</li>
-          <li><span aria-hidden="true">✦</span> Traitement jantes céramique</li>
-          <li><span aria-hidden="true">✦</span> Protection 2 à 5 ans selon produit</li>
+          <li><span aria-hidden="true">✦</span> Application revêtement céramique pro (Gyeon Q² / CarPro CQuartz)</li>
+          <li><span aria-hidden="true">✦</span> Traitement vitres céramique (hydrophobie 12+ mois)</li>
+          <li><span aria-hidden="true">✦</span> Traitement jantes céramique anti-poussière de frein</li>
+          <li><span aria-hidden="true">✦</span> Certificat de garantie produit + photos de la prestation</li>
         </ul>
-        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20suis%20intéressé%20par%20la%20protection%20céramique." class="btn-primary" target="_blank" rel="noopener" data-track="cta_presta_ceramique">Demander un devis</a>
+        <a href="/devis-en-ligne?formule=protection-ceramique" class="btn-primary" data-track="cta_presta_ceramique">Demander un devis céramique</a>
       </div>
-      <aside class="presta-pricing reveal">
-        <h4>Tarifs selon véhicule</h4>
-        <div class="presta-price-row"><span>Citadine / Compacte</span><span>350€</span></div>
-        <div class="presta-price-row"><span>Berline / Break</span><span>420€</span></div>
-        <div class="presta-price-row"><span>SUV / 4x4</span><span>500€</span></div>
-        <div class="presta-price-row"><span>Monospace / Utilitaire</span><span>580€</span></div>
-        <p class="presta-note">* Inspection préalable obligatoire. Devis gratuit en 24h.</p>
+      <aside class="presta-pricing reveal" aria-label="Tarifs Protection Céramique">
+        <h3>Tarifs indicatifs</h3>
+        <div class="presta-price-row"><span>Citadine / Compacte</span><span>350&nbsp;€</span></div>
+        <div class="presta-price-row"><span>Berline / Break</span><span>420&nbsp;€</span></div>
+        <div class="presta-price-row"><span>SUV / 4×4</span><span>500&nbsp;€</span></div>
+        <div class="presta-price-row"><span>Monospace / Utilitaire</span><span>580&nbsp;€</span></div>
+        <p class="presta-note">Inspection préalable obligatoire (photos). Devis détaillé gratuit en 24h.</p>
       </aside>
     </div>
   </div>
 </section>
 
 <!-- À LA CARTE -->
-<section class="presta-section presta-alt">
+<section class="presta-section presta-alt" aria-labelledby="carte-title">
   <div class="container">
-    <div class="section-badge">À LA CARTE</div>
-    <h2 class="mb-40">Besoin d'une intervention<br><span class="gold">ciblée ?</span></h2>
+    <p class="section-badge">À LA CARTE</p>
+    <h2 id="carte-title" class="mb-40">Besoin d'une intervention<br><span class="gold">ciblée ?</span></h2>
     <div class="prestas-grid reveal">
       <article class="presta-card">
-        <div class="presta-header"><span class="presta-icon" aria-hidden="true">🔦</span><div><h3>Restauration d'optiques</h3><span class="presta-tag">Résultat immédiat</span></div></div>
-        <ul><li>✓ Polissage des feux jaunis</li><li>✓ Application vernis protecteur UV</li><li>✓ Résultat durable 12 à 18 mois</li></ul>
-        <div class="presta-footer"><span class="presta-price">À partir de 60€</span><a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20restauration%20d%27optiques%20SVP." class="btn-outline" target="_blank" rel="noopener">Réserver</a></div>
+        <div class="presta-header"><span class="presta-num" aria-hidden="true">A</span><div><h3>Restauration d'optiques</h3><span class="presta-tag">Phares jaunis</span></div></div>
+        <ul><li>Polissage des feux jaunis (3 étapes)</li><li>Vernis protecteur UV pro</li><li>Résultat durable 12 à 18 mois</li></ul>
+        <div class="presta-footer"><span class="presta-price">À partir de 60&nbsp;€</span><a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20restauration%20d%27optiques%20SVP." class="btn-outline" target="_blank" rel="noopener">Réserver</a></div>
       </article>
       <article class="presta-card">
-        <div class="presta-header"><span class="presta-icon" aria-hidden="true">🪑</span><div><h3>Détachage sièges</h3><span class="presta-tag">Cuir &amp; tissu</span></div></div>
-        <ul><li>✓ Extraction des taches incrustées</li><li>✓ Nettoyage vapeur professionnel</li><li>✓ Traitement anti-taches</li></ul>
-        <div class="presta-footer"><span class="presta-price">À partir de 40€</span><a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20détachage%20sièges%20SVP." class="btn-outline" target="_blank" rel="noopener">Réserver</a></div>
+        <div class="presta-header"><span class="presta-num" aria-hidden="true">B</span><div><h3>Détachage sièges</h3><span class="presta-tag">Cuir &amp; tissu</span></div></div>
+        <ul><li>Extraction des taches incrustées</li><li>Nettoyage vapeur professionnel</li><li>Traitement anti-taches</li></ul>
+        <div class="presta-footer"><span class="presta-price">À partir de 40&nbsp;€</span><a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20d%C3%A9tachage%20si%C3%A8ges%20SVP." class="btn-outline" target="_blank" rel="noopener">Réserver</a></div>
       </article>
       <article class="presta-card">
-        <div class="presta-header"><span class="presta-icon" aria-hidden="true">🪟</span><div><h3>Traitement vitres</h3><span class="presta-tag">Visibilité &amp; sécurité</span></div></div>
-        <ul><li>✓ Dégraissage et polissage</li><li>✓ Revêtement hydrofuge</li><li>✓ Eau qui perle dès 60 km/h</li></ul>
-        <div class="presta-footer"><span class="presta-price">À partir de 35€</span><a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20traitement%20vitres%20SVP." class="btn-outline" target="_blank" rel="noopener">Réserver</a></div>
+        <div class="presta-header"><span class="presta-num" aria-hidden="true">C</span><div><h3>Traitement vitres</h3><span class="presta-tag">Hydrophobie</span></div></div>
+        <ul><li>Dégraissage et polissage</li><li>Revêtement hydrofuge pro</li><li>Eau qui perle dès 60 km/h</li></ul>
+        <div class="presta-footer"><span class="presta-price">À partir de 35&nbsp;€</span><a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20traitement%20vitres%20SVP." class="btn-outline" target="_blank" rel="noopener">Réserver</a></div>
       </article>
     </div>
   </div>
 </section>
 
 <!-- CTA FINAL -->
-<section class="final-cta">
+<section class="final-cta" aria-labelledby="final-title">
   <div class="container">
     <div class="final-cta-inner">
-      <h2>Un doute sur la<br><span class="gold">formule adaptée ?</span></h2>
-      <p>Envoyez-nous un message. On vous conseille et on vous fait un devis en moins de 2h.</p>
+      <h2 id="final-title">Un doute sur la<br><span class="gold">formule adaptée ?</span></h2>
+      <p>Calculateur de devis en ligne, ou envoyez-nous quelques photos — on vous conseille gratuitement.</p>
       <div class="final-cta-btns">
-        <a href="https://wa.me/{{phoneIntl}}?text={{waQuote}}" class="btn-primary large" target="_blank" rel="noopener" data-track="cta_final_prestations_wa">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Demander un devis WhatsApp
-        </a>
-        <a href="sms:+{{phoneIntl}}?body={{smsQuote}}" class="btn-secondary large" data-track="cta_final_prestations_sms">📱 Par SMS</a>
+        <a href="/devis-en-ligne" class="btn-primary large" data-track="cta_final_prestations_devis">Calculer mon devis</a>
+        <a href="https://wa.me/{{phoneIntl}}?text={{waQuote}}" class="btn-secondary large" target="_blank" rel="noopener" data-track="cta_final_prestations_wa">WhatsApp</a>
       </div>
     </div>
   </div>

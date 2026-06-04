@@ -2,8 +2,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{pageTitle}}</title>
 <meta name="description" content="{{pageDescription}}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="{{brand}}">
+<meta name="geo.region" content="FR-25">
+<meta name="geo.placename" content="{{city}}">
+<meta name="geo.position" content="{{geoLat}};{{geoLng}}">
+<meta name="ICBM" content="{{geoLat}}, {{geoLng}}">
 <link rel="canonical" href="{{siteUrl}}{{canonicalPath}}">
+<link rel="alternate" hreflang="fr-FR" href="{{siteUrl}}{{canonicalPath}}">
+<link rel="alternate" hreflang="x-default" href="{{siteUrl}}{{canonicalPath}}">
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="{{brand}}">
@@ -12,6 +19,9 @@
 <meta property="og:url" content="{{siteUrl}}{{canonicalPath}}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="{{siteUrl}}/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{brand}} — {{tagline}} à {{city}}">
 <meta property="og:locale" content="fr_FR">
 
 <!-- Twitter -->
@@ -19,6 +29,7 @@
 <meta name="twitter:title" content="{{pageTitle}}">
 <meta name="twitter:description" content="{{pageDescription}}">
 <meta name="twitter:image" content="{{siteUrl}}/assets/og-image.jpg">
+<meta name="twitter:image:alt" content="{{brand}} — {{tagline}}">
 
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
@@ -27,31 +38,46 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#0a0a0a">
+<meta name="format-detection" content="telephone=no">
 
-<!-- Fonts (preconnect + preload critical) -->
+<!-- Resource hints -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="dns-prefetch" href="https://wa.me">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+<!-- Fonts — non-blocking with print-then-all trick -->
+<link rel="preload" as="style"
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap">
+</noscript>
 
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/style.css">
 
-<!-- JSON-LD LocalBusiness (SEO local) -->
+<!-- JSON-LD AutoDetailing (SEO local + offres) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AutoWash",
+  "@type": "AutoDetailing",
+  "@id": "{{siteUrl}}#business",
   "name": "{{brand}}",
-  "image": "{{siteUrl}}/assets/logo.png",
-  "description": "{{tagline}} à {{city}}.",
+  "alternateName": "Finition Royale Detailing",
+  "image": ["{{siteUrl}}/assets/og-image.jpg", "{{siteUrl}}/assets/logo.png"],
+  "logo": "{{siteUrl}}/assets/logo.png",
+  "description": "{{tagline}} à {{city}} et Grand Doubs. Polish, protection céramique, nettoyage intérieur premium à domicile.",
   "url": "{{siteUrl}}",
-  "telephone": "+{{phoneIntl}}",
+  "telephone": "{{phoneTel}}",
+  "email": "{{email}}",
   "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card, Bank Transfer",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "{{city}}",
-    "addressRegion": "Bourgogne-Franche-Comté",
+    "addressRegion": "{{bigRegion}}",
     "postalCode": "25000",
     "addressCountry": "FR"
   },
@@ -60,26 +86,62 @@
     "latitude": {{geoLat}},
     "longitude": {{geoLng}}
   },
-  "openingHoursSpecification": {
+  "areaServed": [
+    { "@type": "City", "name": "Besançon" },
+    { "@type": "City", "name": "Thise" },
+    { "@type": "City", "name": "Devecey" },
+    { "@type": "City", "name": "Baume-les-Dames" },
+    { "@type": "City", "name": "Ornans" },
+    { "@type": "City", "name": "Montbéliard" },
+    { "@type": "AdministrativeArea", "name": "Doubs" }
+  ],
+  "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
     "opens": "08:00",
     "closes": "19:00"
-  },
-  "areaServed": "{{region}}",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "47"
+  }],
+  "sameAs": [
+    "{{googleBusiness}}",
+    "{{instagram}}",
+    "{{facebook}}"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Prestations de detailing automobile",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Éclat Essentiel",
+        "itemOffered": { "@type": "Service", "name": "Éclat Essentiel — Lavage premium intérieur & extérieur", "serviceType": "Car detailing" },
+        "priceSpecification": { "@type": "PriceSpecification", "price": "80", "priceCurrency": "EUR", "minPrice": "80" },
+        "availability": "https://schema.org/InStock",
+        "url": "{{siteUrl}}/prestations#eclat-essentiel"
+      },
+      {
+        "@type": "Offer",
+        "name": "Prestige Complet",
+        "itemOffered": { "@type": "Service", "name": "Prestige Complet — Polish, traitement cuir, finition cire", "serviceType": "Car detailing premium" },
+        "priceSpecification": { "@type": "PriceSpecification", "price": "180", "priceCurrency": "EUR", "minPrice": "180" },
+        "availability": "https://schema.org/InStock",
+        "url": "{{siteUrl}}/prestations#prestige-complet"
+      },
+      {
+        "@type": "Offer",
+        "name": "Protection Céramique",
+        "itemOffered": { "@type": "Service", "name": "Protection Céramique professionnelle 2 à 5 ans", "serviceType": "Ceramic coating" },
+        "priceSpecification": { "@type": "PriceSpecification", "price": "350", "priceCurrency": "EUR", "minPrice": "350" },
+        "availability": "https://schema.org/InStock",
+        "url": "{{siteUrl}}/prestations#ceramique"
+      }
+    ]
   }
 }
 </script>
 
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{gaId}}"></script>
+<!-- Google Analytics 4 — chargé après interaction utilisateur (cf. main.js) -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{gaId}}', { 'anonymize_ip': true });
+  window.gtag = function gtag(){ dataLayer.push(arguments); };
+  window.__gaId = "{{gaId}}";
 </script>

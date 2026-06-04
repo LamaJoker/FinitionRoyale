@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
+Disallow: /merci
+Disallow: /cgv
+Disallow: /mentions-legales
+Disallow: /politique-confidentialite
+
+# Bloque les bots agressifs IA si souhaité (à activer si besoin)
+# User-agent: GPTBot
+# Disallow: /
 
 Sitemap: https://finition-royale.fr/sitemap.xml

@@ -1,78 +1,159 @@
 ---
-title: "Contact — Devis Detailing Automobile à Besançon | Finition Royale"
-description: "Contactez Finition Royale pour un devis detailing automobile à domicile à Besançon. WhatsApp, SMS — réponse en moins de 2h."
+title: "Contact & Devis Gratuit Detailing Auto Besançon | Finition Royale"
+description: "Demandez votre devis detailing gratuit à Besançon. Formulaire, WhatsApp, SMS, téléphone. Réponse en moins de 2h. Sans engagement."
 path: "/contact"
 slug: "contact"
+extraSchema: |
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{siteUrl}}/" },
+      { "@type": "ListItem", "position": 2, "name": "Contact", "item": "{{siteUrl}}/contact" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Finition Royale",
+    "url": "{{siteUrl}}/contact",
+    "mainEntity": {
+      "@type": "AutoDetailing",
+      "name": "{{brand}}",
+      "telephone": "{{phoneTel}}",
+      "email": "{{email}}"
+    }
+  }
+  </script>
 ---
 
-<section class="page-hero">
+<section class="page-hero" aria-labelledby="page-h1">
   <div class="container">
-    <div class="section-badge">CONTACT</div>
-    <h1>On répond<br><span class="gold">en moins de 2h.</span></h1>
-    <p>Pas de formulaire à rallonge. Juste un message. On prend en charge votre demande rapidement.</p>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a> <span aria-hidden="true">›</span> <span aria-current="page">Contact</span>
+    </nav>
+    <p class="section-badge">CONTACT</p>
+    <h1 id="page-h1">On répond<br><span class="gold">en moins de 2h.</span></h1>
+    <p>Quatre canaux. Choisissez le plus simple pour vous. Réponse rapide, garantie sans relance commerciale.</p>
   </div>
 </section>
 
 <section class="contact-wrapper">
   <div class="container">
     <div class="contact-grid">
+
       <div class="contact-info reveal">
-        <div class="section-badge">ÉCRIVEZ-NOUS</div>
-        <h2>Le moyen le plus<br><span class="gold">rapide de nous joindre.</span></h2>
-        <p>On ne prend pas les réservations par téléphone. Un message est plus pratique pour vous comme pour nous — vous l'envoyez quand vous voulez, on vous répond vite.</p>
-        <p>Indiquez-nous : votre type de véhicule, la prestation souhaitée, et votre zone géographique. On s'occupe du reste.</p>
+        <p class="section-badge">CONTACT DIRECT</p>
+        <h2>4 façons<br><span class="gold">de nous joindre.</span></h2>
+        <p>Indiquez votre type de véhicule, la prestation souhaitée et votre zone géographique. On vous fait un devis chiffré et engagé.</p>
 
         <div class="contact-methods">
-          <a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" class="contact-method" target="_blank" rel="noopener" data-track="cta_contact_wa">
-            <div class="contact-method-icon" aria-hidden="true">💬</div>
+          <a href="tel:{{phoneTel}}" class="contact-method" data-track="cta_contact_tel">
+            <div class="contact-method-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
             <div class="contact-method-text">
-              <strong>WhatsApp — Méthode préférée</strong>
-              <span>Réponse garantie en moins de 2h · {{hours}}</span>
+              <strong>{{phone}}</strong>
+              <span>Téléphone — du lundi au samedi, 8h–19h</span>
             </div>
           </a>
-          <a href="sms:+{{phoneIntl}}?body={{smsDefault}}" class="contact-method" data-track="cta_contact_sms">
-            <div class="contact-method-icon" aria-hidden="true">📱</div>
+          <a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" class="contact-method" target="_blank" rel="noopener" data-track="cta_contact_wa">
+            <div class="contact-method-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/></svg>
+            </div>
+            <div class="contact-method-text">
+              <strong>WhatsApp</strong>
+              <span>Pour envoyer photos &amp; échanger. Réponse en &lt; 2h.</span>
+            </div>
+          </a>
+          <a href="sms:{{phoneTel}}?body={{smsDefault}}" class="contact-method" data-track="cta_contact_sms">
+            <div class="contact-method-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
             <div class="contact-method-text">
               <strong>SMS</strong>
-              <span>Pour ceux qui préfèrent rester sur leur messagerie native</span>
+              <span>Le plus simple si vous n'aimez pas les apps.</span>
+            </div>
+          </a>
+          <a href="mailto:{{email}}" class="contact-method" data-track="cta_contact_email">
+            <div class="contact-method-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-method-text">
+              <strong>{{email}}</strong>
+              <span>Pour les flottes pros et demandes longues.</span>
             </div>
           </a>
           <div class="contact-method contact-info-only">
-            <div class="contact-method-icon" aria-hidden="true">🕐</div>
-            <div class="contact-method-text">
-              <strong>Horaires</strong>
-              <span>{{hours}}</span>
+            <div class="contact-method-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
-          </div>
-          <div class="contact-method contact-info-only">
-            <div class="contact-method-icon" aria-hidden="true">📍</div>
             <div class="contact-method-text">
               <strong>Zone d'intervention</strong>
-              <span>{{zones}} — on se déplace chez vous</span>
+              <span>{{zones}} et environs</span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="contact-form-side reveal">
-        <h3>Pour un devis rapide,<br><span class="gold">dites-nous l'essentiel.</span></h3>
-        <div class="form-note">
-          <p>Envoyez-nous ces informations via WhatsApp ou SMS :</p>
-          <ul class="form-checklist">
-            <li><span class="form-num">01.</span> <strong>Votre véhicule</strong> — marque, modèle, année</li>
-            <li><span class="form-num">02.</span> <strong>La prestation souhaitée</strong> — ou dites-nous simplement le problème</li>
-            <li><span class="form-num">03.</span> <strong>Votre commune</strong> — pour confirmer la zone</li>
-            <li><span class="form-num">04.</span> <strong>Une photo si possible</strong> — pour affiner le devis</li>
-          </ul>
-          <p class="form-note-small">On vous revient avec un devis précis en moins de 2h. Sans engagement.</p>
-          <div class="form-btns">
-            <a href="https://wa.me/{{phoneIntl}}?text={{waQuote}}" class="btn-primary" target="_blank" rel="noopener" data-track="cta_contact_form_wa">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Ouvrir WhatsApp avec le modèle
-            </a>
-            <a href="sms:+{{phoneIntl}}?body={{smsQuote}}" class="btn-secondary" data-track="cta_contact_form_sms">📱 Envoyer par SMS</a>
+        <h2>Formulaire<br><span class="gold">de devis rapide.</span></h2>
+        <p class="form-intro">Décrivez votre besoin en 30 secondes. Devis chiffré sous 2h, sans engagement.</p>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" data-track="form_contact_submit" novalidate>
+          <input type="hidden" name="access_key" value="REMPLACER_PAR_CLE_WEB3FORMS">
+          <input type="hidden" name="subject" value="Nouveau devis Finition Royale">
+          <input type="hidden" name="from_name" value="Site Finition Royale">
+          <input type="hidden" name="redirect" value="{{siteUrl}}/merci">
+
+          <div class="form-row">
+            <label for="f-name">Votre prénom <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-name" name="prenom" type="text" required autocomplete="given-name" maxlength="60">
           </div>
-        </div>
+          <div class="form-row">
+            <label for="f-tel">Téléphone <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-tel" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" pattern="[0-9 +.]{10,16}" maxlength="16" placeholder="06 12 34 56 78">
+          </div>
+          <div class="form-row">
+            <label for="f-vehicule">Véhicule (marque, modèle, année)</label>
+            <input id="f-vehicule" name="vehicule" type="text" maxlength="80" placeholder="ex : BMW Série 3, 2019">
+          </div>
+          <div class="form-row">
+            <label for="f-formule">Prestation souhaitée</label>
+            <select id="f-formule" name="formule">
+              <option value="">Je ne sais pas, conseillez-moi</option>
+              <option value="Éclat Essentiel">Éclat Essentiel — dès 80€</option>
+              <option value="Prestige Complet">Prestige Complet — dès 180€</option>
+              <option value="Protection Céramique">Protection Céramique — dès 350€</option>
+              <option value="À la carte (optiques, sièges, vitres)">À la carte</option>
+              <option value="Flotte professionnelle">Flotte professionnelle</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="f-zone">Votre commune <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-zone" name="commune" type="text" required maxlength="60" placeholder="Besançon, Thise, Montbéliard…">
+          </div>
+          <div class="form-row">
+            <label for="f-msg">Message libre (optionnel)</label>
+            <textarea id="f-msg" name="message" rows="4" maxlength="1000" placeholder="État du véhicule, contraintes horaires, autre…"></textarea>
+          </div>
+
+          <div class="form-rgpd">
+            <input id="f-rgpd" name="consent" type="checkbox" required>
+            <label for="f-rgpd">J'accepte d'être recontacté(e) par {{brand}} concernant ma demande. Voir <a href="/politique-confidentialite">notre politique de confidentialité</a>.</label>
+          </div>
+
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <button type="submit" class="btn-primary large form-submit" data-track="cta_form_submit">
+            Recevoir mon devis sous 2h
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <p class="form-meta">Réponse en moyenne en moins de 2h · Données chiffrées · Aucune relance commerciale</p>
+        </form>
       </div>
     </div>
   </div>

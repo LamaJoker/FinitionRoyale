@@ -1,26 +1,44 @@
-<nav class="nav" id="nav">
-  <a href="/" class="nav-logo" aria-label="{{brand}} - Accueil">
-    <img src="/assets/logo.png" alt="{{brand}}" width="44" height="44">
+<a href="#main" class="skip-link">Aller au contenu principal</a>
+
+<nav class="nav" id="nav" aria-label="Navigation principale">
+  <a href="/" class="nav-logo" aria-label="{{brand}} — Retour à l'accueil">
+    <img src="/assets/logo.png" alt="{{brand}}" width="44" height="44" decoding="async">
+    <span class="nav-logo-text">{{brand}}</span>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" role="list">
     <li><a href="/prestations" data-page="prestations">Prestations</a></li>
     <li><a href="/avant-apres" data-page="avant-apres">Avant / Après</a></li>
+    <li><a href="/a-propos" data-page="a-propos">À propos</a></li>
+    <li><a href="/blog" data-page="blog">Blog</a></li>
     <li><a href="/faq" data-page="faq">FAQ</a></li>
     <li><a href="/contact" data-page="contact">Contact</a></li>
   </ul>
-  <a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" class="btn-nav" target="_blank" rel="noopener" data-track="cta_nav_whatsapp">Réserver</a>
-  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+  <div class="nav-ctas">
+    <a href="tel:{{phoneTel}}" class="btn-nav-ghost" aria-label="Appeler {{brand}}" data-track="cta_nav_tel">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
+      <span class="sr-only">Téléphone</span>
+    </a>
+    <a href="/devis-en-ligne" class="btn-nav" data-track="cta_nav_devis">Devis gratuit</a>
+  </div>
+  <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <ul>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu principal" hidden>
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Fermer le menu" type="button">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <ul role="list">
     <li><a href="/" data-page="index">Accueil</a></li>
     <li><a href="/prestations" data-page="prestations">Prestations</a></li>
     <li><a href="/avant-apres" data-page="avant-apres">Avant / Après</a></li>
+    <li><a href="/a-propos" data-page="a-propos">À propos</a></li>
+    <li><a href="/blog" data-page="blog">Blog</a></li>
     <li><a href="/faq" data-page="faq">FAQ</a></li>
     <li><a href="/contact" data-page="contact">Contact</a></li>
-    <li><a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" class="btn-mobile-cta" target="_blank" rel="noopener" data-track="cta_menu_whatsapp">Réserver via WhatsApp</a></li>
+    <li class="mobile-menu-sep" aria-hidden="true"></li>
+    <li><a href="tel:{{phoneTel}}" class="mobile-menu-tel" data-track="cta_menu_tel">📞 {{phone}}</a></li>
+    <li><a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" class="btn-mobile-cta" target="_blank" rel="noopener" data-track="cta_menu_whatsapp">Réserver sur WhatsApp</a></li>
   </ul>
 </div>

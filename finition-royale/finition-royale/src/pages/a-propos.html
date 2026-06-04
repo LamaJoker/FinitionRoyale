@@ -1,0 +1,104 @@
+---
+title: "À propos de Finition Royale — Detailing à Domicile à Besançon"
+description: "L'histoire de Finition Royale : un service de detailing automobile premium à domicile à Besançon. Notre approche, notre équipement, notre engagement."
+path: "/a-propos"
+slug: "a-propos"
+extraSchema: |
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "{{siteUrl}}/" },
+      { "@type": "ListItem", "position": 2, "name": "À propos", "item": "{{siteUrl}}/a-propos" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "À propos de Finition Royale",
+    "url": "{{siteUrl}}/a-propos",
+    "about": { "@id": "{{siteUrl}}#business" }
+  }
+  </script>
+---
+
+<section class="page-hero" aria-labelledby="page-h1">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a> <span aria-hidden="true">›</span> <span aria-current="page">À propos</span>
+    </nav>
+    <p class="section-badge">À PROPOS</p>
+    <h1 id="page-h1">Le detailing<br><span class="gold">comme il devrait être.</span></h1>
+    <p>Pas un car wash express. Pas une chaîne franchisée. Un artisan qui se déplace chez vous, avec les produits que les pros utilisent vraiment.</p>
+  </div>
+</section>
+
+<section class="about-wrapper">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <h2>Pourquoi {{brand}} existe ?</h2>
+        <p>L'idée est née d'un constat simple : à {{city}}, on a le choix entre la station de lavage à 8 € qui abîme la peinture à long terme, et le centre de detailing à 30 minutes de route où il faut prendre rendez-vous des semaines à l'avance.</p>
+        <p>Entre les deux, il y avait un vide : <strong>un service premium, mais à votre porte, sans contraintes</strong>. {{brand}} comble ce vide.</p>
+
+        <h2>Notre approche</h2>
+        <p>Trois principes simples qui guident chaque prestation :</p>
+        <ul class="about-list">
+          <li><strong>Produits professionnels uniquement.</strong> Koch-Chemie, Gyeon, Meguiar's Pro, CarPro, Gtechniq. Pas de produits grand public ni de bricolages. Si le produit ne passe pas le test des concessions premium, il n'entre pas dans nos kits.</li>
+          <li><strong>Tarification transparente.</strong> Tarifs publics, engagés par type de véhicule. Pas de devis gonflé sur place. Si on vous annonce 180 €, c'est 180 €.</li>
+          <li><strong>Honnêteté sur le résultat.</strong> Tous les véhicules ne réagissent pas pareil au polish. Une voiture peut nécessiter 2 étapes de correction là où une autre nécessitera 1. On le dit, on le justifie, on documente avec photos.</li>
+        </ul>
+
+        <h2>Notre équipement</h2>
+        <p>Nous nous déplaçons avec une <strong>installation autonome</strong> : eau (cuve), électricité (générateur ou batterie portable), aspirateur HEPA professionnel, polisseuse rotative et orbitale, vapeur 4 bars, kit céramique complet. Nous pouvons intervenir partout, même sans accès à un point d'eau.</p>
+
+        <h2>Zone d'intervention</h2>
+        <p>{{zones}} et les communes limitrophes. Nous concentrons notre activité sur le {{region}} pour garantir une intervention rapide et une connaissance fine du terrain (point d'eau, accès parking, contraintes locales).</p>
+
+        <h2>Engagement</h2>
+        <p>Une prestation chez {{brand}} = un devis chiffré <em>avant</em> intervention, un travail à l'arrivée, des photos avant/après à la livraison, et un suivi par message si vous avez la moindre question dans les 48h. Si quelque chose ne va pas, on revient. Sans débat, sans frais supplémentaire.</p>
+      </div>
+
+      <aside class="about-side reveal">
+        <div class="about-card">
+          <h3>Le fondateur</h3>
+          <p class="about-card-name">[Nom Prénom à compléter]</p>
+          <p>Passionné d'automobile depuis l'enfance, formé aux techniques de detailing professionnel via [organisme à compléter — Detailing France / certifications produits Koch-Chemie / Gyeon Certified Detailer / etc.]. {{brand}} est un projet né de cette passion et d'une certitude : la qualité d'un detailing se mesure à 10 cm, pas à 10 mètres.</p>
+          <p class="about-card-quote">"Une voiture propre, c'est facile. Une voiture qui paraît neuve 6 mois après — ça, c'est le métier."</p>
+        </div>
+
+        <div class="about-card">
+          <h3>En chiffres</h3>
+          <ul class="about-stats" role="list">
+            <li><span class="about-stat-num">3</span><span>formules + à la carte</span></li>
+            <li><span class="about-stat-num">5</span><span>marques pro utilisées</span></li>
+            <li><span class="about-stat-num">6+</span><span>communes couvertes</span></li>
+            <li><span class="about-stat-num">&lt; 2h</span><span>délai de réponse</span></li>
+          </ul>
+        </div>
+
+        <div class="about-card about-card-cta">
+          <h3>Une question ?</h3>
+          <p>Échangeons par le canal qui vous arrange.</p>
+          <a href="/contact" class="btn-primary">Nous contacter</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" aria-labelledby="final-title">
+  <div class="container">
+    <div class="final-cta-inner">
+      <h2 id="final-title">Confiez-nous<br><span class="gold">votre voiture.</span></h2>
+      <p>Devis gratuit, sans engagement, par le canal de votre choix.</p>
+      <div class="final-cta-btns">
+        <a href="/devis-en-ligne" class="btn-primary large" data-track="cta_about_devis">Obtenir mon devis</a>
+        <a href="tel:{{phoneTel}}" class="btn-secondary large" data-track="cta_about_tel">{{phone}}</a>
+      </div>
+    </div>
+  </div>
+</section>

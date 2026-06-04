@@ -1,33 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://finition-royale.fr/a-propos</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
+  </url>
   <url>
     <loc>https://finition-royale.fr/avant-apres</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://finition-royale.fr/blog-protection-ceramique-guide</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://finition-royale.fr/blog</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://finition-royale.fr/contact</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://finition-royale.fr/devis-en-ligne</loc>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://finition-royale.fr/faq</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://finition-royale.fr</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://finition-royale.fr/prestations</loc>
-    <lastmod>2026-04-20</lastmod>
+    <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://finition-royale.fr/zone-besancon</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://finition-royale.fr/assets/og-image.jpg</image:loc>
+      <image:title>Finition Royale</image:title>
+    </image:image>
   </url>
 </urlset>
