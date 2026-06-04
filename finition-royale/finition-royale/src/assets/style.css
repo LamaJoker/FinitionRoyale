@@ -1388,6 +1388,9 @@ section h2 {
   margin-bottom: 14px;
 }
 .zone-block p { color: var(--gray-light); font-size: 16px; line-height: 1.7; margin-bottom: 18px; }
+.zone-block ul { margin: 0 0 18px 22px; }
+.zone-block li { color: var(--gray-light); font-size: 16px; line-height: 1.7; margin-bottom: 6px; }
+.zone-block strong { color: var(--white); }
 .zone-services {
   display: flex;
   flex-wrap: wrap;
@@ -1406,6 +1409,55 @@ section h2 {
   transition: background 0.2s;
 }
 .zone-services a:hover { background: rgba(201,168,76,0.18); }
+
+/* Cartes par ville (zone-besancon hub) */
+.zone-city-card {
+  display: block;
+  padding: 28px 26px;
+  background: var(--dark2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s, transform 0.2s, background 0.2s;
+}
+.zone-city-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(201,168,76,0.04), var(--dark2));
+}
+.zone-city-card h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--white);
+}
+.zone-city-card p { color: var(--gray-light); font-size: 13px; margin-bottom: 14px; }
+.zone-city-cta { color: var(--gold); font-size: 13px; font-weight: 500; }
+
+/* ============ RESPONSIVE IMAGES (lazy + picture) ============ */
+/* Utiliser via :
+   <picture>
+     <source type="image/avif" srcset="/assets/img.avif">
+     <source type="image/webp" srcset="/assets/img.webp">
+     <img class="rimg" src="/assets/img.jpg" alt="…" loading="lazy" decoding="async" width="800" height="600">
+   </picture>
+*/
+.rimg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  background: var(--dark3);
+}
+.rimg-fade {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.rimg-fade.is-loaded { opacity: 1; }
+.rimg-cover-16-9 { aspect-ratio: 16/9; width: 100%; }
+.rimg-cover-4-3  { aspect-ratio: 4/3;  width: 100%; }
+.rimg-cover-1-1  { aspect-ratio: 1/1;  width: 100%; }
+.rimg-cover-3-2  { aspect-ratio: 3/2;  width: 100%; }
 
 /* ============ ABOUT PAGE ============ */
 .about-wrapper { padding: 80px 0 100px; }

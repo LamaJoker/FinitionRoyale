@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd finition-royale/finition-royale && node build.js",
+  "buildCommand": "cd finition-royale/finition-royale && node optimize-images.js && node build.js",
   "outputDirectory": "finition-royale/finition-royale/dist",
   "framework": null,
   "cleanUrls": true,

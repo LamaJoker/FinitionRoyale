@@ -189,4 +189,14 @@
   if (document.body.dataset.page === 'merci' && typeof window.gtag === 'function') {
     window.gtag('event', 'lead_submitted', { page: 'contact' });
   }
+
+  // ── Images responsive — fade in au chargement ──
+  document.querySelectorAll('img.rimg-fade').forEach(function(img){
+    if (img.complete && img.naturalHeight !== 0) {
+      img.classList.add('is-loaded');
+    } else {
+      img.addEventListener('load', function(){ img.classList.add('is-loaded'); }, { once: true });
+      img.addEventListener('error', function(){ img.classList.add('is-loaded'); }, { once: true });
+    }
+  });
 })();
