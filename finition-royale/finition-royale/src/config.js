@@ -16,14 +16,14 @@ module.exports = {
   phoneRaw:   "0771229038",        // format compose
   phoneIntl:  "33771229038",       // format international (wa.me / sms:)
   phoneTel:   "+33771229038",      // format tel: (clic-pour-appeler)
-  email:      "contact@finition-royale.fr",
+  email:      "contact@finitionroyale.fr",
 
   // ── Géo ──
   city:       "Besançon",
   region:     "Grand Besançon",
   department: "Doubs (25)",
   bigRegion:  "Bourgogne-Franche-Comté",
-  address:    "Besançon, 25000",
+  address:    "5 rue de la Charrière, 25170 Moncley",   // siège social (mentions légales)
   zones:      "Besançon, Thise, Devecey, Baume-les-Dames, Ornans, Montbéliard",
   zonesList:  ["Besançon", "Thise", "Devecey", "Baume-les-Dames", "Ornans", "Montbéliard", "Pontarlier", "Vesoul"],
   hours:      "Lun–Sam · 8h–19h",
@@ -31,22 +31,28 @@ module.exports = {
   geo: { lat: 47.2378, lng: 6.0241 },
 
   // ── Site ──
-  siteUrl:    "https://finition-royale.fr",
+  siteUrl:    "https://finitionroyale.fr",
   defaultOgImage: "/assets/og-image.jpg",
 
-  // ── Légal ── (à compléter par le client réel)
+  // ── Légal ── (données réelles RNE/INSEE)
   legal: {
-    statut:     "Entreprise individuelle (micro-entreprise)",
-    director:   "Nom Prénom du gérant",      // ← À COMPLÉTER
-    siret:      "000 000 000 00000",         // ← À COMPLÉTER (14 chiffres)
-    siren:      "000 000 000",                // ← À COMPLÉTER (9 chiffres)
+    statut:     "Entreprise individuelle (EI)",
+    director:   "Valentin Lhomme-Choulet",
+    siret:      "988 085 627 00012",
+    siren:      "988 085 627",
+    regAddress: "5 rue de la Charrière, 25170 Moncley",
+    foundedDate: "2025-06-15",                // immatriculation au RNE
     rcsCity:    "Besançon",
-    tvaIntra:   "Non applicable (franchise en base TVA)", // ou FRxxxxxxxxxxx
+    tvaIntra:   "Non applicable (franchise en base TVA, art. 293 B du CGI)",
     apeNaf:     "45.20A — Entretien et réparation de véhicules automobiles légers",
     assurance:  "Responsabilité Civile Professionnelle souscrite",
     mediator:   "Médiateur de la consommation : CM2C — 49 rue de Ponthieu, 75008 Paris — cm2c.net",
-    rgpdEmail:  "contact@finition-royale.fr",
+    rgpdEmail:  "contact@finitionroyale.fr",
   },
+
+  // ── Formulaire (Web3Forms) ──
+  // ⚠️ Crée une clé gratuite sur https://web3forms.com (Access Key) et colle-la ici.
+  web3formsKey: "b011b98a-5781-444a-b35f-118df9c0e73d",
 
   // ── Réseaux & Analytics ──
   gaId:       "G-2EMJFFFFEZ",

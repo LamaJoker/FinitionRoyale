@@ -117,6 +117,17 @@ const globalVars = {
   instagram:   cfg.instagram,
   facebook:    cfg.facebook,
   googleBusiness: cfg.googleBusiness,
+  web3formsKey: cfg.web3formsKey,
+  // Légal aplati (l'interpolation ne gère pas les objets imbriqués)
+  legalStatut:     cfg.legal.statut,
+  legalDirector:   cfg.legal.director,
+  legalSiret:      cfg.legal.siret,
+  legalSiren:      cfg.legal.siren,
+  legalRegAddress: cfg.legal.regAddress,
+  legalFoundedDate: cfg.legal.foundedDate,
+  legalRcsCity:    cfg.legal.rcsCity,
+  legalTvaIntra:   cfg.legal.tvaIntra,
+  legalApeNaf:     cfg.legal.apeNaf,
 };
 
 // ─── BUILD ────────────────────────────────────
@@ -402,12 +413,27 @@ const ogPlaceholder = `<svg xmlns="http://www.w3.org/2000/svg" width="1200" heig
 </svg>`;
 const ogSvgPath = path.join(DIST, 'assets', 'og-image.svg');
 write(ogSvgPath, ogPlaceholder);
-console.log('✓ og-image.svg (placeholder — remplacer par og-image.jpg 1200x630)');
+console.log('✓ og-image.svg');
+
+// 10b. Rendu d'un vrai og-image.jpg 1200x630 (les réseaux sociaux ne gèrent pas le SVG)
+const ogJpgPath = path.join(DIST, 'assets', 'og-image.jpg');
+if (!fs.existsSync(ogJpgPath)) {
+  try {
+    const sharp = require('sharp');
+    sharp(Buffer.from(ogPlaceholder)).jpeg({ quality: 86, mozjpeg: true }).toFile(ogJpgPath)
+      .then(() => console.log('✓ og-image.jpg (rendu depuis le SVG, 1200x630)'))
+      .catch(e => console.warn('⚠ og-image.jpg non généré : ' + e.message));
+  } catch (e) {
+    console.warn('⚠ sharp absent — og-image.jpg non généré (npm i sharp). Le og:image restera cassé.');
+  }
+}
 
 console.log('\n✅ Build terminé : ' + builtPages.length + ' pages dans dist/');
 console.log('📦 Prêt à uploader sur OVH via FTP.\n');
-console.log('⚠️ TODO :');
-console.log('  1. Créer /assets/og-image.jpg (1200×630) — placeholder SVG en attendant');
-console.log('  2. Compléter SIRET / statut juridique / nom directeur dans src/config.js');
-console.log('  3. Remplacer la clé Web3Forms dans src/pages/contact.html');
-console.log('  4. Ajouter les vraies photos avant/après dans src/assets/');
+if (cfg.web3formsKey && cfg.web3formsKey.indexOf('REMPLACER') === 0) {
+  console.log('⚠️ TODO restant :');
+  console.log('  • Créer une clé Web3Forms (https://web3forms.com) et la coller dans src/config.js → web3formsKey');
+  console.log('    (sans elle, le formulaire de contact ne transmet pas les demandes).');
+} else {
+  console.log('🎉 Configuration complète. Site prêt en production.');
+}

@@ -10,6 +10,6 @@
     "serve": "node build.js && cd dist && python3 -m http.server 8000"
   },
   "optionalDependencies": {
-    "sharp": "^0.33.0"
+    "sharp": "^0.33.5"
   }
 }

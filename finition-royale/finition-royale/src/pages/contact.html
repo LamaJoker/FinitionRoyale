@@ -104,7 +104,7 @@ extraSchema: |
         <p class="form-intro">Décrivez votre besoin en 30 secondes. Devis chiffré sous 2h, sans engagement.</p>
 
         <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" data-track="form_contact_submit" novalidate>
-          <input type="hidden" name="access_key" value="REMPLACER_PAR_CLE_WEB3FORMS">
+          <input type="hidden" name="access_key" value="{{web3formsKey}}">
           <input type="hidden" name="subject" value="Nouveau devis Finition Royale">
           <input type="hidden" name="from_name" value="Site Finition Royale">
           <input type="hidden" name="redirect" value="{{siteUrl}}/merci">

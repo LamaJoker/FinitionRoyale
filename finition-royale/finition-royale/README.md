@@ -91,13 +91,16 @@ Tous les boutons ont un attribut `data-track="cta_xxx"`. Le JS envoie automatiqu
 
 ## Todo restant
 
-- [ ] Remplacer le numéro `0600000000` dans `src/config.js`
-- [ ] Remplacer `G-XXXXXXXXXX` par ton vrai ID GA4
-- [ ] Remplacer `finition-royale.fr` dans `src/config.js` si le domaine est différent
-- [ ] Ajouter les vraies photos avant/après dans `src/assets/` et les référencer dans `src/pages/avant-apres.html`
-- [ ] Ajouter une image `og-image.jpg` (1200×630) dans `src/assets/` pour les partages sociaux
-- [ ] Compléter les vrais témoignages clients dans `src/pages/index.html`
-- [ ] Vérifier les mentions légales dans `src/pages/mentions-legales.html`
+- [ ] **Créer une clé Web3Forms** (https://web3forms.com) et la coller dans `src/config.js` → `web3formsKey`. Sans elle, le formulaire de contact ne transmet pas les demandes. ← *seul point bloquant*
+- [ ] Vérifier que l'ID GA4 (`gaId` dans `src/config.js`) correspond bien au compte Analytics.
+- [ ] Ajouter de nouvelles photos avant/après au fil des chantiers dans `src/assets/` puis les référencer dans `src/pages/avant-apres.html`.
+- [ ] Ajouter les vrais avis Google quand ils arrivent (sections « Témoignages » des pages zones).
+
+### Déjà fait ✅
+- Données légales réelles injectées (SIRET, SIREN, gérant, siège social) — `src/config.js` → `legal`.
+- `og-image.jpg` (1200×630) généré automatiquement au build (rendu du SVG de marque via sharp).
+- Vraies photos intégrées : avant/après (Qashqai, Clio, 308), photo équipe (à-propos), vignettes blog — déclinées en AVIF/WebP/JPEG.
+- Clé Web3Forms centralisée dans `src/config.js`.
 
 ---
 

@@ -160,20 +160,18 @@ slug: "index"
   <div class="container">
     <p class="section-badge">AVANT / APRÈS</p>
     <h2 id="avapres-title">Les transformations<br><span class="gold">parlent d'elles-mêmes.</span></h2>
-    <p class="section-sub">Glissez le curseur pour comparer. Photos issues de prestations réelles, non retouchées.</p>
-    <div class="ba-slider reveal" aria-label="Comparaison avant / après — polish carrosserie">
-      <div class="ba-before">
-        <span class="ba-label">Avant</span>
-      </div>
-      <div class="ba-after">
-        <span class="ba-label after">Après</span>
-      </div>
-      <div class="ba-handle" aria-hidden="true">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="translate(10,0)"/></svg>
-      </div>
-      <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Position du curseur de comparaison">
+    <p class="section-sub">Des prestations réelles, des résultats concrets. Photos non retouchées, prises sur le terrain.</p>
+    <div class="avapres-photo reveal">
+      <picture>
+        <source type="image/avif" srcset="/assets/ap-lavage-qashqai.avif">
+        <source type="image/webp" srcset="/assets/ap-lavage-qashqai.webp">
+        <img class="rimg rimg-fade" src="/assets/ap-lavage-qashqai.jpg"
+             alt="Avant / après : lavage extérieur premium d'un Toyota Qashqai par Finition Royale à Besançon"
+             width="1696" height="624" loading="lazy" decoding="async">
+      </picture>
+      <span class="aa-photo-tag">Avant / Après</span>
     </div>
-    <p class="avapres-note">Les vraies photos seront ajoutées dès la première campagne de prises de vue (en cours).</p>
+    <p class="avapres-note">Lavage extérieur premium — Toyota Qashqai, réalisé à {{city}}.</p>
     <a href="/avant-apres" class="btn-ghost">Voir toutes les transformations &rarr;</a>
   </div>
 </section>

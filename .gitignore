@@ -1,0 +1,18 @@
+# Dépendances
+node_modules/
+**/node_modules/
+
+# Secrets — ne jamais commiter
+.env
+.env.*
+*.local
+code ovh.txt
+**/code ovh.txt
+
+# Outils / éditeurs
+.claude/
+.DS_Store
+*.log
+
+# Artefacts temporaires
+.vercel/

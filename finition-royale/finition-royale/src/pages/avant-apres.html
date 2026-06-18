@@ -23,108 +23,77 @@ extraSchema: |
     </nav>
     <p class="section-badge">AVANT / APRÈS</p>
     <h1 id="page-h1">Les résultats<br><span class="gold">ne mentent pas.</span></h1>
-    <p>Glissez le curseur pour comparer. Chaque photo est issue d'une prestation réelle réalisée à {{city}} et dans le {{region}}. Pas de filtre, pas de mise en scène, pas de stock photos.</p>
+    <p>Chaque photo est issue d'une prestation réelle réalisée à {{city}} et dans le {{region}}. Pas de filtre, pas de mise en scène, pas de stock photos.</p>
   </div>
 </section>
 
 <section class="aa-wrapper">
   <div class="container">
-    <!-- Avertissement transparent : photos en cours -->
+    <!-- Note transparence -->
     <div class="aa-disclosure" role="note">
-      <strong>Galerie en cours de construction.</strong>
-      <p>Nous démarrons la documentation photo systématique de chaque prestation depuis le lancement de l'activité. Les exemples ci-dessous décrivent des prestations <em>types</em>. Les photos réelles seront ajoutées au fur et à mesure. Pour voir des références sur votre type de véhicule, contactez-nous par WhatsApp.</p>
+      <strong>Photos 100 % réelles, non retouchées.</strong>
+      <p>Chaque image ci-dessous provient d'une prestation réellement réalisée par {{brand}}. Aucun filtre, aucune mise en scène, aucune photo de stock. Notre galerie s'enrichit à chaque nouveau chantier — pour voir d'autres références sur votre type de véhicule, demandez-nous par WhatsApp.</p>
     </div>
 
-    <div class="aa-filter" role="group" aria-label="Filtrer par formule">
+    <div class="aa-filter" role="group" aria-label="Filtrer par prestation">
       <button class="aa-filter-btn is-active" data-filter="all" type="button">Tout</button>
       <button class="aa-filter-btn" data-filter="eclat" type="button">Éclat Essentiel</button>
       <button class="aa-filter-btn" data-filter="prestige" type="button">Prestige Complet</button>
-      <button class="aa-filter-btn" data-filter="ceramique" type="button">Céramique</button>
-      <button class="aa-filter-btn" data-filter="optique" type="button">Optiques</button>
+      <button class="aa-filter-btn" data-filter="optique" type="button">À la carte</button>
     </div>
 
     <div class="aa-grid">
-      <article class="aa-card reveal" data-cat="prestige">
-        <div class="ba-slider ba-slider-sm" aria-label="Comparaison sièges cuir BMW Série 3">
-          <div class="ba-before"><span class="ba-label">Avant</span></div>
-          <div class="ba-after"><span class="ba-label after">Après</span></div>
-          <div class="ba-handle" aria-hidden="true"></div>
-          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Curseur">
+      <article class="aa-card reveal" data-cat="eclat">
+        <div class="aa-photo-wrap">
+          <picture>
+            <source type="image/avif" srcset="/assets/ap-lavage-qashqai.avif">
+            <source type="image/webp" srcset="/assets/ap-lavage-qashqai.webp">
+            <img class="aa-photo rimg-fade" src="/assets/ap-lavage-qashqai.jpg"
+                 alt="Avant / après : lavage extérieur premium d'un Toyota Qashqai par Finition Royale à Besançon"
+                 width="1696" height="624" loading="lazy" decoding="async">
+          </picture>
+          <span class="aa-photo-tag">Avant / Après</span>
         </div>
         <div class="aa-card-info">
-          <h3>Sièges cuir — Berline allemande</h3>
-          <p>Taches d'encre et de café incrustées. Résultat après détachage professionnel et traitement nourrissant cuir Gyeon.</p>
-          <span class="presta-tag">Prestige Complet · {{city}}</span>
+          <h3>Lavage extérieur premium — Toyota Qashqai</h3>
+          <p>Carrosserie encrassée, traces et film routier. Lavage à la main au shampoing pH neutre, jantes et pneus détartrés. Brillance retrouvée.</p>
+          <span class="presta-tag">Éclat Essentiel · {{city}}</span>
         </div>
       </article>
 
       <article class="aa-card reveal" data-cat="optique">
-        <div class="ba-slider ba-slider-sm" aria-label="Comparaison optiques avant après">
-          <div class="ba-before"><span class="ba-label">Avant</span></div>
-          <div class="ba-after"><span class="ba-label after">Après</span></div>
-          <div class="ba-handle" aria-hidden="true"></div>
-          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Curseur">
+        <div class="aa-photo-wrap">
+          <picture>
+            <source type="image/avif" srcset="/assets/ap-phares-clio.avif">
+            <source type="image/webp" srcset="/assets/ap-phares-clio.webp">
+            <img class="aa-photo rimg-fade" src="/assets/ap-phares-clio.jpg"
+                 alt="Avant / après : rénovation des phares jaunis d'une Renault Clio par Finition Royale"
+                 width="1696" height="624" loading="lazy" decoding="async">
+          </picture>
+          <span class="aa-photo-tag">Avant / Après</span>
         </div>
         <div class="aa-card-info">
-          <h3>Optiques jaunies — Citadine essence</h3>
-          <p>Feux totalement opaques, visibilité réduite la nuit. Après polissage 3 étapes et vernis UV, résultat comme neuves pour 12-18 mois.</p>
-          <span class="presta-tag">À la carte · Thise</span>
+          <h3>Rénovation des optiques — Renault Clio</h3>
+          <p>Phares jaunis et opaques, visibilité réduite la nuit. Polissage multi-étapes et vernis protecteur UV : résultat comme neuf pour 12 à 18 mois.</p>
+          <span class="presta-tag">À la carte · {{region}}</span>
         </div>
       </article>
 
       <article class="aa-card reveal" data-cat="prestige">
-        <div class="ba-slider ba-slider-sm" aria-label="Comparaison carrosserie polish">
-          <div class="ba-before"><span class="ba-label">Avant</span></div>
-          <div class="ba-after"><span class="ba-label after">Après</span></div>
-          <div class="ba-handle" aria-hidden="true"></div>
-          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Curseur">
+        <div class="aa-photo-wrap">
+          <picture>
+            <source type="image/avif" srcset="/assets/ap-sieges-308.avif">
+            <source type="image/webp" srcset="/assets/ap-sieges-308.webp">
+            <img class="aa-photo rimg-fade" src="/assets/ap-sieges-308.jpg"
+                 alt="Avant / après : shampoing et détachage des sièges d'une Peugeot 308 par Finition Royale"
+                 width="1699" height="624" loading="lazy" decoding="async">
+          </picture>
+          <span class="aa-photo-tag">Avant / Après</span>
         </div>
         <div class="aa-card-info">
-          <h3>Carrosserie oxydée — Berline premium</h3>
-          <p>Peinture terne, micro-rayures en toile d'araignée. Polish deux étapes + cire de finition Carnauba.</p>
-          <span class="presta-tag">Prestige Complet · Montbéliard</span>
-        </div>
-      </article>
-
-      <article class="aa-card reveal" data-cat="eclat">
-        <div class="ba-slider ba-slider-sm" aria-label="Comparaison intérieur SUV familial">
-          <div class="ba-before"><span class="ba-label">Avant</span></div>
-          <div class="ba-after"><span class="ba-label after">Après</span></div>
-          <div class="ba-handle" aria-hidden="true"></div>
-          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Curseur">
-        </div>
-        <div class="aa-card-info">
-          <h3>Intérieur familial — SUV 7 places</h3>
-          <p>Véhicule familial avec enfants. Moquettes, sièges, plastiques. Nettoyage vapeur profond + désodorisation ozone.</p>
-          <span class="presta-tag">Éclat Essentiel · Ornans</span>
-        </div>
-      </article>
-
-      <article class="aa-card reveal" data-cat="ceramique">
-        <div class="ba-slider ba-slider-sm" aria-label="Comparaison protection céramique">
-          <div class="ba-before"><span class="ba-label">Avant</span></div>
-          <div class="ba-after"><span class="ba-label after">Après</span></div>
-          <div class="ba-handle" aria-hidden="true"></div>
-          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Curseur">
-        </div>
-        <div class="aa-card-info">
-          <h3>Protection céramique — Véhicule électrique</h3>
-          <p>Correction complète de la peinture + revêtement céramique Gyeon Q² Pure. Protection garantie 3 ans.</p>
-          <span class="presta-tag">Céramique · {{city}}</span>
-        </div>
-      </article>
-
-      <article class="aa-card reveal" data-cat="eclat">
-        <div class="ba-slider ba-slider-sm" aria-label="Comparaison jantes encrassées">
-          <div class="ba-before"><span class="ba-label">Avant</span></div>
-          <div class="ba-after"><span class="ba-label after">Après</span></div>
-          <div class="ba-handle" aria-hidden="true"></div>
-          <input type="range" min="0" max="100" value="50" class="ba-range" aria-label="Curseur">
-        </div>
-        <div class="aa-card-info">
-          <h3>Jantes &amp; carrosserie — SUV premium</h3>
-          <p>Jantes encrassées par les poussières de frein, carrosserie avec traces d'eau calcaire. Résultat en demi-journée.</p>
-          <span class="presta-tag">Éclat Essentiel · {{city}}</span>
+          <h3>Shampoing des sièges — Peugeot 308</h3>
+          <p>Tissus tachés et ternis par l'usage quotidien. Extraction vapeur professionnelle et traitement en profondeur : sièges assainis et ravivés.</p>
+          <span class="presta-tag">Prestige Complet · {{city}}</span>
         </div>
       </article>
     </div>

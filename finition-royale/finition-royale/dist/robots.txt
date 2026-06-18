@@ -9,4 +9,4 @@ Disallow: /politique-confidentialite
 # User-agent: GPTBot
 # Disallow: /
 
-Sitemap: https://finition-royale.fr/sitemap.xml
+Sitemap: https://finitionroyale.fr/sitemap.xml

@@ -64,9 +64,16 @@ extraSchema: |
 
       <aside class="about-side reveal">
         <div class="about-card">
+          <picture>
+            <source type="image/avif" srcset="/assets/equipe-finition-royale.avif">
+            <source type="image/webp" srcset="/assets/equipe-finition-royale.webp">
+            <img class="rimg rimg-fade about-card-photo" src="/assets/equipe-finition-royale.jpg"
+                 alt="L'équipe Finition Royale, detailing automobile à domicile à Besançon"
+                 width="1200" height="896" loading="lazy" decoding="async">
+          </picture>
           <h3>Le fondateur</h3>
-          <p class="about-card-name">[Nom Prénom à compléter]</p>
-          <p>Passionné d'automobile depuis l'enfance, formé aux techniques de detailing professionnel via [organisme à compléter — Detailing France / certifications produits Koch-Chemie / Gyeon Certified Detailer / etc.]. {{brand}} est un projet né de cette passion et d'une certitude : la qualité d'un detailing se mesure à 10 cm, pas à 10 mètres.</p>
+          <p class="about-card-name">{{legalDirector}}</p>
+          <p>Passionné d'automobile, {{legalDirector}} a lancé {{brand}} avec une certitude : la qualité d'un detailing se mesure à 10 cm, pas à 10 mètres. Produits professionnels (Koch-Chemie, Gyeon, Meguiar's Pro), méthode rigoureuse, transparence totale sur le résultat.</p>
           <p class="about-card-quote">"Une voiture propre, c'est facile. Une voiture qui paraît neuve 6 mois après — ça, c'est le métier."</p>
         </div>
 
