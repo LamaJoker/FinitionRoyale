@@ -2031,3 +2031,123 @@ section h2 {
   body { padding-bottom: 76px; }
   .back-to-top { bottom: 88px; }
 }
+
+/* ============================================================
+   PATCH MERCI — page /merci orientée action
+   ============================================================ */
+
+.merci-top {
+  padding: 148px 0 56px;
+  text-align: center;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201, 168, 76, 0.08), transparent);
+}
+.merci-icon { color: var(--gold); margin: 0 auto 20px; display: flex; justify-content: center; }
+.merci-top h1 {
+  font-family: var(--font-display);
+  font-size: clamp(34px, 5.4vw, 60px);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+.merci-lead {
+  color: var(--gray-light);
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 58ch;
+  margin: 0 auto;
+}
+.merci-lead strong { color: var(--white); white-space: nowrap; }
+.merci-recap {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 10px 20px;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 100px;
+  background: rgba(201, 168, 76, 0.07);
+  color: var(--gray-light);
+  font-size: 14px;
+}
+.merci-recap strong { color: var(--gold); }
+.merci-recap[hidden] { display: none; }
+
+/* Action principale : les photos */
+.merci-action { padding: 24px 0 72px; }
+.merci-action-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--dark2);
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: var(--radius-lg);
+  padding: 40px 36px;
+}
+.merci-action h2 {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.4vw, 38px);
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+.merci-action > .container > .merci-action-inner > p {
+  color: var(--gray-light);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 26px;
+}
+.merci-photos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 30px;
+}
+.merci-photos li {
+  border-top: 2px solid rgba(201, 168, 76, 0.5);
+  padding-top: 12px;
+}
+.merci-photos strong { display: block; color: var(--white); font-size: 15px; margin-bottom: 4px; }
+.merci-photos span { color: var(--gray-light); font-size: 13px; line-height: 1.6; }
+.merci-action .btn-primary { justify-content: center; }
+.merci-action-note { margin-top: 16px; font-size: 13px; color: var(--gray); }
+.merci-action-note a { color: var(--gold); text-decoration: underline; }
+
+/* Timeline */
+.merci-steps { padding: 72px 0; background: var(--dark); border-top: 1px solid rgba(255, 255, 255, 0.05); }
+.merci-steps h2 { font-family: var(--font-display); font-size: clamp(26px, 3.4vw, 38px); margin-bottom: 32px; }
+.merci-timeline {
+  list-style: none;
+  max-width: 720px;
+  border-left: 1px solid rgba(201, 168, 76, 0.28);
+  padding-left: 28px;
+}
+.merci-timeline li { position: relative; padding-bottom: 28px; }
+.merci-timeline li:last-child { padding-bottom: 0; }
+.merci-timeline li::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 7px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+.merci-timeline h3 { font-family: var(--font-body); font-size: 16px; color: var(--white); margin-bottom: 5px; }
+.merci-timeline p { color: var(--gray-light); font-size: 15px; line-height: 1.7; }
+.merci-offer {
+  display: inline-block;
+  margin-top: 32px;
+  padding: 12px 20px;
+  border: 1px dashed rgba(201, 168, 76, 0.45);
+  border-radius: var(--radius);
+  background: rgba(201, 168, 76, 0.07);
+  font-size: 14px;
+  color: var(--gray-light);
+}
+.merci-offer strong { color: var(--gold); }
+
+.merci-next { padding: 72px 0 110px; }
+.merci-next h2 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 32px); margin-bottom: 28px; }
+
+@media (max-width: 768px) {
+  .merci-top { padding: 112px 0 40px; }
+  .merci-action-inner { padding: 30px 22px; }
+  .merci-photos { grid-template-columns: 1fr; gap: 14px; }
+  .merci-action .btn-primary { width: 100%; }
+}

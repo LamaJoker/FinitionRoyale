@@ -1,42 +1,83 @@
 ---
-title: "Merci — votre demande a bien été envoyée | Finition Royale"
+title: "Demande reçue — Finition Royale"
 description: "Votre demande de devis Finition Royale a été reçue. Nous revenons vers vous en moins de 2h."
 path: "/merci"
 slug: "merci"
 noindex: true
 ---
 
-<section class="page-hero merci-hero" aria-labelledby="page-h1">
+<section class="merci-top" aria-labelledby="page-h1">
   <div class="container">
     <div class="merci-icon" aria-hidden="true">
-      <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
     </div>
-    <p class="section-badge">DEMANDE REÇUE</p>
-    <h1 id="page-h1">Merci.<br><span class="gold">À tout de suite.</span></h1>
-    <p>Votre demande a bien été envoyée. Vous allez recevoir une confirmation par email. Notre équipe revient vers vous en <strong>moins de 2h</strong> en moyenne (du lundi au samedi, 8h–19h).</p>
-    <div class="final-cta-btns" style="margin-top:32px">
-      <a href="/" class="btn-primary">Retour à l'accueil</a>
-      <a href="/prestations" class="btn-secondary">Voir les prestations</a>
+    <h1 id="page-h1">Demande reçue. <span class="gold">On s'en occupe.</span></h1>
+    <p class="merci-lead">
+      Vous recevez notre réponse par message en moins de 2h en moyenne, {{hours}}.
+      Elle arrivera du <strong>{{phone}}</strong> — enregistrez le numéro pour ne pas la manquer.
+    </p>
+    <p class="merci-recap" id="merciRecap" hidden></p>
+  </div>
+</section>
+
+<section class="merci-action" aria-labelledby="photos-title">
+  <div class="container">
+    <div class="merci-action-inner">
+      <h2 id="photos-title">Gagnez un aller-retour : <span class="gold">envoyez trois photos.</span></h2>
+      <p>
+        Le devis est chiffré à partir de l'état réel du véhicule. Avec vos photos, nous confirmons
+        le tarif du premier coup, sans échange supplémentaire et sans mauvaise surprise le jour J.
+      </p>
+      <ul class="merci-photos" role="list">
+        <li><strong>La voiture entière</strong><span>Un plan large, de trois quarts avant.</span></li>
+        <li><strong>Ce qui vous dérange</strong><span>Rayure, tache, phare jauni, sève, traces d'eau.</span></li>
+        <li><strong>L'intérieur</strong><span>Sièges et tapis, sans rien ranger avant.</span></li>
+      </ul>
+      <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20viens%20d%27envoyer%20ma%20demande%20de%20devis%20sur%20le%20site.%20Voici%20les%20photos%20de%20mon%20v%C3%A9hicule%20%3A"
+         class="btn-primary large" id="merciWa" target="_blank" rel="noopener" data-track="cta_merci_photos">
+        Envoyer mes photos sur WhatsApp
+      </a>
+      <p class="merci-action-note">Pas de WhatsApp ? Répondez simplement à notre message quand il arrive, ou par <a href="sms:{{phoneTel}}?body=Photos%20de%20mon%20v%C3%A9hicule%20%3A" data-track="cta_merci_sms">SMS</a>.</p>
     </div>
+  </div>
+</section>
+
+<section class="merci-steps" aria-labelledby="steps-title">
+  <div class="container">
+    <h2 id="steps-title">La suite, dans l'ordre.</h2>
+    <ol class="merci-timeline">
+      <li>
+        <h3>Sous 2h — notre message</h3>
+        <p>Nous confirmons la formule adaptée et le tarif engagé, puis nous vous proposons deux ou trois créneaux.</p>
+      </li>
+      <li>
+        <h3>Le jour J — nous venons à vous</h3>
+        <p>À l'adresse et à l'heure convenues. Une place de stationnement suffit, vous n'avez rien à préparer.</p>
+      </li>
+      <li>
+        <h3>À la fin — vérification ensemble</h3>
+        <p>Photos avant/après remises, paiement une fois la prestation validée (CB, espèces, virement).</p>
+      </li>
+    </ol>
+    <p class="merci-offer">Première prestation chez nous ? Mentionnez le code <strong>ROYAL10</strong> dans la conversation : <strong>&minus;10 %</strong>.</p>
   </div>
 </section>
 
 <section class="merci-next" aria-labelledby="next-title">
   <div class="container">
-    <p class="section-badge">EN ATTENDANT</p>
-    <h2 id="next-title">Quelques lectures<br><span class="gold">utiles.</span></h2>
+    <h2 id="next-title">En attendant notre réponse.</h2>
     <div class="merci-grid">
-      <a href="/faq" class="merci-card">
-        <h3>FAQ</h3>
-        <p>Toutes les réponses sur la durée, les tarifs, les produits, l'assurance.</p>
-      </a>
-      <a href="/avant-apres" class="merci-card">
+      <a href="/avant-apres" class="merci-card" data-track="cta_merci_galerie">
         <h3>Avant / Après</h3>
-        <p>Découvrez les transformations réalisées dans le Grand Doubs.</p>
+        <p>Les transformations réalisées dans le {{region}}, photos non retouchées.</p>
       </a>
-      <a href="/a-propos" class="merci-card">
-        <h3>À propos</h3>
-        <p>Notre approche, nos produits, notre équipement.</p>
+      <a href="/faq" class="merci-card" data-track="cta_merci_faq">
+        <h3>Questions fréquentes</h3>
+        <p>Durée, produits, assurance, garantie : tout ce qu'on nous demande avant une intervention.</p>
+      </a>
+      <a href="{{instagram}}" class="merci-card" target="_blank" rel="noopener" data-track="cta_merci_instagram">
+        <h3>Instagram</h3>
+        <p>Les chantiers du moment, publiés au fil des semaines.</p>
       </a>
     </div>
   </div>
