@@ -28,6 +28,7 @@ module.exports = {
   zonesList:  ["Besançon", "Thise", "Devecey", "Baume-les-Dames", "Ornans", "Montbéliard", "Pontarlier", "Vesoul"],
   hours:      "Lun–Sam · 8h–19h",
   hoursSchema: "Mo-Sa 08:00-19:00",
+  slots:      "sam. 19 · mar. 22 · jeu. 24",   // MAJ chaque lundi
   geo: { lat: 47.2378, lng: 6.0241 },
 
   // ── Site ──

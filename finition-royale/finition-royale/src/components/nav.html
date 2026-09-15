@@ -8,17 +8,11 @@
   <ul class="nav-links" role="list">
     <li><a href="/prestations" data-page="prestations">Prestations</a></li>
     <li><a href="/avant-apres" data-page="avant-apres">Avant / Après</a></li>
-    <li><a href="/a-propos" data-page="a-propos">À propos</a></li>
-    <li><a href="/blog" data-page="blog">Blog</a></li>
     <li><a href="/faq" data-page="faq">FAQ</a></li>
     <li><a href="/contact" data-page="contact">Contact</a></li>
   </ul>
   <div class="nav-ctas">
-    <a href="tel:{{phoneTel}}" class="btn-nav-ghost" aria-label="Appeler {{brand}}" data-track="cta_nav_tel">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg>
-      <span class="sr-only">Téléphone</span>
-    </a>
-    <a href="/devis-en-ligne" class="btn-nav" data-track="cta_nav_devis">Devis gratuit</a>
+    <a href="/devis-en-ligne" class="btn-nav" data-track="cta_nav_devis">Voir mon prix</a>
   </div>
   <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
@@ -33,12 +27,12 @@
     <li><a href="/" data-page="index">Accueil</a></li>
     <li><a href="/prestations" data-page="prestations">Prestations</a></li>
     <li><a href="/avant-apres" data-page="avant-apres">Avant / Après</a></li>
+    <li><a href="/faq" data-page="faq">FAQ</a></li>
     <li><a href="/a-propos" data-page="a-propos">À propos</a></li>
     <li><a href="/blog" data-page="blog">Blog</a></li>
-    <li><a href="/faq" data-page="faq">FAQ</a></li>
     <li><a href="/contact" data-page="contact">Contact</a></li>
     <li class="mobile-menu-sep" aria-hidden="true"></li>
-    <li><a href="tel:{{phoneTel}}" class="mobile-menu-tel" data-track="cta_menu_tel">📞 {{phone}}</a></li>
-    <li><a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" class="btn-mobile-cta" target="_blank" rel="noopener" data-track="cta_menu_whatsapp">Réserver sur WhatsApp</a></li>
+    <li><a href="/devis-en-ligne" class="btn-mobile-cta" data-track="cta_menu_devis">Voir mon prix en 30 s</a></li>
+    <li><a href="tel:{{phoneTel}}" class="mobile-menu-tel" data-track="cta_menu_tel">{{phone}}</a></li>
   </ul>
 </div>

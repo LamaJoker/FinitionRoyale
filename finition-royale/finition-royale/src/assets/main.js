@@ -200,3 +200,188 @@
     }
   });
 })();
+
+/* ============================================================
+   PATCH CONVERSION — à coller À LA FIN de src/assets/main.js
+   (après le `})();` existant — c'est un bloc indépendant)
+   Capture des leads du calculateur + envoi Web3Forms + GA4.
+   ============================================================ */
+(function () {
+  'use strict';
+
+  var calc = document.getElementById('devisCalc');
+  var lead = document.getElementById('devisLead');
+  if (!calc || !lead) { initMerci(); return; }
+
+  var formule  = document.getElementById('d-formule');
+  var vehicule = document.getElementById('d-vehicule');
+  var prenom   = document.getElementById('d-prenom');
+  var tel      = document.getElementById('d-tel');
+  var commune  = document.getElementById('d-commune');
+  var message  = document.getElementById('d-message');
+  var botcheck = document.getElementById('d-botcheck');
+  var errorBox = document.getElementById('devisError');
+  var waCta    = document.getElementById('devisCta');
+  var sendBtn  = document.getElementById('devisSend');
+  var hidPrix  = document.getElementById('d-prix');
+  var hidForm  = document.getElementById('d-formule-label');
+  var hidVeh   = document.getElementById('d-vehicule-label');
+
+  var PRICES = {
+    'eclat-essentiel':      { citadine: 80,  berline: 95,  suv: 115, utilitaire: 130 },
+    'prestige-complet':     { citadine: 180, berline: 220, suv: 260, utilitaire: 300 },
+    'protection-ceramique': { citadine: 350, berline: 420, suv: 500, utilitaire: 580 }
+  };
+
+  function currentPrice() {
+    var f = formule && formule.value;
+    var v = vehicule && vehicule.value;
+    if (!f || !v) return null;
+    return (PRICES[f] && PRICES[f][v]) || null;
+  }
+  function labelOf(sel) {
+    return sel && sel.selectedIndex > 0 ? sel.options[sel.selectedIndex].text : '';
+  }
+
+  function syncLead() {
+    var price = currentPrice();
+    lead.hidden = !price;
+    if (!price) return;
+    if (hidPrix) hidPrix.value = price + ' €';
+    if (hidForm) hidForm.value = labelOf(formule);
+    if (hidVeh)  hidVeh.value  = labelOf(vehicule);
+  }
+  if (formule)  formule.addEventListener('change', syncLead);
+  if (vehicule) vehicule.addEventListener('change', syncLead);
+  syncLead();
+
+  /* ── Validation ───────────────────────────── */
+  function cleanTel(v) { return (v || '').replace(/[^0-9+]/g, ''); }
+
+  function validate() {
+    var problems = [];
+    [prenom, tel, commune].forEach(function (el) { if (el) el.classList.remove('is-invalid'); });
+
+    if (!prenom || prenom.value.trim().length < 2) {
+      problems.push('votre prénom'); if (prenom) prenom.classList.add('is-invalid');
+    }
+    var t = cleanTel(tel && tel.value);
+    if (t.length < 9) {
+      problems.push('un numéro de téléphone valide'); if (tel) tel.classList.add('is-invalid');
+    }
+    if (!commune || commune.value.trim().length < 2) {
+      problems.push('votre commune'); if (commune) commune.classList.add('is-invalid');
+    }
+
+    if (!problems.length) { if (errorBox) errorBox.hidden = true; return true; }
+
+    if (errorBox) {
+      errorBox.textContent = 'Il manque ' + problems.join(', ') + '.';
+      errorBox.hidden = false;
+    }
+    var first = lead.querySelector('.is-invalid');
+    if (first) first.focus();
+    return false;
+  }
+
+  /* ── Envoi Web3Forms ──────────────────────── */
+  function payload(channel) {
+    var price = currentPrice();
+    return {
+      access_key: (lead.querySelector('[name="access_key"]') || {}).value,
+      subject: 'Devis en ligne — ' + labelOf(formule) + ' — ' + (prenom ? prenom.value.trim() : ''),
+      from_name: 'Finition Royale — Devis en ligne',
+      prenom: prenom ? prenom.value.trim() : '',
+      telephone: tel ? tel.value.trim() : '',
+      commune: commune ? commune.value.trim() : '',
+      formule: labelOf(formule),
+      vehicule: labelOf(vehicule),
+      prix_estime: price ? price + ' €' : '',
+      message: message ? message.value.trim() : '',
+      canal: channel,
+      botcheck: botcheck && botcheck.checked ? 'true' : ''
+    };
+  }
+
+  function send(channel, keepalive) {
+    var data = payload(channel);
+    try {
+      sessionStorage.setItem('fr_lead_prix', data.prix_estime);
+      sessionStorage.setItem('fr_lead_formule', data.formule);
+    } catch (e) { /* stockage indisponible : sans effet */ }
+
+    track(currentPrice(), channel);
+
+    return fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(data),
+      keepalive: !!keepalive
+    });
+  }
+
+  function track(price, channel) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', 'generate_lead', {
+      currency: 'EUR',
+      value: price || 0,
+      canal: channel,
+      formule: formule ? formule.value : '',
+      vehicule: vehicule ? vehicule.value : ''
+    });
+  }
+
+  /* ── Bouton WhatsApp : capture PUIS ouverture ── */
+  if (waCta) {
+    waCta.addEventListener('click', function (e) {
+      if (!validate()) { e.preventDefault(); return; }
+      var price = currentPrice();
+      var msg = 'Bonjour, je suis ' + prenom.value.trim() + ' (' + commune.value.trim() + ').'
+              + '\nJe souhaite réserver : ' + labelOf(formule)
+              + '\nVéhicule : ' + labelOf(vehicule)
+              + (price ? '\nEstimation site : ' + price + ' €' : '')
+              + (message && message.value.trim() ? '\nPrécision : ' + message.value.trim() : '');
+      waCta.href = 'https://wa.me/' + (window.__phoneIntl || '33771229038')
+                 + '?text=' + encodeURIComponent(msg);
+      send('whatsapp', true).catch(function () { /* le lead part quand même sur WhatsApp */ });
+      setTimeout(function () { window.location.href = '/merci?src=whatsapp'; }, 600);
+    });
+  }
+
+  /* ── Bouton « rappelez-moi » : capture seule ── */
+  if (sendBtn) {
+    sendBtn.addEventListener('click', function () {
+      if (!validate()) return;
+      sendBtn.classList.add('is-sending');
+      sendBtn.textContent = 'Envoi…';
+      send('rappel', false)
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (res && res.success) { window.location.href = '/merci?src=rappel'; return; }
+          throw new Error('refus');
+        })
+        .catch(function () {
+          sendBtn.classList.remove('is-sending');
+          sendBtn.textContent = 'Envoyer, rappelez-moi';
+          if (errorBox) {
+            errorBox.textContent = "L'envoi n'a pas abouti. Écrivez-nous sur WhatsApp ou au "
+                                 + (document.querySelector('.mobile-menu-tel') ? document.querySelector('.mobile-menu-tel').textContent.trim() : '07 71 22 90 38') + '.';
+            errorBox.hidden = false;
+          }
+        });
+    });
+  }
+
+  initMerci();
+
+  /* ── Page /merci : conversion ─────────────── */
+  function initMerci() {
+    if (document.body.dataset.page !== 'merci') return;
+    var src = new URLSearchParams(window.location.search).get('src') || 'direct';
+    var prix = '';
+    try { prix = sessionStorage.getItem('fr_lead_prix') || ''; } catch (e) { prix = ''; }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'lead_confirmed', { canal: src, prix_estime: prix });
+    }
+  }
+})();
