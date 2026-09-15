@@ -311,8 +311,26 @@ if (document.body.dataset.page !== 'merci') return;
 var src = new URLSearchParams(window.location.search).get('src') || 'direct';
 var prix = '';
 try { prix = sessionStorage.getItem('fr_lead_prix') || ''; } catch (e) { prix = ''; }
+var formule = '';
+try { formule = sessionStorage.getItem('fr_lead_formule') || ''; } catch (e) { formule = ''; }
 if (typeof window.gtag === 'function') {
 window.gtag('event', 'lead_confirmed', { canal: src, prix_estime: prix });
+}
+var recap = document.getElementById('merciRecap');
+if (recap && formule) {
+recap.innerHTML = 'Votre demande : <strong>' + formule.replace(/ —.*$/, '') + '</strong>'
++ (prix ? ' · estimation <strong>' + prix + '</strong>' : '');
+recap.hidden = false;
+}
+var wa = document.getElementById('merciWa');
+if (wa && formule) {
+var msg = 'Bonjour, je viens d\'envoyer ma demande de devis sur le site ('
++ formule.replace(/ —.*$/, '')
++ (prix ? ', estimation ' + prix : '')
++ '). Voici les photos de mon véhicule :';
+var num = (wa.getAttribute('href').match(/wa\.me\/(\d+)/) || [])[1]
+|| window.__phoneIntl;
+if (num) wa.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
 }
 }
 })();
