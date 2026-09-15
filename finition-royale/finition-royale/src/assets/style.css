@@ -1770,3 +1770,264 @@ section h2 {
   .cookie-actions { justify-content: stretch; }
   .cookie-actions button { flex: 1; }
 }
+
+/* ============================================================
+   PATCH CONVERSION — à coller À LA FIN de src/assets/style.css
+   Rien à supprimer au-dessus : ces règles écrasent les anciennes.
+   ============================================================ */
+
+/* ---------- HERO ---------- */
+.hero {
+  min-height: auto;
+  display: block;
+  padding: 132px 0 64px;
+}
+.hero-content { max-width: 720px; }
+.hero-badge {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+.hero-title { font-size: clamp(36px, 6.4vw, 68px); margin-bottom: 18px; }
+.hero-sub { font-size: 17px; margin-bottom: 26px; max-width: 58ch; }
+.hero-ctas { margin-bottom: 20px; }
+.hero-trust {
+  gap: 10px 20px;
+  margin-bottom: 44px;
+}
+.hero-trust li { font-size: 13px; color: var(--gray-light); }
+.hero-trust li::before { content: "✓"; color: var(--gold); font-weight: 700; margin-right: 6px; }
+.hero-trust li span { display: none; }
+.hero-scroll { display: none; }
+
+.hero-proof {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  background: var(--dark2);
+}
+.hero-proof img { width: 100%; height: auto; display: block; }
+.hero-proof figcaption {
+  padding: 12px 16px;
+  font-size: 13px;
+  color: var(--gray-light);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 104px 0 48px; }
+  .hero-title { font-size: clamp(32px, 8.4vw, 44px); line-height: 1.08; }
+  .hero-sub { font-size: 16px; margin-bottom: 22px; }
+  .hero-ctas { flex-direction: column; align-items: stretch; gap: 10px; }
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary { justify-content: center; width: 100%; }
+  .hero-trust { margin-bottom: 32px; }
+}
+
+/* ---------- PREUVES VÉRIFIABLES ---------- */
+.proof {
+  padding: 56px 0;
+  background: var(--dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.proof-grid li {
+  border-left: 2px solid rgba(201, 168, 76, 0.5);
+  padding-left: 16px;
+}
+.proof-grid strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.proof-grid span { font-size: 13px; color: var(--gray-light); line-height: 1.6; }
+.proof-note {
+  margin-top: 32px;
+  font-size: 13px;
+  color: var(--gray);
+  max-width: 68ch;
+}
+.proof-note a { color: var(--gold); text-decoration: underline; }
+@media (max-width: 900px) { .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 22px; } }
+@media (max-width: 520px) { .proof-grid { grid-template-columns: 1fr; } }
+
+/* ---------- AVANT / APRÈS (accueil) ---------- */
+.avapres .section-sub { color: var(--gray-light); margin-bottom: 32px; max-width: 62ch; }
+.avapres-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.avapres-item {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--dark2);
+}
+.avapres-item img { width: 100%; height: auto; }
+.avapres-item figcaption {
+  padding: 14px 16px;
+  font-size: 13px;
+  color: var(--gray-light);
+  line-height: 1.6;
+}
+.avapres-cta { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+@media (max-width: 760px) { .avapres-grid { grid-template-columns: 1fr; } }
+
+/* ---------- PAIN (sans numéros) ---------- */
+.pain-card { padding: 26px 24px; }
+.pain-card p { color: var(--gray-light); font-size: 15px; line-height: 1.7; }
+
+/* ---------- FAQ ACCUEIL ---------- */
+.faq-home { padding: 80px 0; background: var(--dark); }
+.faq-home h2 { margin-bottom: 32px; }
+.faq-home .faq-list { max-width: 820px; }
+.faq-home-more { margin-top: 24px; font-size: 14px; }
+.faq-home-more a { color: var(--gold); text-decoration: underline; }
+
+/* ---------- CRÉNEAUX ---------- */
+.urgence-card .slots {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.offer-line {
+  display: inline-block;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px dashed rgba(201, 168, 76, 0.45);
+  border-radius: var(--radius);
+  padding: 10px 18px;
+  font-size: 14px;
+  color: var(--white) !important;
+  margin-bottom: 16px;
+}
+.offer-line strong { color: var(--gold); }
+
+/* ---------- FORMULAIRE DEVIS ---------- */
+.devis-lead {
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.devis-lead[hidden] { display: none; }
+.devis-lead-intro {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+.devis-lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.devis-row-full { grid-column: 1 / -1; }
+.devis-lead label {
+  display: block;
+  font-size: 13px;
+  color: var(--gray-light);
+  margin-bottom: 6px;
+}
+.devis-lead .optional { color: var(--gray); }
+.devis-lead input[type="text"],
+.devis-lead input[type="tel"],
+.devis-lead textarea {
+  width: 100%;
+  background: var(--dark);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  padding: 13px 14px;
+  transition: border-color 0.2s;
+}
+.devis-lead input:focus,
+.devis-lead textarea:focus { border-color: var(--gold); outline: none; }
+.devis-lead .is-invalid { border-color: #e26060; }
+.hp-field {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.devis-error {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #ff9b9b;
+}
+.devis-error[hidden] { display: none; }
+.devis-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.devis-actions .btn-primary,
+.devis-actions .btn-secondary { justify-content: center; }
+.devis-actions .is-sending { opacity: 0.6; pointer-events: none; }
+.devis-consent { margin-top: 16px; font-size: 12px; color: var(--gray); }
+.devis-consent a { color: var(--gold); text-decoration: underline; }
+.devis-alt { margin-top: 22px; font-size: 14px; color: var(--gray-light); }
+.devis-alt a { color: var(--gold); text-decoration: underline; }
+.devis-reassure h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+@media (max-width: 640px) {
+  .devis-lead-grid { grid-template-columns: 1fr; }
+  .devis-actions { flex-direction: column; }
+  .devis-actions .btn-primary,
+  .devis-actions .btn-secondary { width: 100%; }
+}
+
+/* ---------- STICKY CTA ---------- */
+.sticky-cta {
+  display: none;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  gap: 10px;
+}
+.sticky-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+}
+.sticky-icon {
+  flex: 0 0 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(248, 246, 241, 0.22);
+  border-radius: var(--radius);
+  color: var(--white);
+}
+.sticky-icon.sticky-wa { color: #25D366; border-color: rgba(37, 211, 102, 0.4); }
+
+@media (max-width: 860px) {
+  .sticky-cta { display: flex; }
+  body { padding-bottom: 76px; }
+  .back-to-top { bottom: 88px; }
+}

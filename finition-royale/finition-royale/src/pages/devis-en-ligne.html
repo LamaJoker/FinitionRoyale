@@ -1,6 +1,6 @@
 ---
-title: "Devis Detailing en Ligne — Estimation Immédiate | Finition Royale Besançon"
-description: "Calculez votre devis detailing automobile en 30 secondes. Choisissez votre formule et votre véhicule, recevez une estimation immédiate."
+title: "Devis Detailing en Ligne — Votre Prix en 30 Secondes | Finition Royale Besançon"
+description: "Calculez le prix de votre detailing à domicile en 30 secondes. Formule, véhicule, estimation immédiate. Devis confirmé en moins de 2h."
 path: "/devis-en-ligne"
 slug: "devis-en-ligne"
 extraSchema: |
@@ -21,85 +21,126 @@ extraSchema: |
     <nav class="breadcrumb" aria-label="Fil d'Ariane">
       <a href="/">Accueil</a> <span aria-hidden="true">›</span> <span aria-current="page">Devis en ligne</span>
     </nav>
-    <p class="section-badge">DEVIS GRATUIT</p>
-    <h1 id="page-h1">Votre devis<br><span class="gold">en 30 secondes.</span></h1>
-    <p>Choisissez votre formule et votre type de véhicule. Estimation immédiate, devis chiffré confirmé par message en moins de 2h.</p>
+    <h1 id="page-h1">Votre prix <span class="gold">en 30 secondes.</span></h1>
+    <p>Deux choix, une estimation immédiate. Vos coordonnées et nous vous confirmons un créneau en moins de 2h.</p>
   </div>
 </section>
 
 <section class="devis-wrapper">
   <div class="container">
-    <div class="devis-card reveal" id="devisCalc">
+    <div class="devis-card" id="devisCalc">
+
       <div class="devis-row">
         <label for="d-formule">Quelle prestation souhaitez-vous ?</label>
         <select id="d-formule" name="formule">
-          <option value="">— Choisissez une formule —</option>
-          <option value="eclat-essentiel">Éclat Essentiel (lavage premium)</option>
-          <option value="prestige-complet">Prestige Complet (polish + cuir + cire)</option>
-          <option value="protection-ceramique">Protection Céramique (2 à 5 ans)</option>
+          <option value="">Choisissez une formule</option>
+          <option value="eclat-essentiel">Éclat Essentiel — lavage premium intérieur et extérieur</option>
+          <option value="prestige-complet">Prestige Complet — polish, cuir, cire</option>
+          <option value="protection-ceramique">Protection Céramique — 2 à 5 ans</option>
         </select>
       </div>
+
       <div class="devis-row">
         <label for="d-vehicule">Quel type de véhicule ?</label>
         <select id="d-vehicule" name="vehicule">
-          <option value="">— Choisissez votre véhicule —</option>
-          <option value="citadine">Citadine / Compacte (Clio, 208, Polo…)</option>
-          <option value="berline">Berline / Break (Série 3, A4, Passat…)</option>
+          <option value="">Choisissez votre véhicule</option>
+          <option value="citadine">Citadine / compacte (Clio, 208, Polo…)</option>
+          <option value="berline">Berline / break (Série 3, A4, Passat…)</option>
           <option value="suv">SUV / 4×4 (X3, Q5, Tiguan…)</option>
-          <option value="utilitaire">Monospace / Utilitaire (Scénic, Transporter…)</option>
+          <option value="utilitaire">Monospace / utilitaire (Scénic, Transporter…)</option>
         </select>
       </div>
 
       <div class="devis-result-wrap">
         <p class="devis-result-label">Estimation immédiate</p>
         <p class="devis-result" id="devisResult">—</p>
-        <p class="devis-result-note">Tarif engagé après confirmation par photos (WhatsApp). Aucune surprise à la livraison.</p>
+        <p class="devis-result-note">Tarif engagé après confirmation par photos. Aucune surprise à la livraison.</p>
       </div>
 
-      <a href="#" id="devisCta" class="btn-primary large" target="_blank" rel="noopener" hidden data-track="cta_devis_reserve">
-        Réserver ce créneau sur WhatsApp
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
-      </a>
+      <!-- CAPTURE DU LEAD -->
+      <form class="devis-lead" id="devisLead" novalidate hidden>
+        <p class="devis-lead-intro">Où vous envoyons-nous le devis confirmé ?</p>
+
+        <div class="devis-lead-grid">
+          <div class="devis-row">
+            <label for="d-prenom">Prénom</label>
+            <input type="text" id="d-prenom" name="prenom" autocomplete="given-name" required>
+          </div>
+          <div class="devis-row">
+            <label for="d-tel">Téléphone</label>
+            <input type="tel" id="d-tel" name="telephone" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" required>
+          </div>
+          <div class="devis-row devis-row-full">
+            <label for="d-commune">Commune d'intervention</label>
+            <input type="text" id="d-commune" name="commune" autocomplete="address-level2" placeholder="Besançon, Thise, Ornans…" required>
+          </div>
+          <div class="devis-row devis-row-full">
+            <label for="d-message">Une précision sur l'état du véhicule ? <span class="optional">(facultatif)</span></label>
+            <textarea id="d-message" name="message" rows="2" placeholder="Sièges tachés, phares jaunis, voiture stationnée sous un tilleul…"></textarea>
+          </div>
+        </div>
+
+        <!-- anti-spam -->
+        <input type="checkbox" name="botcheck" id="d-botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="access_key" value="{{web3formsKey}}">
+        <input type="hidden" name="subject" value="Nouveau devis en ligne — {{brand}}">
+        <input type="hidden" name="from_name" value="{{brand}} — Devis en ligne">
+        <input type="hidden" name="prix_estime" id="d-prix" value="">
+        <input type="hidden" name="formule_label" id="d-formule-label" value="">
+        <input type="hidden" name="vehicule_label" id="d-vehicule-label" value="">
+
+        <p class="devis-error" id="devisError" role="alert" hidden></p>
+
+        <div class="devis-actions">
+          <a href="#" id="devisCta" class="btn-primary large" target="_blank" rel="noopener" data-track="cta_devis_whatsapp">
+            Envoyer et continuer sur WhatsApp
+          </a>
+          <button type="button" id="devisSend" class="btn-secondary large" data-track="cta_devis_rappel">
+            Envoyer, rappelez-moi
+          </button>
+        </div>
+
+        <p class="devis-consent">
+          Vos coordonnées servent uniquement à vous répondre. Aucune revente, aucune newsletter.
+          Voir la <a href="/politique-confidentialite">politique de confidentialité</a>.
+        </p>
+      </form>
 
       <p class="devis-alt">
-        Ou contactez-nous par
-        <a href="tel:{{phoneTel}}" data-track="cta_devis_tel">téléphone</a> ·
-        <a href="sms:{{phoneTel}}?body={{smsDefault}}" data-track="cta_devis_sms">SMS</a> ·
-        <a href="/contact" data-track="cta_devis_form">formulaire complet</a>.
+        Vous préférez écrire directement ?
+        <a href="https://wa.me/{{phoneIntl}}?text={{waQuote}}" target="_blank" rel="noopener" data-track="cta_devis_wa_direct">WhatsApp</a> ·
+        <a href="sms:{{phoneTel}}?body={{smsQuote}}" data-track="cta_devis_sms">SMS</a> ·
+        <a href="/contact" data-track="cta_devis_form">formulaire complet</a>
       </p>
     </div>
 
-    <div class="devis-reassure reveal">
+    <div class="devis-reassure">
       <article>
-        <h3>Tarifs engagés</h3>
-        <p>Le prix annoncé est le prix payé. Aucune surprise sur place, sauf cas exceptionnel signalé <em>avant</em> intervention.</p>
+        <h2>Tarif engagé</h2>
+        <p>Le prix annoncé est le prix payé. Tout écart est signalé <em>avant</em> l'intervention, jamais après.</p>
       </article>
       <article>
-        <h3>Réponse en &lt; 2h</h3>
-        <p>Vous recevez confirmation et créneau possible en moins de 2h en moyenne (Lun–Sam, 8h–19h).</p>
+        <h2>Réponse sous 2h</h2>
+        <p>Confirmation et créneau proposé en moins de 2h en moyenne, {{hours}}.</p>
       </article>
       <article>
-        <h3>Sans engagement</h3>
-        <p>Le devis est gratuit et sans engagement. Vous restez libre d'annuler jusqu'à 24h avant l'intervention.</p>
+        <h2>Sans engagement</h2>
+        <p>Le devis est gratuit. Vous restez libre d'annuler jusqu'à 24h avant l'intervention.</p>
       </article>
     </div>
   </div>
 </section>
 
 <script>
-  // Initialise phoneIntl pour le JS calculator
   window.__phoneIntl = "{{phoneIntl}}";
-  // Préselectionne la formule si query string ?formule=protection-ceramique
   (function(){
     var params = new URLSearchParams(window.location.search);
     var f = params.get('formule');
-    if (f) {
-      var sel = document.getElementById('d-formule');
-      if (sel) {
-        for (var i=0;i<sel.options.length;i++){
-          if (sel.options[i].value === f) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change')); break; }
-        }
-      }
+    if (!f) return;
+    var sel = document.getElementById('d-formule');
+    if (!sel) return;
+    for (var i = 0; i < sel.options.length; i++) {
+      if (sel.options[i].value === f) { sel.selectedIndex = i; sel.dispatchEvent(new Event('change')); break; }
     }
   })();
 </script>
