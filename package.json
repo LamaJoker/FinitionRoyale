@@ -1,0 +1,22 @@
+{
+  "name": "finition-royale",
+  "version": "2.0.0",
+  "description": "Site vitrine de Finition Royale — detailing automobile premium à domicile à Besançon. Générateur statique maison, zéro framework.",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "check": "node scripts/check.js",
+    "test": "node scripts/build.js && node scripts/check.js",
+    "dev": "node scripts/build.js && node scripts/serve.js",
+    "serve": "node scripts/serve.js",
+    "images": "node scripts/images.js",
+    "brand": "node scripts/brand.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.10",
+    "sharp": "^0.35.5"
+  }
+}

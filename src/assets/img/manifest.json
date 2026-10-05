@@ -1,0 +1,52 @@
+{
+  "ap-lavage-qashqai": {
+    "width": 1696,
+    "height": 536,
+    "widths": [
+      480,
+      800,
+      1200,
+      1696
+    ]
+  },
+  "ap-phares-clio": {
+    "width": 1696,
+    "height": 558,
+    "widths": [
+      480,
+      800,
+      1200,
+      1696
+    ]
+  },
+  "ap-sieges-308": {
+    "width": 1699,
+    "height": 566,
+    "widths": [
+      480,
+      800,
+      1200,
+      1699
+    ]
+  },
+  "blog-domicile-vs-garage": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      800,
+      1200,
+      1376
+    ]
+  },
+  "blog-tarifs-2026": {
+    "width": 1376,
+    "height": 768,
+    "widths": [
+      480,
+      800,
+      1200,
+      1376
+    ]
+  }
+}

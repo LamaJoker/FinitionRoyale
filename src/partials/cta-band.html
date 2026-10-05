@@ -1,0 +1,14 @@
+<section class="section cta-band" aria-labelledby="cta-band-title">
+  <div class="container">
+    <div class="cta-band__inner reveal">
+      <p class="eyebrow eyebrow--center">Devis gratuit · réponse en {{responseTime}}</p>
+      <h2 class="cta-band__title" id="cta-band-title">{{props.title}}</h2>
+      <p class="cta-band__text">{{props.text}}</p>
+      <div class="cta-band__actions">
+        <a href="/devis-en-ligne" class="btn btn--primary btn--lg" data-track="cta_band_devis_{{page.slug}}">Voir mon prix en 30 secondes <fr-icon name="arrow-right" size="18"></fr-icon></a>
+        <a href="https://wa.me/{{phoneIntl}}?text={{waQuote}}" class="btn btn--ghost btn--lg" target="_blank" rel="noopener" data-track="cta_band_whatsapp_{{page.slug}}"><fr-icon name="whatsapp" size="18"></fr-icon> Écrire sur WhatsApp</a>
+      </div>
+      <p class="cta-band__offer">Première prestation : <strong>−{{welcomeDiscount}}</strong> avec le code <strong>{{welcomeCode}}</strong>, à mentionner dans votre demande.</p>
+    </div>
+  </div>
+</section>

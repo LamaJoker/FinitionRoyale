@@ -1,0 +1,61 @@
+---
+title: "Mentions légales | Finition Royale"
+description: "Mentions légales du site Finition Royale, detailing automobile à domicile à Besançon : éditeur, hébergeur, propriété intellectuelle, médiation."
+crumb: "Mentions légales"
+noindex: true
+updated: "2026-10-05"
+---
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    {{breadcrumb}}
+    <p class="eyebrow">Informations légales</p>
+    <h1 id="page-title">Mentions <em>légales.</em></h1>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container container--narrow">
+    <div class="prose">
+      <h2 id="editeur">1. Éditeur du site</h2>
+      <p>
+        <strong>{{brand}}</strong> (nom commercial) — {{tagline}}<br>
+        Exploité par {{legal.director}}, {{legal.statut}}<br>
+        Siège : {{legal.regAddress}}<br>
+        Téléphone : <a href="tel:{{phoneTel}}">{{phone}}</a> · E-mail : <a href="mailto:{{email}}">{{email}}</a><br>
+        SIRET : {{legal.siret}} · SIREN : {{legal.siren}}<br>
+        Code APE / NAF : {{legal.apeNaf}}<br>
+        TVA intracommunautaire : {{legal.tvaIntra}}<br>
+        Directeur de la publication : {{legal.director}}
+      </p>
+
+      <h2 id="hebergement">2. Hébergement</h2>
+      <p>
+        <strong>Vercel Inc.</strong><br>
+        440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis<br>
+        <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a>
+      </p>
+
+      <h2 id="propriete">3. Propriété intellectuelle</h2>
+      <p>Les textes, logos, visuels et la charte graphique de ce site sont la propriété de {{brand}}, sauf mention contraire. Toute reproduction ou diffusion, totale ou partielle, sans autorisation écrite préalable est interdite (articles L.335-2 et suivants du Code de la propriété intellectuelle).</p>
+      <p>Les visuels avant/après présentés sur le site sont signalés comme visuels d'illustration tant qu'ils ne proviennent pas de nos propres chantiers.</p>
+
+      <h2 id="donnees">4. Données personnelles</h2>
+      <p>Les informations transmises (formulaire, WhatsApp, SMS, téléphone, e-mail) servent uniquement à répondre à votre demande et à organiser la prestation. Elles ne sont ni vendues ni utilisées pour de la prospection automatisée. Le détail des traitements, durées de conservation et de vos droits figure dans la <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+
+      <h2 id="cookies">5. Mesure d'audience</h2>
+      <p>Le site utilise Google Analytics 4 (IP anonymisée) <strong>uniquement après votre consentement</strong>. Aucun cookie publicitaire n'est déposé. Vous pouvez modifier votre choix à tout moment via le lien « Cookies » en bas de page.</p>
+
+      <h2 id="mediation">6. Médiation de la consommation</h2>
+      <p>Conformément à l'article L.612-1 du Code de la consommation, vous pouvez recourir gratuitement au médiateur de la consommation en vue de la résolution amiable d'un litige : <strong>{{legal.mediator}}</strong> (<a href="https://cm2c.net" target="_blank" rel="noopener">cm2c.net</a>).</p>
+
+      <h2 id="assurance">7. Assurance professionnelle</h2>
+      <p>{{legal.assurance}}. Attestation disponible sur simple demande.</p>
+
+      <h2 id="credits">8. Crédits</h2>
+      <p>Conception et développement : <a href="{{credit.url}}" target="_blank" rel="noopener">{{credit.name}}</a>. Polices : Cormorant Garamond et DM Sans (licence SIL Open Font), hébergées sur ce site. Aucune ressource n'est chargée depuis un service tiers sans votre consentement.</p>
+
+      <p class="form-note">Dernière mise à jour : {{page.updatedLabel}}.</p>
+    </div>
+  </div>
+</section>

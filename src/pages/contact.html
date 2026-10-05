@@ -1,0 +1,96 @@
+---
+title: "Contact et devis gratuit — detailing auto à Besançon | Finition Royale"
+description: "Contactez Finition Royale pour votre detailing à domicile à Besançon : formulaire, WhatsApp, téléphone ou e-mail. Devis gratuit, réponse en moins de 2 h."
+crumb: "Contact"
+schemaType: "ContactPage"
+---
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    {{breadcrumb}}
+    <p class="eyebrow">Contact</p>
+    <h1 id="page-title">Parlons de votre voiture. <em>Réponse en {{responseTime}}.</em></h1>
+    <p class="lead">Le canal le plus simple pour vous est le bon. Indiquez votre véhicule, la prestation souhaitée et votre commune : vous recevez un devis chiffré et engagé.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="contact">
+      <div>
+        <h2>Contact direct</h2>
+        <p>Pour envoyer des photos, WhatsApp reste le plus rapide. Pour une flotte ou une demande détaillée, préférez l'e-mail.</p>
+        <div class="methods">
+          <a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" class="method" target="_blank" rel="noopener" data-track="cta_contact_wa">
+            <span class="method__icon"><fr-icon name="whatsapp" size="22"></fr-icon></span>
+            <span><strong>WhatsApp</strong><span>Photos, questions, réservation</span></span>
+          </a>
+          <a href="tel:{{phoneTel}}" class="method" data-track="cta_contact_tel">
+            <span class="method__icon"><fr-icon name="phone" size="22"></fr-icon></span>
+            <span><strong>{{phone}}</strong><span>{{hours}}</span></span>
+          </a>
+          <a href="mailto:{{email}}" class="method" data-track="cta_contact_email">
+            <span class="method__icon"><fr-icon name="mail" size="22"></fr-icon></span>
+            <span><strong>{{email}}</strong><span>Flottes et demandes détaillées</span></span>
+          </a>
+          <div class="method">
+            <span class="method__icon"><fr-icon name="map-pin" size="22"></fr-icon></span>
+            <span><strong>Zone d'intervention</strong><span>{{zonesText}} et environs</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Formulaire de devis</h2>
+        <p class="form-note">Champs obligatoires : prénom, téléphone, commune.</p>
+        <form id="contactForm" class="lead-form" action="https://api.web3forms.com/submit" method="post" novalidate>
+          <input type="hidden" name="access_key" value="{{web3formsKey}}">
+          <input type="hidden" name="subject" value="Nouvelle demande de devis — {{brand}}">
+          <input type="hidden" name="from_name" value="{{brand}} — Formulaire de contact">
+          <input type="hidden" name="redirect" value="{{siteUrl}}/merci?src=formulaire">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="form-grid">
+            <div class="field">
+              <label for="c-prenom">Prénom</label>
+              <input class="input" id="c-prenom" name="prenom" type="text" required autocomplete="given-name" maxlength="60">
+            </div>
+            <div class="field">
+              <label for="c-tel">Téléphone</label>
+              <input class="input" id="c-tel" name="telephone" type="tel" required autocomplete="tel" inputmode="tel" maxlength="20" placeholder="06 12 34 56 78">
+            </div>
+            <div class="field">
+              <label for="c-vehicule">Véhicule <span class="optional">(marque, modèle)</span></label>
+              <input class="input" id="c-vehicule" name="vehicule" type="text" maxlength="80" placeholder="ex. BMW Série 3, 2019">
+            </div>
+            <div class="field">
+              <label for="c-commune">Commune</label>
+              <input class="input" id="c-commune" name="commune" type="text" required autocomplete="address-level2" maxlength="60" placeholder="Besançon, Thise…">
+            </div>
+            <div class="field field--full">
+              <label for="c-formule">Prestation souhaitée</label>
+              <select class="select" id="c-formule" name="formule">
+                <option value="Conseil">Je ne sais pas, conseillez-moi</option>
+                <option value="{{offer.eclat.name}}">{{offer.eclat.name}} — dès {{offer.eclat.from}} €</option>
+                <option value="{{offer.prestige.name}}">{{offer.prestige.name}} — dès {{offer.prestige.from}} €</option>
+                <option value="{{offer.ceramique.name}}">{{offer.ceramique.name}} — dès {{offer.ceramique.from}} €</option>
+                <option value="À la carte">À la carte (optiques, sièges, vitres)</option>
+                <option value="Flotte professionnelle">Flotte professionnelle</option>
+              </select>
+            </div>
+            <div class="field field--full">
+              <label for="c-message">Message <span class="optional">(facultatif)</span></label>
+              <textarea class="textarea" id="c-message" name="message" rows="4" maxlength="1000" placeholder="État du véhicule, contraintes horaires…"></textarea>
+            </div>
+          </div>
+          <label class="consent" for="c-consent">
+            <input id="c-consent" name="consentement" type="checkbox" value="oui" required>
+            <span>J'accepte d'être recontacté(e) par {{brand}} au sujet de ma demande. Voir la <a href="/politique-confidentialite">politique de confidentialité</a>.</span>
+          </label>
+          <p class="form-status form-status--error" id="contactError" role="alert" hidden></p>
+          <button type="submit" class="btn btn--primary btn--lg btn--block" data-track="cta_form_submit">Recevoir mon devis <fr-icon name="arrow-right" size="18"></fr-icon></button>
+          <p class="form-note">Réponse en {{responseTime}} en moyenne · sans relance commerciale.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

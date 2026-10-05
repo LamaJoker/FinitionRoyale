@@ -1,18 +1,18 @@
-# Dépendances
+# Dépendances et build (dist/ est régénéré par Vercel à chaque déploiement)
 node_modules/
-**/node_modules/
+dist/
 
 # Secrets — ne jamais commiter
 .env
 .env.*
 *.local
-code ovh.txt
-**/code ovh.txt
+*ovh*.txt
 
-# Outils / éditeurs
+# Outils / éditeurs / OS
 .claude/
-.DS_Store
-*.log
-
-# Artefacts temporaires
 .vercel/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log

@@ -1,0 +1,214 @@
+---
+title: "Tarifs detailing auto à Besançon dès 80 € | Finition Royale"
+description: "Prestations de detailing à domicile à Besançon : Éclat Essentiel dès 80 €, Prestige Complet dès 180 €, Protection Céramique dès 350 €. Tarifs publics par véhicule."
+crumb: "Prestations"
+schema: |
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Formules de detailing automobile à domicile",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "{{offer.eclat.name}}", "url": "{{siteUrl}}/prestations#{{offer.eclat.anchor}}" },
+      { "@type": "ListItem", "position": 2, "name": "{{offer.prestige.name}}", "url": "{{siteUrl}}/prestations#{{offer.prestige.anchor}}" },
+      { "@type": "ListItem", "position": 3, "name": "{{offer.ceramique.name}}", "url": "{{siteUrl}}/prestations#{{offer.ceramique.anchor}}" }
+    ]
+  }
+---
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    {{breadcrumb}}
+    <p class="eyebrow">Formules &amp; tarifs</p>
+    <h1 id="page-title">Detailing automobile à {{city}} : <em>trois formules, des prix publics.</em></h1>
+    <p class="lead">Pas de forfait gonflé, pas de surprise sur place. Des tarifs engagés par type de véhicule, et un travail sérieux devant chez vous.</p>
+    <div class="page-hero__actions">
+      <a href="/devis-en-ligne" class="btn btn--primary btn--lg" data-track="cta_presta_hero_devis">Calculer mon prix <fr-icon name="arrow-right" size="18"></fr-icon></a>
+    </div>
+  </div>
+</section>
+
+<nav class="subnav" aria-label="Accès rapide aux formules">
+  <div class="container">
+    <ul>
+      <li><a href="#comparatif">Comparatif</a></li>
+      <li><a href="#{{offer.eclat.anchor}}">{{offer.eclat.name}}</a></li>
+      <li><a href="#{{offer.prestige.anchor}}">{{offer.prestige.name}}</a></li>
+      <li><a href="#{{offer.ceramique.anchor}}">{{offer.ceramique.name}}</a></li>
+      <li><a href="#a-la-carte">À la carte</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="section" id="comparatif" aria-labelledby="compare-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">Comparatif</p>
+      <h2 id="compare-title">Quelle formule <em>est faite pour vous ?</em></h2>
+    </header>
+    <div class="table-wrap" role="region" aria-labelledby="compare-title" tabindex="0">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col">Inclus</th>
+            <th scope="col">{{offer.eclat.name}}</th>
+            <th scope="col" class="is-featured">{{offer.prestige.name}}</th>
+            <th scope="col">{{offer.ceramique.name}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Lavage extérieur à la main</th><td class="yes">✓</td><td class="yes is-featured">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Intérieur complet et aspiration</th><td class="yes">✓</td><td class="yes is-featured">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Polish (correction des rayures)</th><td class="no">—</td><td class="is-featured">1 étape</td><td>1 ou 2 étapes</td></tr>
+          <tr><th scope="row">Traitement cuir ou tissu</th><td class="no">—</td><td class="yes is-featured">✓</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Cire de finition</th><td class="no">—</td><td class="yes is-featured">✓</td><td class="no">—</td></tr>
+          <tr><th scope="row">Revêtement céramique</th><td class="no">—</td><td class="no is-featured">—</td><td class="yes">✓</td></tr>
+          <tr><th scope="row">Durée de protection</th><td>{{offer.eclat.protection}}</td><td class="is-featured">{{offer.prestige.protection}}</td><td>{{offer.ceramique.protection}}</td></tr>
+          <tr><th scope="row">Durée de la prestation</th><td>{{offer.eclat.duration}}</td><td class="is-featured">{{offer.prestige.duration}}</td><td>{{offer.ceramique.duration}}</td></tr>
+          <tr><th scope="row">À partir de</th><td class="price">{{offer.eclat.from}}&nbsp;€</td><td class="price is-featured">{{offer.prestige.from}}&nbsp;€</td><td class="price">{{offer.ceramique.from}}&nbsp;€</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-hint" aria-hidden="true">Faites glisser le tableau →</p>
+  </div>
+</section>
+
+<section class="section section--alt" id="{{offer.eclat.anchor}}" aria-labelledby="eclat-title">
+  <div class="container">
+    <div class="formula">
+      <div class="formula__content">
+        <p class="eyebrow">Formule 01</p>
+        <h2 id="eclat-title">{{offer.eclat.name}}, <em>la remise en état complète.</em></h2>
+        <p class="formula__for"><strong>Pour qui ?</strong> Conducteurs réguliers, familles, propriétaires qui veulent retrouver l'éclat d'origine sans casser leur planning.</p>
+        <p>Intérieur aspiré en profondeur, extérieur lavé à la main avec soin, plastiques traités, vitres dégraissées. Idéal en entretien trimestriel ou avant une revente.</p>
+        <ul class="checklist">
+          <li><fr-icon name="check" size="16"></fr-icon>Lavage extérieur à la main, shampoing pH neutre Koch-Chemie</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Nettoyage intérieur complet et aspiration HEPA</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Plastiques intérieurs et extérieurs ravivés (protection UV)</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Vitres dégraissées, intérieur et extérieur</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Jantes et pneus décrassés, pneus habillés</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Seuils de portes, coffre et plage arrière nettoyés</li>
+        </ul>
+      </div>
+      <aside class="price-card card" aria-label="Tarifs {{offer.eclat.name}}">
+        <p class="price-card__title">Tarifs engagés</p>
+        <ul class="price-list">
+          <li><span>{{vehicles.0.label}}<small>{{vehicles.0.examples}}</small></span><b>{{offer.eclat.prices.citadine}} €</b></li>
+          <li><span>{{vehicles.1.label}}<small>{{vehicles.1.examples}}</small></span><b>{{offer.eclat.prices.berline}} €</b></li>
+          <li><span>{{vehicles.2.label}}<small>{{vehicles.2.examples}}</small></span><b>{{offer.eclat.prices.suv}} €</b></li>
+          <li><span>{{vehicles.3.label}}<small>{{vehicles.3.examples}}</small></span><b>{{offer.eclat.prices.utilitaire}} €</b></li>
+        </ul>
+        <p class="price-card__note">Tarif confirmé sur photos (WhatsApp). Aucun supplément sur place, sauf écart signalé avant l'intervention.</p>
+        <a href="/devis-en-ligne?formule={{offer.eclat.id}}" class="btn btn--primary btn--block" data-track="cta_presta_eclat">Réserver cette formule</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="{{offer.prestige.anchor}}" aria-labelledby="prestige-title">
+  <div class="container">
+    <div class="formula formula--reverse">
+      <div class="formula__content">
+        <p class="eyebrow">Formule 02 · la plus demandée</p>
+        <h2 id="prestige-title">{{offer.prestige.name}}, <em>la transformation.</em></h2>
+        <p class="formula__for"><strong>Pour qui ?</strong> Véhicules premium, fin de leasing ou de LOA, revente à valoriser, occasion à remettre au niveau.</p>
+        <p>Tout l'{{offer.eclat.name}}, plus un polish une étape qui efface les micro-rayures, un traitement professionnel des sièges (cuir ou tissu) et une cire qui rend la peinture profonde et brillante pendant {{offer.prestige.protection}}.</p>
+        <ul class="checklist">
+          <li><fr-icon name="check" size="16"></fr-icon>Tout l'{{offer.eclat.name}} inclus</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Polish une étape : correction légère des micro-rayures et hologrammes</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Cuir nettoyé et nourri (Gyeon), ou tissu traité par extraction vapeur</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Désodorisation en profondeur par ozone</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Cire de finition protectrice Meguiar's</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Traitement hydrofuge des vitres : l'eau perle dès 60 km/h</li>
+        </ul>
+      </div>
+      <aside class="price-card card" aria-label="Tarifs {{offer.prestige.name}}">
+        <p class="price-card__title">Tarifs engagés</p>
+        <ul class="price-list">
+          <li><span>{{vehicles.0.label}}<small>{{vehicles.0.examples}}</small></span><b>{{offer.prestige.prices.citadine}} €</b></li>
+          <li><span>{{vehicles.1.label}}<small>{{vehicles.1.examples}}</small></span><b>{{offer.prestige.prices.berline}} €</b></li>
+          <li><span>{{vehicles.2.label}}<small>{{vehicles.2.examples}}</small></span><b>{{offer.prestige.prices.suv}} €</b></li>
+          <li><span>{{vehicles.3.label}}<small>{{vehicles.3.examples}}</small></span><b>{{offer.prestige.prices.utilitaire}} €</b></li>
+        </ul>
+        <p class="price-card__note">Tarif final confirmé après inspection photo. Aucune surprise à la livraison.</p>
+        <a href="/devis-en-ligne?formule={{offer.prestige.id}}" class="btn btn--primary btn--block" data-track="cta_presta_prestige">Réserver cette formule</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="{{offer.ceramique.anchor}}" aria-labelledby="ceramique-title">
+  <div class="container">
+    <div class="formula">
+      <div class="formula__content">
+        <p class="eyebrow">Formule 03 · protection longue durée</p>
+        <h2 id="ceramique-title">{{offer.ceramique.name}}, <em>l'investissement durable.</em></h2>
+        <p class="formula__for"><strong>Pour qui ?</strong> Voitures neuves ou récentes, véhicules gardés plus de trois ans, conducteurs qui veulent en finir avec les lavages fréquents.</p>
+        <p>Un revêtement nano-céramique professionnel protège la peinture des UV, de la pollution, des insectes, des fientes et des rayures légères, pendant {{offer.ceramique.protection}} selon le produit choisi. Le lavage devient plus rapide, la brillance tient.</p>
+        <ul class="checklist">
+          <li><fr-icon name="check" size="16"></fr-icon>Décontamination chimique (fer, résidus de freinage)</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Décontamination mécanique à la barre d'argile</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Polish de correction en une ou deux étapes selon l'état</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Revêtement céramique professionnel (Gyeon Q² ou CarPro CQuartz)</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Vitres et jantes traitées céramique</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Certificat produit et photos de la prestation remis</li>
+        </ul>
+      </div>
+      <aside class="price-card card" aria-label="Tarifs {{offer.ceramique.name}}">
+        <p class="price-card__title">Tarifs indicatifs</p>
+        <ul class="price-list">
+          <li><span>{{vehicles.0.label}}<small>{{vehicles.0.examples}}</small></span><b>{{offer.ceramique.prices.citadine}} €</b></li>
+          <li><span>{{vehicles.1.label}}<small>{{vehicles.1.examples}}</small></span><b>{{offer.ceramique.prices.berline}} €</b></li>
+          <li><span>{{vehicles.2.label}}<small>{{vehicles.2.examples}}</small></span><b>{{offer.ceramique.prices.suv}} €</b></li>
+          <li><span>{{vehicles.3.label}}<small>{{vehicles.3.examples}}</small></span><b>{{offer.ceramique.prices.utilitaire}} €</b></li>
+        </ul>
+        <p class="price-card__note">Inspection préalable sur photos obligatoire. Paiement en 2 ou 3 fois sans frais possible.</p>
+        <a href="/devis-en-ligne?formule={{offer.ceramique.id}}" class="btn btn--primary btn--block" data-track="cta_presta_ceramique">Demander un devis céramique</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="a-la-carte" aria-labelledby="carte-title">
+  <div class="container">
+    <header class="section-head">
+      <p class="eyebrow">À la carte</p>
+      <h2 id="carte-title">Besoin d'une intervention <em>ciblée ?</em></h2>
+      <p class="lead">Pour un défaut précis, sans formule complète. Combinables avec n'importe quelle formule.</p>
+    </header>
+    <div class="extras">
+      <article class="extra card reveal">
+        <h3>{{extra.optiques.name}}</h3>
+        <ul class="checklist">
+          <li><fr-icon name="check" size="16"></fr-icon>Ponçage progressif des phares jaunis</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Vernis de protection UV professionnel</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Tenue de 12 à 18 mois</li>
+        </ul>
+        <p class="extra__price"><span>dès</span> {{extra.optiques.from}} €</p>
+        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20souhaite%20une%20restauration%20d%27optiques." class="btn btn--ghost btn--block" target="_blank" rel="noopener" data-track="cta_carte_optiques">Demander</a>
+      </article>
+      <article class="extra card reveal">
+        <h3>{{extra.sieges.name}}</h3>
+        <ul class="checklist">
+          <li><fr-icon name="check" size="16"></fr-icon>Extraction des taches incrustées</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Nettoyage vapeur professionnel</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Cuir et tissu</li>
+        </ul>
+        <p class="extra__price"><span>dès</span> {{extra.sieges.from}} €</p>
+        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20souhaite%20un%20d%C3%A9tachage%20des%20si%C3%A8ges." class="btn btn--ghost btn--block" target="_blank" rel="noopener" data-track="cta_carte_sieges">Demander</a>
+      </article>
+      <article class="extra card reveal">
+        <h3>{{extra.vitres.name}}</h3>
+        <ul class="checklist">
+          <li><fr-icon name="check" size="16"></fr-icon>Dégraissage et polissage du verre</li>
+          <li><fr-icon name="check" size="16"></fr-icon>Revêtement hydrofuge professionnel</li>
+          <li><fr-icon name="check" size="16"></fr-icon>L'eau perle dès 60 km/h</li>
+        </ul>
+        <p class="extra__price"><span>dès</span> {{extra.vitres.from}} €</p>
+        <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20souhaite%20un%20traitement%20des%20vitres." class="btn btn--ghost btn--block" target="_blank" rel="noopener" data-track="cta_carte_vitres">Demander</a>
+      </article>
+    </div>
+    <p class="note"><fr-icon name="building" size="16"></fr-icon>Flotte d'entreprise de plus de 3 véhicules ? Tarifs dégressifs et intervention groupée sur site : <a href="/contact" class="link-arrow">parlons-en</a>.</p>
+  </div>
+</section>
+
+<fr-include name="cta-band" title="Un doute sur la &lt;em&gt;formule adaptée ?&lt;/em&gt;" text="Le calculateur vous donne un prix en 30 secondes. Ou envoyez-nous quelques photos : on vous conseille gratuitement."></fr-include>

@@ -1,0 +1,58 @@
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner container container--wide">
+    <a href="/" class="brand" aria-label="{{brand}}, retour à l'accueil">
+      <img src="/assets/logo-mark.svg" alt="" width="30" height="34" class="brand__mark">
+      <span class="brand__name">{{brand}}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      <ul class="site-nav__list">
+        <li><a href="/prestations" data-nav="prestations">Prestations</a></li>
+        <li><a href="/avant-apres" data-nav="avant-apres">Réalisations</a></li>
+        <li><a href="/zone-besancon" data-nav="zone-besancon">Zones</a></li>
+        <li><a href="/blog" data-nav="blog">Conseils</a></li>
+        <li><a href="/a-propos" data-nav="a-propos">À propos</a></li>
+        <li><a href="/contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a href="tel:{{phoneTel}}" class="header-phone" data-track="cta_header_tel">
+        <fr-icon name="phone" size="16"></fr-icon><span>{{phone}}</span>
+      </a>
+      <a href="/devis-en-ligne" class="btn btn--primary btn--sm" data-track="cta_nav_devis">Voir mon prix</a>
+      <button class="menu-toggle" type="button" aria-haspopup="dialog" aria-controls="mobileMenu" data-menu-open>
+        <fr-icon name="menu" size="24"></fr-icon><span class="sr-only">Ouvrir le menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<dialog class="mobile-menu" id="mobileMenu" aria-label="Menu">
+  <div class="mobile-menu__top">
+    <a href="/" class="brand" aria-label="{{brand}}, accueil">
+      <img src="/assets/logo-mark.svg" alt="" width="30" height="34" class="brand__mark">
+      <span class="brand__name">{{brand}}</span>
+    </a>
+    <button class="mobile-menu__close" type="button" data-menu-close autofocus>
+      <fr-icon name="close" size="24"></fr-icon><span class="sr-only">Fermer le menu</span>
+    </button>
+  </div>
+  <nav aria-label="Menu mobile">
+    <ul class="mobile-menu__list">
+      <li><a href="/" data-nav="index">Accueil</a></li>
+      <li><a href="/prestations" data-nav="prestations">Prestations &amp; tarifs</a></li>
+      <li><a href="/avant-apres" data-nav="avant-apres">Réalisations</a></li>
+      <li><a href="/zone-besancon" data-nav="zone-besancon">Zones d'intervention</a></li>
+      <li><a href="/blog" data-nav="blog">Conseils</a></li>
+      <li><a href="/faq" data-nav="faq">Questions fréquentes</a></li>
+      <li><a href="/a-propos" data-nav="a-propos">À propos</a></li>
+      <li><a href="/contact" data-nav="contact">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-menu__footer">
+    <a href="/devis-en-ligne" class="btn btn--primary btn--lg btn--block" data-track="cta_menu_devis">Voir mon prix en 30 s</a>
+    <a href="tel:{{phoneTel}}" class="mobile-menu__phone" data-track="cta_menu_tel"><fr-icon name="phone" size="18"></fr-icon>{{phone}}</a>
+    <p class="mobile-menu__hours">{{hours}}</p>
+  </div>
+</dialog>
