@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 72" fill="none">
+  <defs>
+    <linearGradient id="fr-gold" x1="8" y1="2" x2="56" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E9D38F"/>
+      <stop offset=".45" stop-color="#C9A84C"/>
+      <stop offset="1" stop-color="#9C7A2E"/>
+    </linearGradient>
+    <mask id="fr-crown-holes">
+      <rect width="64" height="72" fill="#fff"/>
+      <circle cx="24.6" cy="31.2" r="2.3" fill="#000"/>
+      <circle cx="39.4" cy="31.2" r="2.3" fill="#000"/>
+    </mask>
+  </defs>
+  <path d="M32 3.5 58.5 10v24.5c0 16.2-11.4 28.3-26.5 34-15.1-5.7-26.5-17.8-26.5-34V10Z" stroke="url(#fr-gold)" stroke-width="3.6" stroke-linejoin="round"/>
+  <path d="m17.5 22.5 7.1 9.2L32 17.5l7.4 14.2 7.1-9.2-2.2 16.5H19.7Z" fill="url(#fr-gold)" mask="url(#fr-crown-holes)"/>
+  <rect x="19.7" y="42.5" width="24.6" height="3.6" rx=".6" fill="url(#fr-gold)"/>
+</svg>

@@ -1,0 +1,9 @@
+# Fins de ligne LF partout (le front-matter des pages en dépend sous Windows)
+* text=auto eol=lf
+
+*.avif binary
+*.webp binary
+*.jpg binary
+*.png binary
+*.ico binary
+*.woff2 binary

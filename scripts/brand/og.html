@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>OG image</title>
+<style>
+  @font-face { font-family: "Cormorant Garamond"; font-weight: 700; src: url("../../src/assets/fonts/cormorant-garamond-700.woff2") format("woff2"); }
+  @font-face { font-family: "Cormorant Garamond"; font-weight: 500; font-style: italic; src: url("../../src/assets/fonts/cormorant-garamond-500-italic.woff2") format("woff2"); }
+  @font-face { font-family: "DM Sans"; font-weight: 100 1000; src: url("../../src/assets/fonts/dm-sans-variable.woff2") format("woff2"); }
+
+  * { margin: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; background: #0a0a0a; }
+  body {
+    position: relative;
+    font-family: "DM Sans", sans-serif;
+    color: #f6f2e8;
+    background:
+      radial-gradient(ellipse 55% 70% at 18% 30%, rgba(201,168,76,.16), transparent 70%),
+      #0a0a0a;
+  }
+  .photo {
+    position: absolute; inset: 0 0 0 auto; width: 560px;
+    background: url("../../src/assets/img/ap-phares-clio-1696.jpg") right center / auto 100% no-repeat;
+  }
+  .photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, #0a0a0a 0%, rgba(10,10,10,.72) 28%, rgba(10,10,10,.1) 70%, rgba(10,10,10,.25) 100%);
+  }
+  .frame { position: absolute; inset: 28px; border: 1px solid rgba(201,168,76,.28); border-radius: 6px; pointer-events: none; }
+  .content { position: absolute; left: 84px; top: 84px; bottom: 84px; width: 640px; display: flex; flex-direction: column; }
+  .brand { display: flex; align-items: center; gap: 18px; }
+  .brand img { width: 58px; height: auto; }
+  .brand span { font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 30px; letter-spacing: .14em; text-transform: uppercase; color: #e2c77e; }
+  h1 { margin-top: auto; font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 74px; line-height: 1.02; letter-spacing: -.01em; }
+  h1 em { font-style: italic; font-weight: 500; color: #d9bb69; }
+  p { margin-top: 26px; font-size: 23px; color: #b9b3a6; letter-spacing: .01em; white-space: nowrap; }
+  .rule { width: 72px; height: 2px; background: linear-gradient(90deg, #c9a84c, transparent); margin-top: 30px; }
+  .tag { position: absolute; right: 128px; bottom: 46px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: rgba(246,242,232,.55); }
+</style>
+</head>
+<body>
+  <div class="photo"></div>
+  <div class="frame"></div>
+  <div class="content">
+    <div class="brand"><img src="../../src/assets/logo-mark.svg" alt=""><span>Finition Royale</span></div>
+    <h1>Detailing automobile <em>à domicile.</em></h1>
+    <p>Besançon &amp; Grand Doubs · Polish · Céramique · Intérieur</p>
+    <div class="rule"></div>
+  </div>
+  <div class="tag">Visuel d'illustration</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<footer class="site-footer">
+  <div class="container container--wide">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="/" class="brand brand--lg" aria-label="{{brand}}, accueil">
+          <img src="/assets/logo-mark.svg" alt="" width="36" height="40" class="brand__mark" loading="lazy">
+          <span class="brand__name">{{brand}}</span>
+        </a>
+        <p>{{shortPitch}}</p>
+        <ul class="social-links" aria-label="Réseaux sociaux">
+          <li><a href="{{social.instagram}}" target="_blank" rel="noopener" data-track="cta_footer_instagram"><fr-icon name="instagram" size="18"></fr-icon><span class="sr-only">Instagram</span></a></li>
+          <li><a href="{{social.facebook}}" target="_blank" rel="noopener" data-track="cta_footer_facebook"><fr-icon name="facebook" size="18"></fr-icon><span class="sr-only">Facebook</span></a></li>
+          <li><a href="{{social.googleBusiness}}" target="_blank" rel="noopener" data-track="cta_footer_google"><fr-icon name="google" size="18"></fr-icon><span class="sr-only">Fiche Google</span></a></li>
+        </ul>
+      </div>
+
+      <nav class="site-footer__col" aria-labelledby="footer-prestations">
+        <p class="site-footer__title" id="footer-prestations">Prestations</p>
+        <ul>
+          <li><a href="/prestations#{{offer.eclat.anchor}}">{{offer.eclat.name}}</a></li>
+          <li><a href="/prestations#{{offer.prestige.anchor}}">{{offer.prestige.name}}</a></li>
+          <li><a href="/prestations#{{offer.ceramique.anchor}}">{{offer.ceramique.name}}</a></li>
+          <li><a href="/prestations#a-la-carte">À la carte</a></li>
+          <li><a href="/devis-en-ligne">Devis en ligne</a></li>
+          <li><a href="/avant-apres">Réalisations</a></li>
+        </ul>
+      </nav>
+
+      <nav class="site-footer__col" aria-labelledby="footer-zones">
+        <p class="site-footer__title" id="footer-zones">Zones d'intervention</p>
+        <ul>
+          <li><a href="/detailing-besancon">Detailing Besançon</a></li>
+          <li><a href="/detailing-thise">Detailing Thise</a></li>
+          <li><a href="/detailing-devecey">Detailing Devecey</a></li>
+          <li><a href="/detailing-ornans">Detailing Ornans</a></li>
+          <li><a href="/detailing-baume-les-dames">Detailing Baume-les-Dames</a></li>
+          <li><a href="/detailing-montbeliard">Detailing Montbéliard</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-footer__col">
+        <p class="site-footer__title">Contact</p>
+        <ul class="contact-list">
+          <li><a href="tel:{{phoneTel}}" data-track="cta_footer_tel"><fr-icon name="phone" size="16"></fr-icon>{{phone}}</a></li>
+          <li><a href="https://wa.me/{{phoneIntl}}?text={{waDefault}}" target="_blank" rel="noopener" data-track="cta_footer_whatsapp"><fr-icon name="whatsapp" size="16"></fr-icon>WhatsApp</a></li>
+          <li><a href="mailto:{{email}}" data-track="cta_footer_email"><fr-icon name="mail" size="16"></fr-icon>{{email}}</a></li>
+          <li><span><fr-icon name="clock" size="16"></fr-icon>{{hours}}</span></li>
+          <li><span><fr-icon name="map-pin" size="16"></fr-icon>{{region}} &amp; Doubs</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© {{year}} {{brand}} · {{legal.statut}} · SIRET {{legal.siret}}</p>
+      <ul class="site-footer__legal">
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+        <li><a href="/cgv">CGV</a></li>
+        <li><a href="/politique-confidentialite">Confidentialité</a></li>
+        <li><button type="button" class="link-button" data-cookie-settings>Cookies</button></li>
+      </ul>
+      <p class="site-footer__credit">Site conçu et développé par <a href="{{credit.url}}" target="_blank" rel="noopener">{{credit.name}}</a></p>
+    </div>
+  </div>
+</footer>

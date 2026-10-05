@@ -1,0 +1,55 @@
+---
+title: "Demande reçue — Finition Royale"
+description: "Votre demande de devis Finition Royale a bien été reçue. Nous revenons vers vous en moins de 2 heures."
+crumb: "Demande reçue"
+noindex: true
+---
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <div class="merci-icon"><fr-icon name="check" size="34"></fr-icon></div>
+    <h1 id="page-title">Demande reçue. <em>On s'en occupe.</em></h1>
+    <p class="lead">Notre réponse arrive par message en {{responseTime}} en moyenne, {{hours}}, depuis le <strong>{{phone}}</strong> : enregistrez le numéro pour ne pas la manquer.</p>
+    <p class="recap" id="merciRecap" hidden></p>
+  </div>
+</section>
+
+<section class="section section--tight" aria-labelledby="photos-title">
+  <div class="container container--narrow">
+    <div class="card">
+      <p class="eyebrow">Étape facultative, mais précieuse</p>
+      <h2 id="photos-title">Gagnez du temps : <em>envoyez trois photos.</em></h2>
+      <p>Le devis est chiffré d'après l'état réel du véhicule. Avec vos photos, nous confirmons le tarif du premier coup, sans échange supplémentaire ni surprise le jour J.</p>
+      <ul class="photo-tips">
+        <li><strong>La voiture entière</strong><span>Un plan large, de trois quarts avant.</span></li>
+        <li><strong>Ce qui vous dérange</strong><span>Rayure, tache, phare jauni, sève, traces d'eau.</span></li>
+        <li><strong>L'intérieur</strong><span>Sièges et tapis, sans rien ranger avant.</span></li>
+      </ul>
+      <a href="https://wa.me/{{phoneIntl}}?text=Bonjour%2C%20je%20viens%20d%27envoyer%20ma%20demande%20de%20devis%20sur%20le%20site.%20Voici%20les%20photos%20de%20mon%20v%C3%A9hicule%20%3A" class="btn btn--primary btn--lg" id="merciWa" data-phone="{{phoneIntl}}" target="_blank" rel="noopener" data-track="cta_merci_photos"><fr-icon name="camera" size="18"></fr-icon> Envoyer mes photos sur WhatsApp</a>
+      <p class="form-note">Pas de WhatsApp ? Répondez simplement à notre message quand il arrive.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt section--tight" aria-labelledby="steps-title">
+  <div class="container container--narrow">
+    <h2 id="steps-title">La suite, <em>dans l'ordre.</em></h2>
+    <ol class="timeline">
+      <li><h3>Sous 2 h — notre message</h3><p>Nous confirmons la formule adaptée et le tarif engagé, puis vous proposons deux ou trois créneaux.</p></li>
+      <li><h3>Le jour J — nous venons à vous</h3><p>À l'adresse et à l'heure convenues. Une place de stationnement suffit : vous n'avez rien à préparer.</p></li>
+      <li><h3>À la fin — vérification ensemble</h3><p>Photos avant/après remises, paiement une fois la prestation validée (carte, espèces, virement).</p></li>
+    </ol>
+    <p class="cta-band__offer">Première prestation ? Mentionnez le code <strong>{{welcomeCode}}</strong> dans la conversation : <strong>−{{welcomeDiscount}}</strong>.</p>
+  </div>
+</section>
+
+<section class="section section--tight" aria-labelledby="next-title">
+  <div class="container">
+    <h2 id="next-title">En attendant notre réponse</h2>
+    <div class="related">
+      <a href="/avant-apres" class="card card--link" data-track="cta_merci_galerie"><h3>Avant / après</h3><p>Ce qu'une prestation change concrètement.</p></a>
+      <a href="/faq" class="card card--link" data-track="cta_merci_faq"><h3>Questions fréquentes</h3><p>Durée, produits, assurance, garantie : tout ce qu'on nous demande.</p></a>
+      <a href="/blog" class="card card--link" data-track="cta_merci_blog"><h3>Conseils</h3><p>Nos guides pour garder votre voiture impeccable plus longtemps.</p></a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,145 @@
+---
+title: "Devis detailing en ligne en 30 secondes | Finition Royale"
+description: "Calculez le prix de votre detailing à domicile à Besançon en 30 secondes : formule, véhicule, estimation immédiate. Devis confirmé en moins de 2 h, sans engagement."
+crumb: "Devis en ligne"
+---
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    {{breadcrumb}}
+    <p class="eyebrow">Devis gratuit · sans engagement</p>
+    <h1 id="page-title">Votre prix <em>en 30 secondes.</em></h1>
+    <p class="lead">Deux choix, une estimation immédiate. Laissez vos coordonnées : nous confirmons le tarif et un créneau en {{responseTime}}.</p>
+  </div>
+</section>
+
+<section class="section section--tight" aria-label="Calculateur de devis">
+  <div class="container">
+    <div class="devis" id="devisCalc">
+      <div class="devis__form">
+        <fieldset class="choice-group">
+          <legend><span>1.</span> Quelle prestation ?</legend>
+          <div class="choices choices--3">
+            <label class="choice">
+              <input type="radio" name="formule" value="{{offer.eclat.id}}">
+              <span class="choice__body">
+                <fr-icon name="droplet" size="22"></fr-icon>
+                <span class="choice__title">{{offer.eclat.name}}</span>
+                <span class="choice__desc">{{offer.eclat.summary}} · dès {{offer.eclat.from}} €</span>
+              </span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="formule" value="{{offer.prestige.id}}">
+              <span class="choice__body">
+                <fr-icon name="sparkles" size="22"></fr-icon>
+                <span class="choice__title">{{offer.prestige.name}}</span>
+                <span class="choice__desc">{{offer.prestige.summary}} · dès {{offer.prestige.from}} €</span>
+              </span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="formule" value="{{offer.ceramique.id}}">
+              <span class="choice__body">
+                <fr-icon name="shield-check" size="22"></fr-icon>
+                <span class="choice__title">{{offer.ceramique.name}}</span>
+                <span class="choice__desc">{{offer.ceramique.summary}} · dès {{offer.ceramique.from}} €</span>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="choice-group">
+          <legend><span>2.</span> Quel véhicule ?</legend>
+          <div class="choices choices--4">
+            <label class="choice">
+              <input type="radio" name="vehicule" value="{{vehicles.0.id}}">
+              <span class="choice__body"><span class="choice__title">{{vehicles.0.label}}</span><span class="choice__desc">{{vehicles.0.examples}}</span></span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="vehicule" value="{{vehicles.1.id}}">
+              <span class="choice__body"><span class="choice__title">{{vehicles.1.label}}</span><span class="choice__desc">{{vehicles.1.examples}}</span></span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="vehicule" value="{{vehicles.2.id}}">
+              <span class="choice__body"><span class="choice__title">{{vehicles.2.label}}</span><span class="choice__desc">{{vehicles.2.examples}}</span></span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="vehicule" value="{{vehicles.3.id}}">
+              <span class="choice__body"><span class="choice__title">{{vehicles.3.label}}</span><span class="choice__desc">{{vehicles.3.examples}}</span></span>
+            </label>
+          </div>
+        </fieldset>
+
+        <form class="lead-form card" id="leadForm" action="https://api.web3forms.com/submit" method="post" novalidate hidden>
+          <fieldset class="choice-group">
+            <legend><span>3.</span> Où vous envoyer le devis confirmé ?</legend>
+            <div class="form-grid">
+              <div class="field">
+                <label for="d-prenom">Prénom</label>
+                <input class="input" type="text" id="d-prenom" name="prenom" autocomplete="given-name" required maxlength="60">
+              </div>
+              <div class="field">
+                <label for="d-tel">Téléphone</label>
+                <input class="input" type="tel" id="d-tel" name="telephone" inputmode="tel" autocomplete="tel" placeholder="06 12 34 56 78" required maxlength="20">
+              </div>
+              <div class="field field--full">
+                <label for="d-commune">Commune d'intervention</label>
+                <input class="input" type="text" id="d-commune" name="commune" autocomplete="address-level2" placeholder="Besançon, Thise, Ornans…" required maxlength="60">
+              </div>
+              <div class="field field--full">
+                <label for="d-message">Une précision sur l'état du véhicule ? <span class="optional">(facultatif)</span></label>
+                <textarea class="textarea" id="d-message" name="message" rows="2" maxlength="600" placeholder="Sièges tachés, phares jaunis, voiture garée sous un tilleul…"></textarea>
+              </div>
+            </div>
+          </fieldset>
+          <input type="hidden" name="access_key" value="{{web3formsKey}}">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="form-status form-status--error" id="leadError" role="alert" hidden></p>
+          <div class="lead-form__actions">
+            <a href="https://wa.me/{{phoneIntl}}?text={{waQuote}}" id="leadWhatsapp" class="btn btn--primary btn--lg" target="_blank" rel="noopener" data-phone="{{phoneIntl}}" data-track="cta_devis_whatsapp"><fr-icon name="whatsapp" size="18"></fr-icon> Envoyer via WhatsApp</a>
+            <button type="submit" id="leadCallback" class="btn btn--ghost btn--lg" data-phone="{{phone}}" data-track="cta_devis_rappel">Envoyer, rappelez-moi</button>
+          </div>
+          <p class="form-note">Vos coordonnées servent uniquement à répondre à votre demande : ni revente, ni newsletter. Voir la <a href="/politique-confidentialite">politique de confidentialité</a>.</p>
+        </form>
+      </div>
+
+      <aside class="devis__summary card" aria-label="Estimation">
+        <div class="estimate">
+          <p class="estimate__label">Estimation immédiate</p>
+          <p class="estimate__value is-empty" id="estimateValue" aria-hidden="true">—</p>
+          <p class="estimate__detail" id="estimateDetail">Choisissez une formule et un véhicule</p>
+          <p class="sr-only" id="estimateLive" aria-live="polite"></p>
+          <ul class="estimate__list">
+            <li><fr-icon name="tag" size="16"></fr-icon>Tarif engagé après confirmation par photos</li>
+            <li><fr-icon name="clock" size="16"></fr-icon>Réponse en {{responseTime}}, {{hours}}</li>
+            <li><fr-icon name="calendar" size="16"></fr-icon>Annulation libre jusqu'à 24 h avant</li>
+          </ul>
+        </div>
+        <noscript><p class="form-note">Le calculateur nécessite JavaScript. Consultez nos <a href="/prestations">tarifs détaillés</a> ou <a href="/contact">écrivez-nous</a>.</p></noscript>
+        <p class="devis__alt">Vous préférez écrire directement ? <a href="https://wa.me/{{phoneIntl}}?text={{waQuote}}" target="_blank" rel="noopener" data-track="cta_devis_wa_direct">WhatsApp</a> · <a href="/contact" data-track="cta_devis_form">formulaire complet</a></p>
+      </aside>
+    </div>
+    <script type="application/json" id="pricing">{{pricingJson}}</script>
+  </div>
+</section>
+
+<section class="section section--alt section--tight" aria-label="Nos engagements">
+  <div class="container">
+    <div class="reassure">
+      <article class="card">
+        <fr-icon name="tag" size="26"></fr-icon>
+        <h2>Tarif engagé</h2>
+        <p>Le prix annoncé est le prix payé. Tout écart est signalé <em>avant</em> l'intervention, jamais après.</p>
+      </article>
+      <article class="card">
+        <fr-icon name="clock" size="26"></fr-icon>
+        <h2>Réponse en {{responseTime}}</h2>
+        <p>Confirmation et créneau proposé rapidement, {{hours}}. Intervention sous {{leadTime}}.</p>
+      </article>
+      <article class="card">
+        <fr-icon name="shield-check" size="26"></fr-icon>
+        <h2>Sans engagement</h2>
+        <p>Le devis est gratuit. Vous restez libre d'annuler sans frais jusqu'à 24 h avant l'intervention.</p>
+      </article>
+    </div>
+  </div>
+</section>

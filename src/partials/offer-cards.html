@@ -1,0 +1,51 @@
+<div class="offers">
+  <article class="offer reveal">
+    <header class="offer__head">
+      <p class="offer__tag">{{offer.eclat.tagline}}</p>
+      <h3 class="offer__name">{{offer.eclat.name}}</h3>
+      <p class="offer__price"><span>dès</span> {{offer.eclat.from}}&nbsp;€</p>
+      <p class="offer__meta"><fr-icon name="clock" size="15"></fr-icon>{{offer.eclat.duration}} · protection {{offer.eclat.protection}}</p>
+    </header>
+    <ul class="checklist">
+      <li><fr-icon name="check" size="16"></fr-icon>Lavage extérieur à la main, shampoing pH neutre</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Intérieur complet, aspiration en profondeur</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Vitres et plastiques traités</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Jantes et pneus décrassés</li>
+    </ul>
+    <a href="/devis-en-ligne?formule={{offer.eclat.id}}" class="btn btn--ghost btn--block" data-track="cta_card_eclat">Voir mon prix</a>
+  </article>
+
+  <article class="offer offer--featured reveal">
+    <p class="offer__badge">Le plus choisi</p>
+    <header class="offer__head">
+      <p class="offer__tag">{{offer.prestige.tagline}}</p>
+      <h3 class="offer__name">{{offer.prestige.name}}</h3>
+      <p class="offer__price"><span>dès</span> {{offer.prestige.from}}&nbsp;€</p>
+      <p class="offer__meta"><fr-icon name="clock" size="15"></fr-icon>{{offer.prestige.duration}} · protection {{offer.prestige.protection}}</p>
+    </header>
+    <ul class="checklist">
+      <li><fr-icon name="check" size="16"></fr-icon>Tout l'{{offer.eclat.name}} inclus</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Polish : correction des micro-rayures</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Traitement cuir ou tissu professionnel</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Désodorisation en profondeur</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Cire de finition protectrice</li>
+    </ul>
+    <a href="/devis-en-ligne?formule={{offer.prestige.id}}" class="btn btn--primary btn--block" data-track="cta_card_prestige">Voir mon prix</a>
+  </article>
+
+  <article class="offer reveal">
+    <header class="offer__head">
+      <p class="offer__tag">{{offer.ceramique.tagline}}</p>
+      <h3 class="offer__name">{{offer.ceramique.name}}</h3>
+      <p class="offer__price"><span>dès</span> {{offer.ceramique.from}}&nbsp;€</p>
+      <p class="offer__meta"><fr-icon name="clock" size="15"></fr-icon>{{offer.ceramique.duration}} · protection {{offer.ceramique.protection}}</p>
+    </header>
+    <ul class="checklist">
+      <li><fr-icon name="check" size="16"></fr-icon>Décontamination chimique et mécanique</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Polish en une ou deux étapes</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Revêtement nano-céramique professionnel</li>
+      <li><fr-icon name="check" size="16"></fr-icon>Paiement en 2 ou 3 fois possible</li>
+    </ul>
+    <a href="/devis-en-ligne?formule={{offer.ceramique.id}}" class="btn btn--ghost btn--block" data-track="cta_card_ceramique">Voir mon prix</a>
+  </article>
+</div>

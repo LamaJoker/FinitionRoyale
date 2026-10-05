@@ -1,0 +1,27 @@
+<aside class="zone-page__aside">
+  <div class="card">
+    <p class="price-card__title">Tarifs à {{props.city}}</p>
+    <ul class="price-list">
+      <li><span>{{offer.eclat.name}}<small>{{offer.eclat.duration}}</small></span><b>dès {{offer.eclat.from}} €</b></li>
+      <li><span>{{offer.prestige.name}}<small>{{offer.prestige.duration}}</small></span><b>dès {{offer.prestige.from}} €</b></li>
+      <li><span>{{offer.ceramique.name}}<small>{{offer.ceramique.duration}}</small></span><b>dès {{offer.ceramique.from}} €</b></li>
+    </ul>
+    <ul class="checklist">
+      <li><fr-icon name="van" size="16"></fr-icon>Déplacement offert à {{props.city}}</li>
+      <li><fr-icon name="clock" size="16"></fr-icon>Réponse en {{responseTime}}</li>
+      <li><fr-icon name="tag" size="16"></fr-icon>Tarif engagé avant l'intervention</li>
+    </ul>
+    <a href="/devis-en-ligne" class="btn btn--primary btn--block" data-track="cta_city_aside_{{page.slug}}">Voir mon prix</a>
+  </div>
+  <div class="card">
+    <p class="price-card__title">Autres communes</p>
+    <ul class="chips">
+      <li><a class="chip" href="/detailing-besancon">Besançon</a></li>
+      <li><a class="chip" href="/detailing-thise">Thise</a></li>
+      <li><a class="chip" href="/detailing-devecey">Devecey</a></li>
+      <li><a class="chip" href="/detailing-baume-les-dames">Baume-les-Dames</a></li>
+      <li><a class="chip" href="/detailing-ornans">Ornans</a></li>
+      <li><a class="chip" href="/detailing-montbeliard">Montbéliard</a></li>
+    </ul>
+  </div>
+</aside>

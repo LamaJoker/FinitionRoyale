@@ -1,0 +1,70 @@
+---
+title: "Avant / après : nos transformations detailing | Finition Royale"
+description: "Galerie avant / après de detailing automobile : rénovation de phares jaunis, shampoing de sièges, lavage extérieur premium. Ce qu'une prestation change concrètement."
+crumb: "Réalisations"
+schemaType: "CollectionPage"
+---
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    {{breadcrumb}}
+    <p class="eyebrow">Avant / après</p>
+    <h1 id="page-title">Ce qu'une prestation <em>change vraiment.</em></h1>
+    <p class="lead">Optiques, sellerie, carrosserie : la différence se voit au premier coup d'œil. Cliquez sur une image pour l'agrandir.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <div class="callout">
+      <p><strong>Transparence sur les visuels.</strong> {{visualNote}} : les images ci-dessous illustrent le type de résultat obtenu avec chaque prestation. Les photos de nos propres chantiers, non retouchées, rejoignent cette galerie au fil des interventions — et vous recevez toujours les photos avant/après de <em>votre</em> véhicule.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filtrer par prestation" data-filters hidden>
+      <button type="button" data-filter="all" aria-pressed="true">Tout</button>
+      <button type="button" data-filter="exterieur" aria-pressed="false">Extérieur</button>
+      <button type="button" data-filter="interieur" aria-pressed="false">Intérieur</button>
+      <button type="button" data-filter="optiques" aria-pressed="false">Optiques</button>
+    </div>
+
+    <div class="gallery">
+      <figure class="gallery__item" data-cat="optiques">
+        <a href="/assets/img/ap-phares-clio-1696.jpg" class="zoomable" data-lightbox aria-label="Agrandir : rénovation des optiques, Renault Clio">
+          <fr-picture name="ap-phares-clio" sizes="(min-width: 1180px) 1120px, 94vw" alt="Avant / après : phare jauni et opaque d'une Renault Clio, puis le même phare transparent après rénovation"></fr-picture>
+          <span class="zoomable__hint"><fr-icon name="zoom" size="18"></fr-icon></span>
+        </a>
+        <figcaption>
+          <h2>Rénovation des optiques — Renault Clio</h2>
+          <span class="gallery__tag">À la carte · dès {{extra.optiques.from}} €</span>
+          <p>Phares jaunis et opaques, visibilité réduite la nuit. Ponçage progressif et vernis de protection UV : un éclairage net pour 12 à 18 mois.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery__item" data-cat="interieur">
+        <a href="/assets/img/ap-sieges-308-1699.jpg" class="zoomable" data-lightbox aria-label="Agrandir : shampoing des sièges, Peugeot 308">
+          <fr-picture name="ap-sieges-308" sizes="(min-width: 1180px) 1120px, 94vw" alt="Avant / après : sièges en tissu tachés d'une Peugeot 308, puis propres et uniformes après shampoing"></fr-picture>
+          <span class="zoomable__hint"><fr-icon name="zoom" size="18"></fr-icon></span>
+        </a>
+        <figcaption>
+          <h2>Shampoing des sièges — Peugeot 308</h2>
+          <span class="gallery__tag">{{offer.prestige.name}} · dès {{offer.prestige.from}} €</span>
+          <p>Tissus tachés et ternis par l'usage quotidien. Extraction vapeur et traitement en profondeur : sièges assainis, couleurs ravivées.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery__item" data-cat="exterieur">
+        <a href="/assets/img/ap-lavage-qashqai-1696.jpg" class="zoomable" data-lightbox aria-label="Agrandir : lavage extérieur, Nissan Qashqai">
+          <fr-picture name="ap-lavage-qashqai" sizes="(min-width: 1180px) 1120px, 94vw" alt="Avant / après : Nissan Qashqai couvert de boue, puis propre et brillant après lavage extérieur"></fr-picture>
+          <span class="zoomable__hint"><fr-icon name="zoom" size="18"></fr-icon></span>
+        </a>
+        <figcaption>
+          <h2>Lavage extérieur premium — Nissan Qashqai</h2>
+          <span class="gallery__tag">{{offer.eclat.name}} · dès {{offer.eclat.from}} €</span>
+          <p>Carrosserie encrassée, film routier, jantes ternies. Lavage à la main au shampoing pH neutre, jantes et pneus décrassés : la brillance revient.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<fr-include name="cta-band" title="Votre voiture mérite &lt;em&gt;sa propre transformation.&lt;/em&gt;" text="Devis gratuit, et photos avant / après de votre véhicule remises à la fin de chaque prestation."></fr-include>
