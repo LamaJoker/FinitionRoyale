@@ -240,8 +240,9 @@
       var from = shown;
       var start = performance.now();
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || document.hidden) { value.firstChild.textContent = euro.format(to); shown = to; return; }
       var frame = function (t) {
-        var k = reduce ? 1 : Math.min(1, (t - start) / 450);
+        var k = Math.min(1, (t - start) / 450);
         var eased = 1 - Math.pow(1 - k, 3);
         value.firstChild.textContent = euro.format(Math.round(from + (to - from) * eased));
         if (k < 1) requestAnimationFrame(frame); else shown = to;
