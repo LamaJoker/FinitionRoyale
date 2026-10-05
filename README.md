@@ -81,7 +81,7 @@ scripts/
 - Les tarifs sont déclarés **une seule fois** dans `config.js`, puis réutilisés par les cartes, le comparatif, les données structurées et le calculateur de devis (injectés en JSON).
 - Liste du blog et « À lire aussi » générées depuis le front-matter des articles (catégorie, dates, temps de lecture calculé).
 
-**Le contrôle qualité** (`npm run check`, exécuté en CI) vérifie chaque page : titre et description (présence, longueur, unicité), un seul `<h1>`, canonical absolue, liens internes **et ancres**, `alt` et dimensions des images, `srcset` existants, JSON-LD valide, IDs uniques, `rel="noopener"`, compatibilité CSP et cohérence du sitemap.
+**Le contrôle qualité** (`npm run check`, bloquant : code de sortie 1 en cas d'erreur) vérifie chaque page : titre et description (présence, longueur, unicité), un seul `<h1>`, canonical absolue, liens internes **et ancres**, `alt` et dimensions des images, `srcset` existants, JSON-LD valide, IDs uniques, `rel="noopener"`, compatibilité CSP et cohérence du sitemap.
 
 ## Démarrer
 
@@ -94,7 +94,7 @@ npm run dev          # build + serveur local sur http://localhost:8099
 | --- | --- |
 | `npm run build` | Génère `dist/` |
 | `npm run check` | Contrôle qualité du site généré |
-| `npm test` | Build + contrôle (utilisé par la CI) |
+| `npm test` | Build + contrôle |
 | `npm run images` | Régénère les variantes d'images depuis `src/images/` |
 | `npm run brand` | Régénère favicons, icônes et image de partage |
 
